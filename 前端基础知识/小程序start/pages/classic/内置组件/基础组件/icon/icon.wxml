@@ -1,0 +1,65 @@
+<view class='icon-box'>
+  <icon type='success' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>成功</view>
+    <view class='icon-desc'>操作成功</view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='success_no_circle' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>已选择</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>
+
+<view class='icon-box'>
+  <icon type='info' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>提示</view>
+    <view class='icon-desc'>普通提示</view>
+  </view>
+</view>
+
+<view class='icon-box'>
+  <icon type='warn' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>警告</view>
+    <view class='icon-desc'>强烈警告</view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='waiting' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>等待</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='cancel' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>停止或者关闭</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='download' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>下载</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='search' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>搜索</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>
+<view class='icon-box'>
+  <icon type='clear' size='93'></icon>
+  <view class='icon-content-box'>
+    <view class='icon-title'>清除</view>
+    <view class='icon-desc'></view>
+  </view>
+</view>

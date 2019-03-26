@@ -1,0 +1,25 @@
+/* pages/classic/内置组件/scroll-view/scroll-view.wxss */
+#green{
+  background-color: green;
+}
+#red{
+  background-color: red;
+}
+#yellow{
+  background-color: yellow;
+}
+#blue{
+  background-color: blue;
+}
+.section-title{
+  text-align:  center;
+}
+.scroll-view-item{
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+.btn-area{
+  display: flex;
+  flex-direction: column;
+}

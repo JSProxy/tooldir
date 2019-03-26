@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+        <div>${num}</div>
+        <button @click="add">Add</button>
+    </div>
+
+    <script>
+
+   var extendsObj = {
+     updated() {
+       console.log("我是扩展update");
+     },
+     methods:{
+       add(){
+         console.log("我是扩展的方法 方法名一样只执行原生方法");
+         this.num++;
+       }
+      },
+   }
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"Hello world",
+        num:0
+      },
+      methods:{
+       add(){
+         console.log("我是原生的方法");
+         this.num++;
+       }
+      },
+      updated(){
+        console.log("我是原生update");
+       },
+       extends:extendsObj,
+       // 自定义插值形式
+       delimiters:["${","}"]
+       
+    })
+    </script>
+  </body>
+</html>

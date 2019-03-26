@@ -1,0 +1,186 @@
+!
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    #div1 {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-color: orange;
+
+    }
+
+    #div2 {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        background-color: green;
+        top: 50%;
+        left: 50%;
+        margin-left: -150px;
+        margin-top: -25px;
+    }
+
+    #div3 {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-color: pink;
+
+    }
+
+    #div4 {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        background-color: green;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+/*  */
+    #div5 {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+
+    }
+
+    #div6 {
+        width: 300px;
+        height: 50px;
+        background-color: green;
+    }
+    /*  */
+
+    #div7 {
+        display: table-cell;
+        width: 900px;
+        height: 100px;
+        background-color: yellow;
+        vertical-align: middle;
+
+    }
+
+    #div8 {
+        width: 600px;
+        height: 45px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: auto;
+        background-color: green;
+    }
+    #div9 {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-color: blue;
+        
+    }
+
+    #div10 {
+    	position: absolute;
+        width: 600px;
+        height: 50px;
+       	top: 50%;
+       	left: 50%;
+        background-color: green;
+        transform: translate(-50%, -50%);
+    }
+
+#div11 {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-color: pink;
+        
+    }
+
+    #div12 {
+    	position: absolute;
+       	top: 25%;
+       	bottom: 25%;
+       	left: 25%;
+       	right: 25%;
+        background-color: green;
+
+    }
+
+    #div13 {
+        width: 100%;
+        height: 100px;
+        background-color: red;
+        text-align: center;
+        
+    }
+    #div13::before{
+    	content: "";
+    	height: 100%;
+    	vertical-align: middle;
+    	background-color: orange;
+    	display: inline-block;
+    }
+
+    #div14 {
+    	display: inline-block;
+    	width: 600px;
+    	height: 50px;
+        background-color: green;
+        vertical-align: middle;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div2">
+            适合宽高已经定一
+        </div>
+    </div>
+    <div id="div3">
+        <div id="div4">
+            适合宽高已经定二
+        </div>
+    </div>
+    <div id="div5">
+        <div id="div6">
+            不论是否固定宽高都可用. 问题在于兼容性. ie9及以下不支持
+        </div>
+    </div>
+    <div id="div7">
+        <div id="div8">
+        	div7 不设置宽度将是父级div的宽度
+            父级元素设置display:table-cell ，然后vertical-align：middle。这种方法可以设置垂直居中. 这时候只要在子元素里设置margin:auto即可实现水平居中
+        </div>
+    </div>
+    <div id="div9">
+        <div id="div10">
+            可不指定宽高
+        </div>
+    </div>
+
+    <div id="div11">
+        <div id="div12">
+            但是这种方法不能由内部元素自动调节div的宽高，而是通过父元素大小控制的
+        </div>
+    </div>
+
+
+    <div id="div13">
+        <div id="div14">
+            box 容器通过 after或者before 生成一个高度 100% 的「备胎」，他的高度和容器的高度是一致的，相对于「备胎」垂直居中，在视觉上表现出来也就是相对于容器垂直居中了
+        </div>
+    </div>
+</body>
+
+</html>

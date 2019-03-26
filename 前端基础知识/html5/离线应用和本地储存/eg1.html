@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--引入清单文件 manifest-->
+<html lang="zh" manifest="zf.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>本地储存</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var appCache=window.applicationCache;
+    appCache.update();//开始更新
+    if (appCache.status==window.applicationCache.UPDATEREADY){
+        appCache.swapCache(); //得到最新版本，缓存列表并成功下载资源，更新缓存.
+    }
+
+
+    // localStorage 没时间限制永久保存在客户端
+    // sessionStorage  数据保存在session中客户端关闭则删除
+    // ie8以上
+    // if (typeof (Stoage)!=="undefined"){
+    //     // 支持
+    // }else {
+    //     // 不支持
+    // }
+
+    /*
+    getItem(key) 返回value
+    key(index)
+    length
+    removeItem(key)
+    setItem(key,value)
+    clear()移除所以
+    * */
+
+    //设置
+  
+   function setStorage(Type,mykey,newvalue)
+   {
+       var LStorage=window.localStorage;
+       var SStorage=window.sessionStorage;
+       var currentStorage;
+       Type=Type||1;
+       if (Type==1){
+           currentStorage=LStorage;
+       }else if(Type==2){
+           currentStorage=SStorage;
+       }else {
+           currentStorage=LStorage;
+       }
+
+       //判断对象是否存在属性
+       if (currentStorage.mykey){
+         var date=new  Date();
+           currentStorage.mykey+=newvalue+"\n发表时间:"+date.toLocaleString()+"\n";
+       }else {
+           var date=new  Date();
+           currentStorage.mykey=newvalue+"\n发表时间:"+date.toLocaleString()+"\n";
+       }
+
+   }
+   //获取
+    function getStorage(Type,mykey)
+    {
+        var LStorage=window.localStorage;
+        var SStorage=window.sessionStorage;
+        var currentStorage;
+        Type=Type||1;
+        if (Type==1){
+            currentStorage=LStorage;
+        }else if(Type==2){
+            currentStorage=SStorage;
+        }else {
+            currentStorage=LStorage;
+        }
+        //判断对象是否存在属性
+        if (currentStorage.mykey){
+            return currentStorage.getItem(mykey);
+        }else {
+            return "还没有留言";
+        }
+    }
+
+    //
+    function clearStorage(Type) {
+        var LStorage=window.localStorage;
+        var SStorage=window.sessionStorage;
+        var currentStorage;
+        Type=Type||1;
+        if (Type==1){
+            currentStorage=LStorage;
+        }else if(Type==2){
+            currentStorage=SStorage;
+        }else {
+            currentStorage=LStorage;
+        }
+        currentStorage.clear();
+    }
+</script>

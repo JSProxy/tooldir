@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<audio src="http://music.163.com/song/media/outer/url?id=425100307.mp3" controls="controls">
+    浏览器不支持
+</audio>
+<audio controls="controls">
+    <source src="xxx.ogg" type="audio/ogg">
+    <source src="xxx.mp3" type="audio/mpeg">
+    浏览器不支持
+</audio>
+
+<video  id="testvideo" src="movie.mp4" width="300" height="240" controls="controls">
+</video>
+
+<video width="300" height="240" controls="controls">
+    <source src="xxx.mp4" type="video/mp4"/>
+    <source src="xxx.ogg" type="video/ogg"/>
+</video>
+
+</body>
+</html>
+<script>
+/*常用音频编解码器
+AAC 相对于mp3音质更好.文件更小.
+mp3 是一种音频压缩技术
+OggVoribis Ogg是一个文件格式,免费开源 为了和需要专利费的mp3和AAC一较高下.
+
+常用视频编解码器
+H.246 (AVC) 技术含量最高 目前主流
+VP8 谷歌的产品 使用较少
+Ogg Theora 在Ogg项目和Ogg流媒体服务器中使用.
+* */
+/*属性介绍
+src 指定媒体资源地址
+autoplay  资源就绪立即播放
+buffered 返回一个TimeRanges对象，确认浏览器已经缓存媒体文件
+controls 控制面板
+currentSrc 返回媒体数据url 未指定 则返回空字符
+currentTime 获取当前播放位子 时间秒
+defaultPlaybackRate 设置或返回音频视频默认播放速度
+duration 媒体持续时间
+loop 是否重复播放
+
+muted 设置或返回 是否静音
+networkState 返回网络状态
+paused  检查视频是否已经暂停
+playedbackRate 设置或返回当前播放速度
+played 返回TimeRanges对象  查看媒体播放的范围
+preload 设置或者返回是否在页面加载完立即加载音频或者视频
+readyState 返回当前就绪状态
+seekable 返回TimeRanges  表明可以对当前媒体资源进行请求
+seeking  返回用户目前是否在进行数据请求
+volume 设置音量0.0-1.0;
+
+* */
+
+//获取缓存范围
+function getFirstbuffRange(vid){
+    var myvideo=document.getElementById(vid);
+    var startm=myvideo.buffered.start(0);
+    var endm=myvideo.buffered.end(0);
+    return [startm,endm];
+}
+//获取首都段已经播放的范围
+function getFirstPlayRange(vid){
+    var myvideo=document.getElementById(vid);
+    var startm=myvideo.played.start(0);
+    var endm=myvideo.played.end(0);
+    return [startm,endm];
+}
+//获取用户可寻址的范围 可拖动播放位子
+function getFirstSeekableRange(vid){
+    var myvideo=document.getElementById(vid);
+    var startm=myvideo.seekable.start(0);
+    var endm=myvideo.seekable.end(0);
+    return [startm,endm];
+}
+//返回当前资源的URL
+    function getVid(vid) {
+        var myvideo=document.getElementById(vid);
+        return myvideo.currentSrc;
+    }
+//获取当前播放位子 单位秒
+function getcurrentTime(vid) {
+    var myvideo=document.getElementById(vid);
+    return myvideo.currentTime;
+}
+//设置当前播放点
+function setcurrentTime(vid,times) {
+    var myvideo=document.getElementById(vid);
+    myvideo.currentTime=times;
+}
+//获取默认播放速度
+function getDefaultPlaySpeed(vid) {
+    var myvideo=document.getElementById(vid);
+    return myvideo.defaultPlaybackRate;
+}s
+//设置当前默认播放速度 /0.5/1/2
+function setCurrentPlaySpeed(vid,nub) {
+    var myvideo=document.getElementById(vid);
+     myvideo.defaultPlaybackRate=nub;
+     myvideo.load();
+}
+//获取视频时间
+function getAllTime(vid) {
+    var myvideo=document.getElementById(vid);
+  return myvideo.duration;
+}
+//设置视频循环
+function setloop(vid,bool) {
+    var myvideo=document.getElementById(vid);
+    myvideo.loop=bool;
+    myvideo.load();
+}
+//设置判断是否静音
+    function setMute(vid,bool) {
+        var myvideo=document.getElementById(vid);
+        myvideo.muted=bool;
+    }
+//返回是否静音
+function isMute(vid) {
+    var myvideo=document.getElementById(vid);
+    return myvideo.muted;
+}
+//返回当前资源网络状态 1加载完成  2正在加载 3 编码不对  0 初始化错误
+    function getNetWorkState(vid) {
+        var myvideo=document.getElementById(vid);
+        return myvideo.networkState;
+    }
+
+//返回当前播放状态
+    function isPaused(vid) {
+        var myvideo=document.getElementById(vid);
+        return myvideo.paused;
+    }
+//设置 获取当前播放速度
+function setPlaySpeed(vid,speed)
+{
+    var myvideo=document.getElementById(vid);
+     myvideo.playbackRate=speed;
+}
+function getPlaySpeed(vid)
+{
+    var myvideo=document.getElementById(vid);
+    return myvideo.playbackRate;
+}
+
+//设置和获取 是否在页面加载完后立即播放视频
+function setpreload(vid,bool)
+{
+    var myvideo=document.getElementById(vid);
+    myvideo.preload=bool;
+}
+function ispreload(vid)
+{
+    var myvideo=document.getElementById(vid);
+    return myvideo.preload;
+}
+//返回资源当前就绪状态 0 未连接服务器无资源 1 媒体资源在加载 2获取到资源不够播放 3可以播放了 4媒体可以播放了后续播放也不会卡顿
+function getReadyState(vid) {
+    var myvideo=document.getElementById(vid);
+    return myvideo.readyState;
+}
+//设置 或获取当前的音量0.0-1
+function setvolume(vid,value) {
+    var myvideo=document.getElementById(vid);
+    myvideo.volume=value;
+}
+function getvolume(vid)
+{
+    var myvideo=document.getElementById(vid);
+    return myvideo.volume;
+}
+</script>

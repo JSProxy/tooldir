@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组操作</title>
+	<style type="text/css">
+		h1{
+			color: red;
+		}
+		h3{
+			color: orange;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id = "dom">
+		
+	</div>
+	<script type="text/javascript">
+		
+
+		var dom = document.getElementById("dom");
+		var arr1 = new Array();
+		var arr2 = new Array("我是","数组二")
+		for (var i = 10; i >= 0; i--) 
+		{
+			// 添加元素
+			arr1.push(i);
+		}
+		var htmlcontent ="<h1>数组操作</h1>"; 
+
+		var arr3 = arr1.concat(arr2);
+		htmlcontent += ("<h2>数组拼接成字符串:<h2><h3>"+arr3+"</h3>");
+
+		//数组转字符串 指定分割符
+		var str1 = arr1.join("&");
+		htmlcontent += ("<h2>数组转字符串指定&分割符:<h2><h3>"+str1+"</h3>");
+
+		var str2 = arr1.pop();
+		htmlcontent += ("<h2>删除最后一个元素并返回:<h2><h3>"+str2+"</h3>");
+		var str3 = arr1.shift();
+		htmlcontent += ("<h2>删除最第一个元素并返回:<h2><h3>"+str3+"</h3>");
+		var len1 = arr1.unshift("新增1","新增2",['新增3','新增4']);
+		htmlcontent += ("<h2>开头怎加一个元素或者多个并返回元素长度:<h2><h3>"+arr1+"</h3>");
+		arr1.reverse();
+		htmlcontent += ("<h2>顺序颠倒:<h2><h3>"+arr1+"</h3>");
+
+
+		// 删除一个元素怎加一个元素
+		// 开始下标,count删除后面几个元素,增加元素
+		arr2.splice(0,1,"我是增加的")
+		htmlcontent += ("<h2>splice 删除并增加:<h2><h3>"+arr2+"</h3>");
+		htmlcontent += ("<h2>valueOf:返回数组原始值:<h2><h3>"+arr2.valueOf()+"</h3>");
+        dom.innerHTML = htmlcontent;
+        
+	</script>
+</body>
+</html>

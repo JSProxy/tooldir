@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">	
+
+	let param;
+	function P1(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("aaa");
+				//想要下下执行必须加resolve
+				param = "P1我是共享的数据";
+				resolve(123);
+			},3000);
+		});
+	}
+	function P2(){
+
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("bbb");
+				//出错了
+				console.log("P2拿到P1的数据"+param);
+				reject(456);
+			},2000);
+		});
+	}
+	function P3(){
+
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("ccc");
+				resolve(789);
+			},1000);
+		});
+	}
+
+	// 完成状态resolve  未完成装状态reject
+	P1().then(P2).then(P3).then(function(data){
+		console.log("执行完成拿到resolve:"+data);
+	}).catch(function(error){
+		console.log("执行错误拿到reject:"+error);
+		//出错后可以改执行线路
+		if (error==456) 
+		{
+			P3();
+		}
+	});
+	//P1 和P2通信  外部定义 let 变量
+	</script>
+</body>
+</html>

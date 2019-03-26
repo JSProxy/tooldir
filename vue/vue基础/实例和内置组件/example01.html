@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src=”http://code.jquery.com/jquery-1.6.4.min.js”></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title></title>
+  </head>
+  <body>
+    <div id ="app">
+    <h1 v-text="message"></h1>
+    <h2>{{num}}</h2>
+    <button @click="add">add</button>
+    <button onclick="destroy()">destroy</button>
+    <button onclick="reload()">forceUpdate</button>
+    <button onclick="tick()">tick</button>
+    <button onclick="reduce()">外部定义内部函数</button>
+    <button onclick="reduceOne()">执行一次</button>
+    <button onclick="off()">关闭reduce</button>
+    </div>
+
+    <script>
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"hello",
+        num:0
+      },
+      mounted() {
+        // 挂载后才能使用jquery
+        // $("#app").html("我是jquery");
+      },
+      methods: {
+        add:function(){
+          this.num++;
+          console.log("调用了内部构造其方法");
+        }
+      },
+    })
+    //
+    app.add();
+    function destroy(){
+      app.$destroy();
+      //销毁
+    }
+    function reload(){
+      app.$forceUpdate();
+      //刷新
+    }
+    //数据修改方法
+    function tick(){
+      app.message = "sss";
+      app.$nextTick(function(){
+        console.log('数据更新后回调')
+      });
+    }
+    // 构造器外部 增加方法
+    app.$on("reduce",function(){
+      this.num--;
+      console.log("外部创建 构造器内部方法");
+    })
+    //这里才是调用方
+    function reduce(){
+      app.$emit('reduce');
+    }
+    
+    // $once 只调用一次
+    app.$once("reduceOne",function(){
+      this.num--;
+    })
+    function reduceOne(){
+      app.$emit('reduceOne');
+    }
+    // $off
+    function off(){
+      // 关闭事件
+      app.$off('reduce'); 
+    }
+
+    
+    </script>
+  </body>
+</html>

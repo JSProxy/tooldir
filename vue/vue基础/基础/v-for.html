@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title Page</title>
+  </head>
+  <body>
+    <div id ="app">
+    <h1>v-for写在需要循环的标签上</h1>
+
+      <div v-for="(item,index) in sortItems" :key="item">
+        <p>{{item}}-{{index}}</p>
+      </div>
+      <div v-for="(student,index) in sortStudents" :key="student">
+          <p>{{student.age}}-{{index}}</p>
+      </div>
+
+    </div>
+    <script>
+    let app = new Vue({
+      el:"#app",
+      data:{
+        items:["99","1","22","2","34","88"],
+        students:[
+          {name:"zf",age:18},
+          {name:"ls",age:38},
+          {name:"rr",age:28}
+          ]
+      },
+      computed: {
+        //计算属性
+        sortItems:function(){
+          // 有问题只会排序第一位
+          // return this.items.sort();
+          // 需要自己写一个排序
+          return this.items.sort(sortNumber);
+          },
+          sortStudents:function(){
+            return sortByKey(this.students,"age");
+          }
+      }
+    })
+    function sortNumber(a,b){
+      return a-b;
+    }
+    //数组排序
+    function sortByKey(array,key){
+      return array.sort(function(a,b){
+        var x = a[key];
+        var y = b[key];
+        return ((x<y)?-1:((x>y)?1:0));
+      })
+    }
+
+    </script>
+  </body>
+</html>

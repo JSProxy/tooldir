@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+</head>
+<body>
+<form action="#" enctype="application/x-www-form-urlencoded" method="get" id="form1">
+
+    <input type="text" autocomplete="on">
+   选择加密强度 <keygen name="security"/>
+    <input type="text" autocomplete="off">
+    <p><label for="textarea1">请仔细阅读</label></p>
+    <p><textarea name="textarea1" id="textarea1" cols="30" rows="10"></textarea></p>
+    <p><input type="submit" autofocus="on"></p>
+    <input type="text" list="datalist1">
+    <datalist id="datalist1">
+        <option label="百度" value="http://www.baidu.com"/>
+    </datalist>
+    <input type="file" multiple/>
+    <input type="text" pattern="/[A-za-z]{3}/" placeholder="请输入">
+    <input type="image" width="100"height="100">
+
+
+    <input type="submit" value="formaction" formaction="list.html"/>
+    <input type="submit" value="formenctype" formenctype="multipart/form-data"/>
+    <input type="submit" value="formmethod" formmethod="post"/>
+    <!--不要验证表单 直接提交-->
+    <input type="submit" value="formnovalidate" formnovalidate="formnovalidate">
+    <input type="submit" value="formtarget" formtarget="_self">
+</form>
+<input type="text" form="form1">
+ 两数乘积<output name="result"></output>
+</body>
+</html>
+<script>
+    function multi() {
+        a=parseInt(prompt("请输入一个数字",0));
+        b=parseInt(prompt("请输入一个数字",0));
+        document.getElementsByTagName("output")[0].value=a*b;
+    }
+    multi();
+</script>

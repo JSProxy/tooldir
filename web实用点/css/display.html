@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>display</title>
+	<style type="text/css">
+		.hidden-display{
+			display: none;
+		}
+		.hidden-visbility{
+			visibility: hidden;
+		}
+
+/* display其他属性值
+list-item 此元素会作为列表显示。 
+run-in此元素会根据上下文作为块级元素或内联元素显示。 
+table 此元素会作为块级表格来显示（类似table），表格前后带有换行符。 
+inline-table 此元素会作为内联表格来显示（类似table），表格前后没有换行符。 
+table-row-group 此元素会作为一个或多个行的分组来显示（类似tbody） 
+table-header-group 此元素会作为一个或多个行的分组来显示（类似thead） 
+table-footer-group： 此元素会作为一个或多个行的分组来显示（类似tfoot） 
+table-row 此元素会作为一个表格行显示（类似 tr ）。 
+table-column-group 此元素会作为一个或多个列的分组来显示（类似 colgroup ）。 
+table-column 此元素会作为一个单元格列显示（类似 col ） 
+table-cell 此元素会作为一个表格单元格显示（类似 td 和 th） 
+table-caption 此元素会作为一个表格标题显示（类似 caption）
+
+这些属性可以让内容以表格的形式呈现，比如（但是ie6/7不支持）： 
+display:table-cell可以让大小不固定元素垂直居中，可以用在两栏的自适应布局上，可以实现等高布局和等列布局。 */
+	</style>
+</head>
+<body>
+<div>
+	one div
+</div>
+<div class="hidden-display">
+	display:none
+</div>
+<div class="hidden-visbility">
+	visibility:hidden
+	依然会占据位子
+</div>
+<div>
+	three div
+</div>
+
+<div style="display: list-item">
+	111
+</div>
+<div style="display: list-item">
+	222
+</div>
+</body>
+</html>

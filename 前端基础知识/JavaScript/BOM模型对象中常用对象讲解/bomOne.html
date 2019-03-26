@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+    <script type="text/javascript">
+        /*浏览器常用对象模型
+        windowd对象是整个JavaScript脚本运行顶层对象
+        常用属性如下
+        documnet 返回该窗口内装载的html文档
+        location 返回该窗口装载的html文档的URL
+        navigtor 返回浏览器当前页面的浏览器，包含了一系列的浏览器属性,
+        包括名称，版本号和平台.
+        screem返回当前浏览屏幕对象
+        history 返回该浏览器窗口历史.
+
+        window 常用方法
+        alert(),confirm(),prompt(),警告,确认对话,输入对话,窗口。
+        close(),关闭窗口
+        moveBy(),moveTo()移动窗口
+        resizeBy(),resizeTo()重设窗口大小
+        scrollBy(),scrollTo()滚动当前窗口的html文档。
+        open()打开新的浏览器窗口加载新的URL并可指定新属性，包括隐藏菜单
+        setInterval()设置定时器
+        clearInterval()删除定时器.*/
+
+        /*history对象常用方法
+        back()后退到上一个浏览器，如果该页面是第一个打开的页面则无效。
+        forward()前进一个页面。
+        go(intValue)该方法可以指定前进后退多少个页面*/
+        /*location对象属性
+
+        hostname 文档所在的地址主机名
+        href 文档所在的地址的URL地址
+        host 文档所在的地址的主机地址
+        port 文档所在的地址服务端口
+        pathname 文档所在的地址的文件地址
+        protocal装载该文档所使用的协议，列入http：等*/
+
+        /*screem返回当前浏览屏幕对象属性
+        availHeight 窗口可以使用的屏幕高度，单位像素
+        availWidth  窗口可以使用的屏幕宽度
+        colorDepth  用户浏览器表示颜色位数，通常是32位（每像素的位数）
+
+        navigator对象常用属性
+
+        appCodeName 浏览器代码名字的字符串表示
+        appName  官方浏览器名字的字符串表示
+        appVersion 浏览器版本信息字符串表示
+        platform  浏览器所在计算机平台的字符串表示
+        userAgent 用户代理头的字符
+        cookieEnabled 如果启用cookie返回true 否者返回false*/
+        function testConfirm() {
+            var answer=window.confirm("是否退出");
+            if (answer)
+            {
+                window.close();
+            }else {
+                alert("谢谢继续使用");
+            }
+        }
+        function testPrompt() {
+            var  res=window.prompt("请输入密码");
+            alert(res);
+        }
+        function testMoveBy() {
+            window.moveBy(50,50);
+        }
+        function testMoveTo() {
+            window.moveTo(250,250);
+        }
+        function testResizeBy() {
+            window.resizeBy(50,50);
+        }
+        function testResizeTo() {
+            window.resizeBy(350,350);
+        }
+        //谷歌失效不支持整个两个移动和size方法。
+        function testScroollBy() {
+            window.scrollBy(50,50);
+        }
+        function testScroollTo() {
+            window.scrollTo(150,150);
+        }
+        function testOpen() {
+          window.open("http://www.baidu.com","name","left=20,top=50,width=500,height=500,location=no,toolbar=no,status=no,resizeable=no");
+        }
+        var count=0;
+        function showTime() {
+           var d=new Date();
+           var hour=d.getHours();
+           if (hour<10){
+               hour="0"+hour;
+           }
+           var minutes=d.getMinutes();
+           if (minutes<10){
+               minutes="0"+minutes;
+           }
+           var secends=d.getSeconds();
+           if (secends<10){
+               secends="0"+secends;
+           }
+           count++;
+           if (count==10){
+               window.clearInterval(t);
+           }
+         document.getElementById("dispaly").innerHTML=hour+":"+minutes+":"+secends;
+        }
+        var t=window.setInterval("showTime()",1000);
+
+    </script>
+</head>
+<body>
+<input type="button" value="confirm" onclick="testConfirm()"/>
+<input type="button" value="prompt" onclick="testPrompt()"/>
+<input type="button" value="moveBy" onclick="testMoveBy()"/>
+<input type="button" value="moveTo" onclick="testMoveTo()"/>
+<input type="button" value="resizeBy" onclick="testResizeBy()"/>
+<input type="button" value="resizeTo" onclick="testResizeTo()"/>
+<input type="button" value="scrollBy" onclick="testScroollBy()"/>
+<input type="button" value="scrollTo" onclick="testScroollTo()"/>
+<input type="button" value="open" onclick="testOpen()"/>
+<div id="dispaly">
+
+</div>
+<pre>
+    预格式化
+</pre>
+</body>
+</html>
+
+<script type="text/javascript">
+    
+    //cookie操作
+    function setcookie(cname,cvalue,ctime){
+        var odate=new Date();
+        var time=getsec(ctime);//获取时间戳
+        odate.setTime(odate.getTime()+time*1);
+        var expires="expires="+odate.toUTCString();
+        document.cookie=cname+"="+cvalue+";"+expires;
+    }
+    //初始化时间
+    function getsec(str) {
+        var str1=str.substring(0,1);//时间符号
+        var str2=str.substring(1,str.length)*1;//时间大小
+        if (str1=="s"){
+            //秒
+            return str2*1000;
+        }else if(str1=="m"){
+            //分
+            return str2*60*1000;
+        }
+        else if(str1=="h"){
+            //小时
+            return str2*60*60*1000;
+        }else if(str1=="d"){
+            //天
+            return str2*24*60*60*1000;
+        }
+    }
+    //获取cookie
+    function getcookie(cname){
+
+        var name=cname+"=";
+        var cookieArr=document.cookie.split(";");
+        for (var i = 0; i < cookieArr.length; i++) 
+        {
+             var c=cookieArr[i].tirm();//去除前后空格
+             if (c.indexOf(name)==0) 
+             {
+             return c.substring(name.length,c.length);
+             } 
+        }
+        return null;
+    }
+    //删除cookie
+    function delcookie(cname){
+        var odate=new Date();
+        odate.setTime(odate.getTime()-1);
+        var cval=getcookie(cname);
+
+        if (cval) {
+            document.cookie=name+"="+cval+";expires="+odate.toUTCString();
+        }    
+    }
+
+     // 清空cookie
+     // 零宽断言 用语法指定匹配时的起点和终点
+     // a表达式和b表达式之前零宽 无间隔
+     // 断言也可确认a前面或者后面是不是b 
+     // 表达式结构如下
+     // (?=exp)匹配exp前面的位子，表达式后面是exp
+     // (?<=exp)匹配exp后面的位子,表达式前面是exp
+     // (?!exp)表达式后面不是exp
+     // (?<!exp)表达式前面不是exp
+    function clearCookie(){
+        var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+        if (keys) {
+            for (var i = keys.length; i--;)
+                document.cookie=keys[i]+"=0;expires=" + new Date( 0).toUTCString()
+        }
+    }
+
+</script>

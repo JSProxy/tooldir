@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js 基础</title>
+
+	<style type="text/css">
+		
+		.classname {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+	<button onclick="openNewWindow()">openNewWindow</button>
+	<button onclick="closeWindow()">closeWindow</button>
+	<h1 id = "style">样式属性</h1>
+	<script type="text/javascript">
+		
+		document.write("我是输出的内容<br/>");
+		// 确认框
+		var isConfirm = confirm("是否确认");
+		document.write("是否确认:"+isConfirm);
+		// 输入框
+		var isPrompt = prompt("输入密码", "默认密码123");
+		document.write("密码:"+isPrompt);
+		
+		var openwindow = window;
+		function openNewWindow () {
+
+		openwindow  = window.open("http://www.baidu.com","_blank","width=300,height=200,menubar=no,toolbar=no,status=no,scrollbars=yes");
+		}
+		function closeWindow () {
+			openwindow.close();
+			openwindow = window;
+		}
+
+		var dom = document.getElementById('style');
+		dom.style.backgroundColor = 'red';
+		dom.className = "classname";
+
+		
+
+	</script>
+</body>
+</html>

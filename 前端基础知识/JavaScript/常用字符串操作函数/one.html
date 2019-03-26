@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+变量和数值类型
+数值类型（number）：包括整数和浮点数
+布尔类型（boolean）：只有true或者false
+字符串类型（string）：字符串必须用双引号或者单引号括起来。
+为定义类型（undefined）：专门来确定一个变量已经创建未赋初始值
+空类型（null）：用于表明某个变量的值为空
+对象类型（object）：javascript中的对象，数组等。
+-->
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+        <script type="text/javascript">
+            var a=2e2;/*e2 表示10的2次方*/
+            var num1="abc";
+            var num2="abb";
+            // alert(num1==num2); 值为true
+            // alert(num2===num1);值为false  数值 类型 都要相等
+
+            // 通过"+"或者toString()方法将数值转换成字符串
+            // 通过parseInt()将字符串转换成整型
+            // 通过parseFloat()将字符串转换成浮点型。
+
+            document.write(parseInt("67red")+"<br>");
+            document.write(parseFloat("22.22.22")+"<br>")
+
+            // javascript中字符串的常用操作方法
+            // charAt()获取字符串特定索引处的字符
+            // toUpperCase()将字符串所有字符转换成大写字母
+            // indexOf()返回字符串特定字符串第一次出现的位子
+            // string.indexOf(str)
+            // substring()返回字符串某个子串
+            // substring(0,1);
+            // slice()返回字符串的某个子串 支持负数，功能更强大
+            // str.slice(-1,-2)/slice(1,2)
+            // arr.slice(1)会得到开始1到结尾的所有内容
+            // concat()将多个字符串拼接成一个字符串
+            // str.concat(str1,str2)
+            // arr.concat(arr1,arr2)
+            // replace()将字符串中的某个子串以特定字符串替换
+            // str.replace(/regexp/,string)这个比较复杂用到在去研究。 
+            // split()将字符串分割成多个字符串，可以指定分割符
+            // str.split("");
+            // match()使用正则表达式搜索目标子字符串  返回字符串
+            // 
+            // serch()使用正则表达式搜索目标子字符串  返回位置
+            var str="zh-an-gfe-ng";
+            alert(str.slice(2,3));
+            var arr=str.split("-");
+            for (i=0;i<arr.length;i++)
+            {
+                alert(arr[i]);
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+</html>

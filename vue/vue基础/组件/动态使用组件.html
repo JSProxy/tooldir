@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div id ="app">
+      <!-- keep-alive  -->
+      <!-- 失活的组件将会被缓存！-->
+      <keep-alive :include="缓存的组件" exclude="不缓存的组件">
+      <component :is="who"></component>
+      </keep-alive>
+
+      <button onclick="changeComp()">切换</button>
+      <button onclick="changeComp2()">错误</button>
+
+      
+    </div>
+  
+    <script>
+      var componentA = {
+        template:"<h1 style='color:green;'>A</h1>"
+      }
+      var componentB = {
+        template:"<h1 style='color:green;'>B</h1>"
+      }
+      var componentC = {
+        template:"<h1 style='color:green;'>C</h1>"
+      }
+
+
+     function* test1(){
+       while(1){
+         yield "componentA";
+         yield "componentB"; 
+         yield "componentC";
+         }  
+       }
+
+      // 得到返回值后会进行下一个awai执行 无限循环
+      var test2 = async function(){
+       while(1){
+         await "componentC";
+         await "componentB"; 
+         await "componentA";
+       }
+      }
+       var func1 = test1();
+      //  var func2 = test2();
+       function changeComp(){
+         app.who = func1.next().value;
+        console.log(func.next().value);
+       }
+       function changeComp2(){
+        //  app.who = func2.next().value;
+        // console.log(func2.next().value);
+       }
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        who:"componentB",
+      },
+      components:{
+        componentA,
+        componentB,
+        componentC
+      },
+      methods:{
+        }
+    })
+    </script>
+
+  </body>
+</html>

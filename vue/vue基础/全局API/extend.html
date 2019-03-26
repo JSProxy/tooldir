@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+        <p>创建构造器 便于复用</p>
+        <author></author>
+        <div id ="author"></div>
+    </div>
+    <script>
+     var authorExtend =  Vue.extend({
+        template:"<p><a :href='authorURL'>{{authorName}}-{{a}}</a></p>",
+        data:function(){
+          return {
+            authorName:"jszf",
+            authorURL:"http://www.baidu.com"
+          }
+        },
+        props:["a"]
+      })
+      // 不建议这样使用
+      // new authorExtend({propsData:{a:1}}).$mount("author");
+      //
+      // 扩展接受参数
+      new authorExtend({propsData:{a:1}}).$mount("#author");
+      
+      // 常用在组件中   
+    
+
+    </script>
+  </body>
+</html>

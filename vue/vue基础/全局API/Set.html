@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+        <p>Set引用外部变量</p>
+        <div>{{outMessage.count}}</div>
+        <div v-for="item in arr">{{item}}</div>
+    </div>
+    <div><button onclick="add()">add</button></div>
+
+    <script>
+  
+      function add(){
+        // Vue.set(outMessage, 'count',2)
+        // app.outMessage.count++;
+        // outMessage.count++
+
+        // 操作数组时候下标 不刷新虚拟dom
+        // app.arr[2] = "ee";
+        // 这个时候需要
+        Vue.set(app.arr,1,"ee");
+      }
+      
+      var outMessage = {
+        count:99,
+        money:"$9999",
+        goods:"car",
+      }
+
+     let app = new Vue({
+      el:"#app",
+      data:{
+        message:"阿西吧",
+        outMessage:outMessage,
+        arr:['a','b','c']
+      },
+      methods:{
+      },
+      computed: {
+      }
+    })
+
+    </script>
+  </body>
+</html>

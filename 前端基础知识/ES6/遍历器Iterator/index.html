@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		{
+		let arr = ["a","b","c"];
+		//获取遍历器
+		let it = arr[Symbol.iterator]();
+		// it.next();
+		console.log(it.next());
+		//遍历器就是速度快
+		for(;;){
+			let elem = it.next();
+			if (elem.done) 
+			{
+				break;
+			}
+			console.log(elem.value);
+		}
+	}
+
+{ 
+	// 快速遍历的原理
+	var obj = {
+		data:["a","b","c"],
+		[Symbol.iterator](){
+			 const self = this;
+			 let index = 0;
+			 return {
+
+			 	next(){
+
+			 		if (index<self.data.length) {
+			 			return{value:self.data[index],done:false};
+			 		}else {
+			 			return{value:undefined,done:true};
+			 		}
+			 	}
+			 };
+
+		}
+	};
+
+	let it = obj[Symbol.iterator]();
+	console.log(obj.data);
+	console.log(it.next());
+}
+	</script>
+</body>
+</html>

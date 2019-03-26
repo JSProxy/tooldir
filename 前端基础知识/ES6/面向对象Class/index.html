@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		//es5 的类。函数和类分不清
+		function A(id,name){
+
+			this.id = id;
+			this.name = name;
+			this.myfun = function(){
+				alert(this.name);
+			}
+		}
+		let a =new A(12,"zf");
+		a.myfun();
+
+
+		//es6class
+		class Person{
+
+			constructor(name,age,obj){
+				this.name = name;
+				this.age = age;
+				this.obj = obj;
+				this.friends = ["ab","cb"];
+			}
+			//方法不支持重载 只会覆盖
+			sayName(){
+				alert(this.name);
+			}
+			sayName(name){
+				this.name = name;
+				alert(this.name);
+			}
+			
+			//静态方法类名调用
+			//没有静态数学
+			static distance(a,b){
+				return a+b;
+			}
+			 
+		}
+		let person = new Person("xff",18,"it");
+		person.sayName("sss");
+		console.log(Person.distance(9,9));
+		//可以给类加对象
+		Person.len = 10;//静态属性
+		console.log(Person.len);
+
+
+		//单列
+		class Cache{
+
+			constructor(){
+			this.id = 123;
+			this.name = "ww";
+			}
+			static getSingleTon(){
+				if(!Cache.thisa)
+				{
+					console.log("创建");
+					Cache.thisa = new Cache;
+				}
+				return Cache.thisa;
+			}
+		}
+
+		let c1 = Cache.getSingleTon();
+		c1.name = "aa";
+		let c2 = Cache.getSingleTon();
+		console.log(c2.name);
+
+		//继承 重写方法 只有单继承 无多肽概念
+		class Animal{
+			constructor(){
+				this.name ="动物";
+			}
+			spenk(){
+				console.log(this.name);
+			}
+		}
+
+		class Dog extends Animal{
+			spenk(){
+				console.log(this.name+"dog");
+			}
+		}
+
+		let dog =new Dog();
+		dog.spenk();
+		
+	</script>
+</body>
+</html>

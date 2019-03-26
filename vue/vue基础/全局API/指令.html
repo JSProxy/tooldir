@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vue.directive 自定义指令</title>
+  </head>
+  <body>
+
+    <div id ="app">
+        <div v-jsf="color">{{num}}</div>
+        <button @click="add">点击</button>
+        <button onclick="unbind()">点击</button>
+        <div v-dom='test'>v-dom</div>
+    </div>
+
+    <script>
+      //最简单自定义指令
+// Vue.directive("jsz",function(el,binding){
+// el.style = "color:"+binding.value
+// console.log(binding);
+// })
+
+//高级用法
+https://www.cnblogs.com/blqw/p/6712946.html
+// 
+// 指令的声明钩子
+Vue.directive("jsf",{
+  bind:function(el,binding){//被绑定
+    el.style = "color:"+binding.value
+     console.log('1 - bind');
+},
+inserted:function(){//绑定到节点
+      console.log('2 - inserted');
+},
+update:function(){//组件更新
+      console.log('3 - update');
+},
+componentUpdated:function(){//组件更新完成
+      console.log('4 - componentUpdated');
+},
+unbind:function(){//解绑
+      console.log('5 - bind');
+}
+});
+function unbind(){
+app.$destroy(); //解绑
+}
+// dom 操作
+Vue.directive('dom',{
+  bind: function (el, binding){
+    console.log(binding);
+    var obj = binding.value;
+    if(obj !=null){
+      var key = Object.keys(binding.modifiers)[0] || "el";
+      Vue.set(obj, key, el)
+    }
+  }
+})
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        num:0,
+        test:{},
+        color:"green"
+      },
+      methods:{
+        add: function(){
+          this.num++;
+          this.test.el.innerHTML += this.num; 
+        }
+      },
+      computed: {
+
+      }
+    })
+    </script>
+  </body>
+</html>

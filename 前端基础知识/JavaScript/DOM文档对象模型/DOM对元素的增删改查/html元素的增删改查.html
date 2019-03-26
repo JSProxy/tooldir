@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对html 元素的增删该查</title>
+    <!--创建节点的方法:
+    doucument.createElement(Tag),tag必须是合法的html元素
+
+    DOM复制节点的方法
+    cloneNode(boolean deep),deep为ture时，表示复制当前
+    节点以及当前节点的全部后代节点。为false，只复制当前节点
+
+    DOM添加删除的方法
+    appendChild(newNode)添加成当前节点的最后一个子节点
+    insertBefore（newNode,refnode）在refNode节点之前插入新节点
+    replaceChild(newNode,oldNode)将oldNode节点替换成newNode节点
+    removeChild(oldNode) 删除节点-->
+    <script type="text/javascript">
+        function create() {
+            var city=document.getElementById("city");
+
+            var element= document.createElement("li");
+            element.innerHTML="南京";
+            city.appendChild(element);
+            // city.insertBefore(element,city.firstChild.nextSibling);
+            // city.replaceChild(element,city.firstChild.nextSibling)
+        }
+        function copy() {
+
+            var city=document.getElementById("city");
+            var element=city.firstChild.nextSibling.cloneNode(true);
+            city.appendChild(element);
+        }
+
+        function del() {
+            var city=document.getElementById("city");
+            var element=city.firstChild.nextSibling;
+            city.removeChild(element);
+        }
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li>北京</li>
+        <li>上海</li>
+    </ul>
+    <input type="button" value="创建节点" onclick="create()"/>
+    <input type="button" value="复制节点" onclick="copy()"/>
+    <input type="button" value="删除节点" onclick="del()"/>
+</body>
+</html>

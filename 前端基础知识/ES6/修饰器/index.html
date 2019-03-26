@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//需要环境Babel 的一个东西
+		//外界注入属性和方法
+		//只能用于 类和类的方法
+		//不能给函数。
+		//Decorator
+		//
+		function chooseCourse1(target){
+			target.course = "物理";
+		}
+		function setStudy1(target)
+		{
+			target.study = function(){
+
+				console.log("学习"+target.course);
+			}
+		}
+		// 注入的是静态的
+		@setStudy1
+		@chooseCourse1;
+		class Student1{}
+		Student.Study();
+
+
+
+		//外界注入属性和方法 带参数
+		//
+		function chooseCourse2(courseName){
+			
+			return function(target){
+				target.courseName = courseName;
+			}
+		}
+		function setStudy2(roomName)
+		{
+			return function(target){
+
+				target.study=function(){
+
+					console.log("在"+roomName+"学习"+target.courseName);
+				}
+			}
+		}
+		
+		@chooseCourse2('物理')
+		@setStudy2(1001)
+		class Student2{}
+		Student.Study();
+
+		
+
+		//可以对内部属性和方法修饰
+		
+			class Student3{
+
+				@chooseCourse('化学')
+				exam(){
+					//this 是student
+					console.log("考试"+this.courseName);
+				}
+			}
+
+			let student = new Student3();
+			student.exam();
+		
+
+	</script>
+</body>
+</html>

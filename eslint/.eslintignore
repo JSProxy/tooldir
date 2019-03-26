@@ -1,0 +1,7 @@
+build/*
+config/*
+test/*
+src/store/*
+src/utils/*
+src/router/*
+src/personalCenter/view/orders/info.vue

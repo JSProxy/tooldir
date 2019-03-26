@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery在Ajax中的应用</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script type="text/javascript" src="../../source/jquery-2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="test1">
+    <input type="button" value="loadGet">
+    <input type="button" value="loadPost">
+    <div id="content">
+    </div>
+</div>
+<div id="test2">
+    <input type="text"  name="username" id="username">
+    <input type="text"  name="password" id="password">
+    <input type="button" value="get">
+    <div id="content2">
+
+    </div>
+</div>
+<div id="test3">
+    <input type="button" value="getScript"><br>
+    <input type="button" value="getJson"><br>
+    <input type="button" value="getWebJson"><br>
+    <div id="content3">
+
+    </div>
+</div>
+
+<div id="test4">
+    <input type="button" value="Ajax"><br>
+    <div id="content4">
+
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /*
+    jQuery对Ajiax操作
+    * load(url,数据,fun1(不管成不成功载入)); 重web服务器获取静态页面
+    * $.get(url,[data],[callback 载入成功后],[type])
+    * $.post()
+    * $.ajax()
+    * $.getScript()
+    * $.getJson()
+    * */
+       $("#test1 input:eq(0)").click(function () {
+
+           //筛选接受的html内容
+           $("#content").load("loadServlet #myli");
+       });
+
+    $("#test1 input:eq(1)").click(function () {
+
+        //post请求 带参数, 回调函数返回值
+        $("#content").load("loadServlet",{"username":"zf","age":34},function (responseText,textStatus,XMLHttpRequest) {
+            // XMLHttpRequest.status
+            // XMLHttpRequest.responseText
+
+        })//
+    });
+    //$.get(); 数据不大于2k 数据会被浏览器缓存 他人可以查看
+    //$.post(); 使用方式一样
+    $("#test2 input:eq(2)").click(function () {
+        // encodeURI()编码
+
+        $.get("geturl",{"username":encodeURI($("#userName").val()),"password":encodeURI($("#password").val())},function (data,tetxStatus) {
+            alert("textStatus");
+            //html
+            $("#content2").html(data);
+            //xml
+            var username=$(data).find("name").text();
+            var password=$(data).find("password").text();
+            $("#content2").html("<p>用户名:"+username+"密码:"+password+"</p>");
+            //json{\"students\":[{\"name\":\"zf\"}]};
+            var students=data.students;
+            var res="<ul>\n"
+            for (var i = 0;i<students.length;i++){
+                var student=students[i];
+                res+="<li>"+student.name+"--"+student.password+"<li>\n";
+            }
+            res+="</ul>";
+            $(res).appendTo($("#content2"));
+
+        },"xml")//不写默认html
+
+    });
+    //$.getScript(url,[callback]) 请求并执行一个JavaScript 文件
+    //$.getJson(url,[data],[callback]) 请求载入json数据
+    //回调函数 载如成功后回调
+    $("#test3 input:eq(0)").click(function () {
+        $.getScript("testjs.js",function () {
+            f();
+        })
+    })
+
+    $("#test3 input:eq(1)").click(function () {
+        $.getJSON("testjson.json",function (data) {
+            var username=data.name;
+            var age=data.age;
+            $("<p>"+username+age+"</p>").appendTo($("#content3"));
+        })
+    })
+    //$.aJax(url,[setting])
+    //常用请求参数
+    /*type 请求方式 GET/POST
+    timeout 请求超时
+    data 发送到服务器数据
+    dataType 预期服务器发送类型
+    beforeSend 发送请求前 可以修改XMLRequest对象的函数
+    complete 设置完成后回掉函数 请求失败均会调用
+    success 成功回调函数
+    error 请求失败调用函数
+    global 默认true 表示是否触发全局ajaxs事件
+     */
+    $("#test4 input:eq(0)").click(function () {
+        $.ajax({
+            url:"testjson.json",
+            type:"get",
+            timeout:"s60",
+            dataType:"json",
+            success:function (data) {
+                var username=data.name;
+                var age=data.age;
+                $("<p>"+username+"--"+age+"</p>").appendTo($("#content4"));
+            },
+            error:function (data) {
+                alert("错误")
+            },
+            complete:function (XMLHttpRequest,textstatus) {
+                alert(XMLHttpRequest.status);
+                //成功失败都会调用
+            }
+            
+        });
+    })
+</script>

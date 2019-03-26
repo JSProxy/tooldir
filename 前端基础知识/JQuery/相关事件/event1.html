@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>$()widnow.onload区别</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <link rel="stylesheet" href="../../css/ext.css">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+
+    <style>
+        .odd{
+            background-color: red;
+        }
+        .even{
+            background-color: gold;
+        }
+        .selected{
+            background-color: #00aaee;
+        }
+        .over{
+            background-color: green;
+        }
+
+        #panel{
+            width: 300px;border: 1px solid salmon;
+        }
+        .content{
+            padding: 10px;
+            text-indent: 24px;
+            border-top: 1px solid green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度">
+<div id="mytable">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="checkbox" name="choice" value=""></td>
+            <td>张三</td>
+            <td>男</td>
+            <td>浙江宁波</td>
+        </tr>
+        <tr><td><input type="checkbox" name="choice" value="" checked="checked"></td>
+            <td>利四</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr><td><input type="checkbox" name="choice" value=""></td>
+            <td>王五</td>
+            <td>男</td>
+            <td>江西赣州</td>
+        </tr>
+        <tr><td><input type="checkbox" name="choice" value=""></td>
+            <td>刘四</td>
+            <td>男</td>
+            <td>广东深圳</td>
+        </tr>
+        <tr><td><input type="checkbox" name="choice" value=""></td>
+            <td>rain</td>
+            <td>男</td>
+            <td>日本长龙</td>
+        </tr>
+        <tr><td><input type="checkbox" name="choice" value=""></td>
+            <td>mmya</td>
+            <td>女</td>
+            <td>欧洲赫斯</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="panel">
+    <h5 class="head">什么事jQuery</h5>
+    <div class="content">
+        123456789
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /*执行时机不同
+    window.onload是在网页中所有元素包括广联文件完全加载到浏览器后执行
+    $(document).ready()在DOM完全就绪时就可以被调用，无需等待元素的相关连文件的下载完毕，可大大提高程序的响应速度
+    //使用的次数不同
+    *window.onload只能保存一个函数的引用
+    * $(document).ready()每次调用都会在现有行为追加新的行为。
+    * */
+    // window.onload=function () {
+    //     alert($("img").width());
+    // }
+    // $(function () {
+    //     alert($("img").width());
+    // })
+    // $(function () {
+    //     alert("hello1");
+    // })
+    // $(function () {
+    //     alert("hello2");
+    // })
+    //绑定 window当window加载完毕执行，也可绑定其他元素
+    $(window).load(function () {
+    })
+
+    /*事件绑定
+    bind(type,[data],fn);
+    $("div").bind("click",function(){})
+    $("div").bind("click mouseover",function(){})绑定多个
+
+    * */
+    $("#mytable table tbody>tr:odd").addClass("odd");
+    $("#mytable table tbody>tr:even").addClass("even");
+
+    $("#mytable table tbody>tr").bind("click",function () {
+        var  hasSelected=$(this).hasClass("selected");
+        if (hasSelected){
+            $(this).removeClass("selected").find(":checkbox").prop("checked",false);
+        }else {
+            $(this).addClass("selected").find(":checkbox").prop("checked",true);
+
+            // prop使用属性后立即生效
+            //atrr设置后并没有生效
+        }
+    }).bind("mouseover",function () {
+        $(this).addClass("over");
+    }).bind("mouseout",function () {
+        $(this).removeClass("over");
+    });
+
+    $("#mytable table tbody>tr:has(":checked")").addClass("selected");
+
+/*合成函数
+hover(enter,leave)
+鼠标悬浮时触发第一个函数，鼠标离开时触发第二个函数
+toggle(fun1,fun2.fun3,...)
+处理多个函数事件，轮流处理 第一次点击 第二次点击
+里面不写方法，这回又一个显示和隐藏的功能。
+* */
+
+// $("#panel h5").hover(function () {
+//     $(".content").show();
+// },function () {
+//     $(".content").hide();
+// });
+
+    $("#panel h5").click(function () {
+        $(this).next().toggle();
+    })
+</script>

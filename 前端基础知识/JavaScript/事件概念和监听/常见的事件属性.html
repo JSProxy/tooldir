@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    常用的鼠标事件
+    onclick,单击鼠标左键出发
+    ondbclick,双击鼠标左键
+    onmousedown，单击任意一个鼠标按键出发
+    onmouseout，鼠标移出一个元素的边界触发
+    onmousemove鼠标在某一个元素上移动时间持续触发
+    onmouseseup 松开鼠标任意一个按键时触发
+    onmouseseover鼠标指针移动到一个元素上触发
+    //常用的鼠标事件
+    onkeydown 按下键盘上某一个按键时触发，一直按会持续触发
+    onkeyup 释放某个按键触发
+    onkeypress 按下某个按键并产生字符时触发，忽略shift等功能。 
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    
+        // 监听键盘按键
+    document.onkeydown=function(ev){
+         ev=ev||window.event;
+         alert(ev.keyCode);//按键代码
+    }
+</script>

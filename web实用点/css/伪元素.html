@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>after before</title>
+	<style type="text/css">
+		.test{
+
+		}
+		.test::before{
+			/* 引用媒体文件 */
+			content: url('source/images/logo.png')
+		}
+		.test::after{
+			/* 引用属性 */
+			content:"[ "attr(id) " ]";
+		}
+/* 
+		counter() –  调用计数器，可以不使用列表元素实现序号功能。具体请参见 counter-increment 和 counter-reset 属性的用法。示例： */
+
+		/* counter-reset：可以理解为“计数器-重置”的意思，有两个参数：name（必选参数）/ start（可选参数，默认值为0）。主要作用就是给计数器起名字，顺便告诉从哪个数字开始计数。
+		counter-reset，可以给多个计数器同时命名。中间直接用空格分开，其它的都不可以
+		 */
+
+		/* counter-increment：就是“计数器-递增”的意思，值为counter-reset的1个或多个name。后面可以跟随数字，表示每次计数的变化值。如果不写，则使用默认变化值1 */
+	
+		.list{
+			counter-reset: count 5 count2 6;
+			/* 设置递增 2的跨度 */
+			counter-increment: count 2; 
+		}
+		.list::before{
+			counter-increment: chapter;
+			content: "Chapter" counter(chapter) ". "
+		}
+		.list::after{
+			content: counter(count) "-" counter(count2);
+		}
+
+		*{
+			list-style: none;
+			padding: 0;
+		}
+
+		.fater{
+			padding-left: 20px;
+			/* 重置 */
+			counter-reset: acount;
+		}
+		.son::before{
+		content: counters(acount,"-") ".";
+		counter-increment: acount;
+		}
+
+		.check{
+			counter-increment: allcount
+		}
+		.count::after{
+			content: counter(allcount)
+		}
+		.txclass a:hover::before, .txclass a:hover::after{
+			position: absolute;
+			color: black;
+		}
+		.txclass a{
+			position: relative;
+			display: inline-block;
+			color: red;
+			padding: 5px 5px;
+			margin-left: 50px;
+		}
+		.txclass a:hover::before{
+			left: -20px;
+			content: "["
+		}
+		.txclass a:hover::after{
+			right: -20px;
+			content: "]"
+		}			
+}
+
+	</style>
+</head>
+<body>
+
+
+<div class="test" id="元素属性">
+	I LOVE YOU
+</div>
+
+<div class="list">
+	I LOVE YOU
+</div>
+<div class="list">
+	I LOVE YOU
+</div>
+
+<!-- ④ 下面介绍counters()方法。看似值多了个字母s, 但表意大变身。counters几乎可以说是嵌套计数的代名词。 -->
+<ul class="fater">
+	<li class="son">GG
+		<ul class="fater">
+			<li class="son">我是谁</li>
+		</ul>
+	</li>
+	<li class="son">MM
+		<ul class="fater">
+			<li class="son">你是谁</li>
+			<li class="son">他是谁
+				<ul class="fater">
+					<li class="son">counters</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<!-- counters()也是支持style自定义递增形式的。
+counters(name, string, style) 
+这里的style参数还有有些名堂的。其支持的关键字值就是list-style-type支持的那些值。作用是，我们递增递减可以不一定是数字，还可以是英文字母，或者罗马文等。
+
+list-style-type：disc | circle | square | decimal | lower-roman | upper-roman | lower-alpha | upper-alpha | none | armenian | cjk-ideographic | georgian | lower-greek | hebrew | hiragana | hiragana-iroha | katakana | katakana-iroha | lower-latin | upper-latin
+--------------------- 
+-->
+
+<div class="box">
+	<input type="checkbox"><label>111</label><br>
+	<input type="checkbox"><label>222</label><br>
+	<input type="checkbox"><label>333</label><br>
+	<span class="count">你总共选者了</span><span>位</span>
+</div>
+
+
+
+<div class="txclass">
+	<a href="#">TEST</a>
+</div>
+<script type="text/javascript">
+	
+	var allIput = document.getElementsByTagName("input");
+
+	// allIput.forEach( function(element, index) {
+	// 	element.onchange = function(){
+
+	// 		if (element.checked) {
+
+ //                element.className="check";
+	// 		}else 
+	// 		{
+	// 			element.className="";
+	// 		}
+	// 	}
+	// });
+
+	var len = allIput.length;
+    for(var i=0;i<len;i++){
+        allIput[i].onchange = function(){
+            if(this.checked){
+                this.className='check';
+            }else{
+                this.className='';
+            }
+        }
+ 
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    <script type="text/javascript">
+    //反问事件对象，如鼠标键盘。
+    // IE的事件对象，它是一个隐式可用的全局对象：event，它式window对像的一个属性。
+    // 标准DOM中的事件对象，检测发生某一个事件时，将自动创建一个Event对象并隐式的将该对象
+    // 作为事件处理函数的第一个参数传入。
+    // 1.IE
+    // op.onclick=function () {
+    //     var oEvent=window.event;
+    // }
+    // 2.标准DOM
+    // op.onclick=function (oEvent) {
+    //     //作为参数传进来/
+    // }
+    // 为了兼容
+    // op.onclick=function (oEvent) {
+    //
+    //     if(window.event){oEvent=window.event;}
+    // }
+    // Event事件常用属性/IE和标准DOM一样
+    // altkey,shiftKey,ctrlKey ,按下alt，shift，为true，否者为false
+    // button 对应按下鼠标键的值
+    // clientX，clientY，鼠标在客户区域的坐标
+    // screenX，screenY，鼠标指针相对于计算机屏幕的坐标
+    // keyCode,按键的代号
+    // return value，设置false时取消元素默认事件
+    // type 事件名称
+    // IE和标准DOM不一样
+    // cancelBubble/stopPropagation,可用来阻止事件冒泡。
+    // srcElement/target 引起事件元素/对象
+
+
+    //，冒泡
+    window.onload = function() {
+        document.getElementById("one").addEventListener("click", function() { test("body<br/>"); }, false);
+        document.getElementById("two").addEventListener("click", function() { test("div<br/>"); }, false);
+        document.getElementById("three").addEventListener("click", function() { test("p<br/>"); }, false);
+
+        document.getElementsByTagName("input")[0].onclick = handle;
+    };
+
+    function test(sText) {
+        var odiv = document.getElementById("dispaly");
+        odiv.innerHTML += sText;
+    }
+
+    function handle(oEvent) {
+        if (window.event) { oEvent = window.event; }
+        var oTarget;
+        if (oEvent.srcElement) {
+            oTarget = oEvent.srcElement;
+        } else {
+            oTarget = oEvent.target;
+        }
+        alert(oTarget.tagName);
+    }
+    </script>
+</head>
+
+<body id="one">
+    <div id="two">
+        <p id="three">点击我</p>
+    </div>
+    <div id="dispaly"></div>
+    <input type="button" value="www" />
+</body>
+
+</html>

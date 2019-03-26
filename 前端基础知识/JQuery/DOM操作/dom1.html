@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>对元素节点的操作</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+    <style>
+        h1{
+            border: 1px solid #003a75;
+            background-color: #FFFF00;
+            margin: 5px;padding: 0px;
+            text-align: center;
+            height: 80px;width: 80px;
+            line-height: 80px;
+            float: left;
+        }
+        hr{
+            clear: left;
+        }
+
+        .myclass1{
+            background-color: red;
+        }
+        .myclass2{
+            border: 2px solid green;
+        }
+        img{
+            border: 1px solid orange;
+        }
+        .mybackground{
+            background-color: green;
+        }
+        .myborder{
+            border: 2px solid pink;
+        }
+    </style>
+</head>
+<body>
+<div id="testsize">
+    <p>页面中一共有 <span>0</span>个div块.点击鼠标添加div</p>
+</div>
+<hr>
+<div id="testindex" style="clear: left">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    点击p块序列号为 <span></span>
+</div>
+<hr>
+<div id="testfilter">
+    <h1>1</h1>
+    <h1 class="middel">2</h1>
+    <h1 class="middel">3</h1>
+    <h1 class="middel">4</h1>
+    <h1>5</h1>
+</div>
+<hr>
+<div id="textfind">
+    <p><span>Hello</span>,how <b>are</b> you?</p>
+</div>
+
+<div id="testeach">
+    <img src="../images/1.jpg" alt="" id="img1">
+    <img src="../images/2.jpg" alt="" id="img2">
+    <img src="../images/3.jpg" alt="" id="img3">
+    <img src="../images/4.jpg" alt="" id="img4">
+    <img src="../images/5.jpg" alt="" id="img5">
+</div>
+<hr>
+<div id="testend" >
+    <h2>第一</h2>
+    <h2>第二</h2>
+</div>
+</body>
+</html>
+<script>
+
+/*size()获取选择器中元素的个数，类似数组的length属性
+index(element)查询元素在数组集合的位子
+add()给集合添加元素
+not()去除集合中的某一个元素
+filter()筛选元素集合中的元素
+find（）通过查询获取新的元素集合
+each()便利集合中的元素
+
+jQuery的一个强大的地方可以使用链式操作，可以大大缩短代码长度，其中两个方法用的比较多，end()回到操作对象的上一个对象,andself() 将前面对象进行组合后共同处理。*/
+//size()
+document.onclick=function ()
+{
+   var i =$("#testsize h1").size()+1;
+   var h1=document.createElement("h1");
+   h1.innerHTML=i;
+   $("#testsize")[0].appendChild(h1);
+   $("#testsize span")[0].innerHTML=i;
+}
+//index()
+    $("#testindex p").click(function () {
+        var index=$("#testindex p").index(this);
+        $("#testindex span").html(index);
+    });
+//filter
+
+// 链式操作
+//     $("#testfilter h1").addClass("myclass1").filter("[class*="middel"]").addClass("myclass2");
+$("#testfilter h1").addClass("myclass1").filter(function (index) {
+    return index==1||index==2;
+}).addClass("myclass2");
+
+//add() not() find()
+
+    // $("#textfind p").find("span").add("p>b").not("p>b").addClass("myclass1");
+$("#textfind p").find("span").add("p>b").addClass("myclass1");
+
+//each()
+    $("#testeach img").each(function (index) {
+        this.title="这是第"+index+"幅图，id="+this.id;
+    });
+
+    //end()和andslef()
+//只给上一个对象加边框
+// $("#testend").find("h2").addClass("mybackground").end().addClass("myborder");
+//给自身和上一个操作对象一起加边框
+    $("#testend").find("h2").addClass("mybackground").addBack().addClass("myborder");
+</script>

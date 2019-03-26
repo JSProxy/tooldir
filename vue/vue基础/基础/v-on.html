@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title Page</title>
+  </head>
+  <body>
+    <div id ="app">
+        点击次数:{{count}}
+        <br>
+        <button v-on:click="funcount1">点击+</button>
+        <button @click="funcount2">点击-</button>
+        <br>
+        <!-- <input type="text" v-on:keyup.enter="onEnter" v-model="count2"> -->
+        <input type="text" v-on:keyup.13="onEnter" v-model="count2">
+
+    </div>
+
+    <script>
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        count:0,
+        count2:0
+      },
+      methods:{
+        funcount1:function(){
+          this.count++
+        },
+        funcount2:function(){
+          this.count--
+        },
+        onEnter:function(){
+          this.count = this.count+parseInt(this.count2)
+        }
+      },
+      computed: {
+      }
+    })
+    // onkeydown 按下键盘上某一个按键时触发，一直按会持续触发
+    // onkeyup 释放某个按键触发
+    // onkeypress 按下某个按键并产生字符时触发，忽略shift等功能。
+    document.onkeydown = function(e){
+      let e = e || window.event;
+      console.log(e.keyCode);//
+    }
+    </script>
+  </body>
+</html>

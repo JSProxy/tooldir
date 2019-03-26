@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vertical-align and line-hetght</title>
+    <link rel="icon" href="source/images/logo.png" type="image/x-icon" />
+
+    <style type="text/css">
+    .ertical-align-options {
+    	/* 父元素基线 就是文字的下边缘 */
+        vertical-align: baseline;   
+        vertical-align: sub;
+        vertical-align: super;
+        vertical-align: text-top;
+        vertical-align: text-bottom;
+        vertical-align: middle;
+        vertical-align: top;
+        vertical-align: bottom;
+        /* <长度> 值 */
+        vertical-align: 10em;
+        vertical-align: 4px;
+        /* <百分比> 值  相对于line-height 的高度*/
+        vertical-align: 10%;
+        /* 全局值 */
+        vertical-align: inherit;
+        vertical-align: initial;
+        vertical-align: unset;
+    }
+    .divbase{
+		background-color: orange;
+    }
+
+    .myimg1{
+	display: block;
+    }
+    img{
+    	width: 100px;
+    }
+    span{
+    	background-color: white;
+    }
+
+    </style>
+</head>
+
+<body>
+	<div class="divbase">
+	<img src="source/images/logo.png">
+	<span>zzz</span>
+</div>
+<p>图片下边有空白地方</p>
+
+<div class="divbase">
+	<img class="myimg1" src="source/images/logo.png">
+</div>
+<p>图片默认是inline水平的，而vertical-align对块状水平的元素无感们只要让图片display水平为block就可以了</p>
+
+<h3>使用其他vertical-align值</h3>
+<div class="divbase">
+	<img id="changeAlign" src="source/images/logo.png">
+	zzz
+</div>
+
+<input type="radio"  name="vertical-align" value="text-bottom" />vertical-align:bottom
+<input type="radio"  name="vertical-align" value="text-top"/>vertical-align:top
+<input type="radio"  name="vertical-align" value="middle"/>vertical-align:middle
+<input type="radio"  name="vertical-align" value="sub" />vertical-align:sub
+<input type="radio"  name="vertical-align" value="super"/>vertical-align:super
+<input type="radio"  name="vertical-align" value="baseline"/>vertical-align:baseline
+
+<div class="divbase" style="line-height: 4px;">
+	<img src="source/images/logo.png">
+	<span>sss</span>
+</div>
+<p>直接设置line-height</p>
+<div class="divbase" style="font-size:0px;">
+	<img src="source/images/logo.png">
+	<span>sss</span>
+</div>
+<p>font-size</p>
+
+<div class="divbase">
+	<img style="vertical-align: middle" src="source/images/logo.png">
+	<span>sss</span>
+</div>
+
+
+<script type="text/javascript">
+
+
+var radioAligns = document.getElementsByName("vertical-align");
+var changeAlign = document.getElementById("changeAlign");
+radioAligns.forEach( function(element, index) {
+	element.onchange = function(event) 
+	{
+		// changeAlign.setAttribute("vertical-align",event.target.value);
+	changeAlign.style.cssText = "vertical-align:"+event.target.value+";";
+	};	
+
+});
+	
+
+</script>
+</body>
+</html>

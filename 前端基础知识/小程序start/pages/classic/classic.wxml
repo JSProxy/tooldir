@@ -1,0 +1,27 @@
+<view>
+  <view class='title'>{{title}}</view>
+</view>
+<view>
+  <view wx:for="{{studyArr}}" wx:for-index="parentIndex" wx:for-item="parentItem" wx:key="item.title" class="list-box">
+    <view bindtap="sectionTap" data-id="{{parentIndex}}" class="list-section {{(parentIndex+1)%2 ? 'border-left-powderblue' : 'border-left-tomato'}}">
+      {{parentItem.title}}
+    </view>
+    <view wx:for="{{parentItem.list}}" wx:key="index" class="list-row-box" hidden="{{parentItem.ishidden}}">
+      <!-- <view class="list-row" bindtap="rowTap" data-url="{{item.url}}">
+        {{item.title}}
+        </view> -->
+      <view wx:if="{{item.url}}" class="list-row">
+        <navigator open-type="navigateTo" url="{{item.url}}">{{item.title}}</navigator>
+      </view>
+      <view wx:if="{{item.subArr}}" class="list-sub-box">
+        <view bindtap='clickSubTap' data-parentid='{{parentIndex}}' data-id='{{index}}' class="list-sub-section">{{item.title}}</view>
+        <view wx:for="{{item.subArr}}" wx:for-item="subItem" wx:key="subItem.title" class="list-sub-row-box" hidden="{{item.ishidden}}">
+          <view class="list-sub-row">
+            <navigator open-type="navigateTo" url="{{subItem.url}}">{{subItem.title}}</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,13 @@
+
+  <!-- ejs 引用htmlWebpackPlugin 中的参数配置  -->
+  <div class="hello">
+    啊哈
+  </div>
+  <%= testComponent %>
+
+  <div class="test">
+  </div>
+  <!-- 根据打包后路径 -->
+  <a href="home.html">zf index</a>
+  <!-- 使用ejs模版语法 需要require -->
+  <img src=<%= require("../../assets/images/icon.png") %> alt="Image">

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用getElementsById方法查找元素</title>
+    <!--文档可以是由节点构成的集合。
+    元素节点
+    文本节点
+    属性节点。
+    为了动态修改html元素，需要现访问元素。
+    DOM提供两种方式来访问。
+    1 根据ID访问html元素通过document对象调用getElementById()
+    方法来查找具有唯一id属性值的元素。
+    2利用节点关系访问html元素，常用属性如下
+    parentNode 返回当前节点的父节点
+    previousSibling返回当前节点的前一个兄弟节点
+    nextSibling返回当前节点的后一个兄弟节点
+    childNodes 返回当前节点的所以子节点
+    firstChild返回当前节点的第一个子节点
+    lastChild返回当前节点的最后一个子节点
+    getElementsByTagName(tagName)返回当前节点具有指定标签名的所有
+    子节点。-->
+    <script type="text/javascript">
+        function showContent() {
+            var myDiv,content,textName;
+            with (document)
+            {
+                myDiv= document.getElementById("myDiv");
+                content= document.getElementById("content");
+                textName= document.getElementById("textName");
+            }
+
+            alert(myDiv.innerHTML+"\n"+content.value+"\n"+textName.value);
+        }
+    </script>
+</head>
+<body>
+<div id="myDiv">我的div块</div>
+<textarea id="content" rows="3",cols="25">好好学习，天天向上!</textarea><br/>
+<input type="text" id="textName" value="zhangfeng"/><br/>
+<input type="button" id="btn_show" value="访问3个元素的内容" onclick="showContent()"/>
+</body>
+</html>

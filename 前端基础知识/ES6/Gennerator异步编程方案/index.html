@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+
+		function *yuanku(){
+
+		console.log("执行1"+(yield "ss"));
+			//这里面都是状态
+			yield "愿哭";
+			console.log("执行2");
+			yield "北京";
+			console.log("执行3");
+			return "end";
+		}
+		//遍历器
+		var it = yuanku();
+		console.log(it.next());
+		//会把内容注入到前面的yield
+		//然后执行下面
+		console.log(it.next("我是注入执行1"));
+		console.log(it.next());
+
+		//异步方法
+		//
+		let y;
+		var func = function(time){
+
+			setTimeout(function(){
+				console.log(time,"on");
+				//嵌套写法 就必须在next里加东西了
+				y.next(true);
+			},time);
+		}
+		
+		var gen = function *(){
+
+			var f1 = yield func(3000);
+			console.log("f1",f1);
+
+			var f2 = yield func(1000);
+			console.log("f2",f2);
+		}
+		y = gen();
+		y.next();
+		// y.next();
+
+
+	</script>
+</body>
+</html>

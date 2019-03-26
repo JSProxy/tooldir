@@ -1,0 +1,4 @@
+
+<text selectable="true" space="ensp" >{{text}}中文字符空格一半大小\n</text>
+<text selectable="true" space="emsp" decode="true" >{{text}}中文字符空格大小\n</text>
+<text selectable="true" space="nbsp" decode="true" >{{text}}根据字体设置的空格大小</text>

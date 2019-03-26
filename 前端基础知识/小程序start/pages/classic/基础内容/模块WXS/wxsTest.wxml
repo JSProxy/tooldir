@@ -1,0 +1,12 @@
+<!--pages/classic/模块WXS/wxsTest.wxml-->
+<text>模块使用一</text>
+<wxs module="mtest">
+  module.exports = {
+  message: "hello, world! test"
+  }
+</wxs>
+<view>{{mtest.message}}</view>
+
+<text>模块使用二</text>
+<wxs src="./components/moduleA.wxs" module="mA"></wxs>
+<view>{{mA.message}}</view>

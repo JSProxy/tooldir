@@ -1,0 +1,2 @@
+类型定义文件方便使用第三方框架 比如。 jquery
+github.com/typings/typings  下载网址

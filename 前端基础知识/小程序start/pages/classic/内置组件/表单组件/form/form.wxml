@@ -1,0 +1,29 @@
+
+<view class='login-box'>
+  <form id="myform" class='login-form' report-submit="{{returnid}}" bindsubmit='formSubmit' bindreset='formReset'>
+    <view class='login-title'>登入</view>
+
+    <view class='input-area'>
+    <label>账号:</label>
+    <input name="user" type='text' placeholder='请输入字母开头6-16位账户'
+    maxlength="16"
+    bindinput='usernameInput'
+    ></input>
+    <icon size='23' type='{{userIsok ? "success" : "cancel"}}'></icon>
+    </view>
+
+    <view class='input-area'>
+    <label>密码:</label>
+    <input name="pass" type='text' placeholder='请输入密码6-16位' password
+    maxlength="16"
+    bindinput='passwordInput'
+    ></input>
+    <icon size='23' type='{{passIsok ? "success" : "cancel"}}'></icon>
+    </view>
+
+    <view class='btn-area'>
+      <button formType='submit' size='mini' disabled='{{userIsok&&passIsok ? false : true}}' type='primary'>确定</button>
+      <button formType='reset' size='mini' type='warn'>取消</button>
+    </view>
+  </form>
+</view>

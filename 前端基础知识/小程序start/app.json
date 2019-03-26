@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/classic/classic",
+    "pages/logs/logs",
+    "pages/classic/基础内容/basis",
+    "pages/classic/基础内容/模块WXS/wxsTest",
+    "pages/classic/内置组件/视图容器/view/view",
+    "pages/classic/内置组件/视图容器/scroll-view/scroll-view",
+    "pages/classic/内置组件/视图容器/swiper/swiper",
+    "pages/classic/内置组件/视图容器/movable-view/movable-view",
+    "pages/classic/内置组件/视图容器/cover-view/cover-view",
+    "pages/classic/内置组件/基础组件/icon/icon",
+    "pages/classic/内置组件/基础组件/text/text",
+    "pages/classic/内置组件/基础组件/rich-text/rich-text",
+    "pages/classic/内置组件/基础组件/progress/progress",
+    "pages/classic/内置组件/表单组件/button/button",
+    "pages/classic/内置组件/表单组件/checkbox/checkbox",
+    "pages/classic/内置组件/表单组件/form/form",
+    "pages/classic/内置组件/表单组件/input/input",
+    "pages/classic/内置组件/表单组件/label/label",
+    "pages/classic/内置组件/表单组件/picker/picker",
+    "pages/classic/内置组件/表单组件/picker-view/picker-view",
+    "pages/classic/内置组件/表单组件/slider/slider",
+    "pages/classic/内置组件/表单组件/switch/switch",
+    "pages/classic/内置组件/表单组件/textarea/textarea",
+    "pages/classic/内置组件/导航/navigator/navigator",
+    "pages/classic/自定义组件/index",
+    "pages/classic/内置组件/媒体组件/audio/audio",
+    "pages/classic/内置组件/媒体组件/image/image",
+    "pages/classic/内置组件/媒体组件/video/video",
+    "pages/classic/API/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "ZF",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      }
+    ]
+  },
+  "debug": true,
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  }
+}

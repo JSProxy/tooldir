@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html style="font-size: 30px">
+
+<head>
+    <title></title>
+</head>
+
+<body style="font-size: 62.5%">
+    <div>
+        <p style="font-size: 1em">em 测试1</p>
+    </div>
+    <div style="font-size: 50px">
+        <p style="font-size: 1em">em 测试2</p>
+    </div>
+    <div>
+        <p style="font-size: 1rem">rem 测试</p>
+    </div>
+    <script type="text/javascript">
+    (function(doc, win) {
+        var docEl = doc.documentElement; // 根元素 html
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            // if (clientWidth >= 560) {
+            //     clientWidth = 560;
+                //把document的fontSize大小设置成跟窗口成一定比例的大小，从而实现响应式效果。         
+            // }
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        recalc();
+        win.addEventListener(resizeEvt, recalc, false);
+        //addEventListener事件方法接受三个参数：    
+        //第一个是事件名称比如点击事件onclick，第二个是要执行的函数，第三个是布尔  
+        //绑定浏览器缩放与加载时间 
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+
+    })(document, window);
+
+//     rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。 
+// rpx 为小程序中使用的相对单位，用法和rem类似， 1rpx = 屏幕宽度/750 px, 所以在屏幕宽度为750的设计稿中，1rpx = 1px。
+    </script>
+</body>
+
+</html>

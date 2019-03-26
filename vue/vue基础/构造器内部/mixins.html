@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+      <p>混入  不污染构造器</p>
+      <p>共用方法</p>
+      <p>项目上线后 添加新功能</p>
+        <div>{{num}}</div>
+        <button @click="add">Add</button>
+    </div>
+
+    <script>
+
+   //新需求混入的内容
+      var addConsole = {
+        updated() {
+          console.log("数据发生变化"+this.num)
+        },
+      }
+    // 公共方法全局api混入
+    Vue.mixin({
+      updated:function(){
+        console.log("我是全局的混入");
+      }
+    })
+    
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"Hello world",
+        num:0
+      },
+      methods:{
+       add(){
+         this.num++;
+       }
+      },
+      mixins:[addConsole],
+      updated(){
+        console.log("原生update后执行了");
+      }
+
+    })
+    </script>
+  </body>
+</html>

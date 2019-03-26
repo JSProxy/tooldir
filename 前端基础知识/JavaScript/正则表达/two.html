@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+        <script type="text/javascript">
+    // 创建正则表达对象的语法
+    // var reg=pattern;
+    // 第二种方法
+    // var reg = new RegExp(pattern);
+    // RegExp 对象的常用方法
+    // exec（str）检索字符串中指定值，返回找到值，并确定其位子
+    // test（str）检索字符串中是否有满足条件的值，返回true或者false。
+    //     var a="zhangfeng-like-love"
+    //     var reg = new RegExp("love");
+        // var reg=/love/;
+        // alert(reg.exec(a));
+        // alert(reg.test(a));
+        // 正则表达所支持的常用通配符
+        // .可以匹配任何字符
+        // \d匹配0-9的所有数字
+        // \D匹配非数字
+        // \s匹配所有空白字符，包括空格，制表符，换行符，回车福等
+        // \S匹配所有非空白字符
+        // \w匹配所有单词字符，包括0-9数字，26个英文字母和下划线。
+        // \W匹配所有非单词字符
+        // \b匹配单词边界
+        // \B匹配非单词边界
+        //     var str="zhangfeng";
+        //     var reg=/./;
+        //     alert(reg.test(str));
+        //
+        //     var phone="1324567";
+        //     var reg=/\d/;
+        //     alert(reg.test(phone));
+        //
+        //     var str="zhangfeng kkk";
+        //     var reg=/\s/;
+        //     alert(reg.test(str));
+
+            // var str="asdf123_ss哈哈哈s";
+            // var reg=/\W/;
+            // alert(reg.test(str));
+            //
+            // var str="sssfsgshegess";
+            // var reg=/o\b/;
+            // o结尾
+            // alert(reg.test(str));
+
+            // [abc] 查找括号之间的任何字符。
+            // [^abc]查找任何不在括号之间的字符。
+            // [0-9]查找任何从0到9的数字。
+            // [a-z]查找任何从小写a到小写z的字符
+            // [A-z]查找任何从大写A到小写z的字符。
+            // （red|blue|green）查找任何指定选项
+            // var a="zhangfeng";
+            // var reg=/[ao]/;
+            // alert(reg.test(a));
+            // var str="123";
+            // var reg=/[0-9]/;
+            // alert(reg.test(str));
+            //
+            // var sks="bluezhangfeng"
+            // var reg=/(red|blue|green)/;
+            // alert(reg.test(sks));
+
+            // 正则表达式的量词：
+            // n+匹配任何包含至少一个n的字符串
+            // n*匹配任何包含零个或者多个n的字符串。
+            // n？匹配任何包含零个或者一个n的字符串。
+            // n{X} 匹配X个n的序列的字符串。
+            // n{X,Y}匹配包含X或者Y个n的序列字符串。
+            // n{X,}匹配至少X个n的序列的字符串。
+            // n$匹配任何结尾为n的字符串
+            // ^n匹配任何开头为n的字符串。
+            // var str="sdnksflsfllhil";
+            // var reg=/c+/;
+            // var reg=/l{2}/;连续出现俩次l
+
+            // 正则表达的修饰字符
+            // i 执行对大小写不敏感的匹配
+            // g执行全局匹配（查找所有匹配而非在找到第一个后停止）
+            // m执行多行匹配
+            // var str="bbs";
+            // var reg=/B/i;
+            // //忽略大小写
+            // alert(reg.test(str))
+
+            // var str="BSKSBKSSSJSHS";
+            // var reg=/B/g;
+            // alert(reg.test(str));true
+            // alert(reg.test(str));true
+            // alert(reg.test(str));//false
+
+            // var str="test\nbbs";
+            // var reg=/^b/m;
+            // alert(reg.test(str));
+
+            var reg=/^[0-9a-zA-z_-]+@[0-9a-zA-z_-]+\.(com|cn|org)/;
+            alert(reg.test("lll"));
+
+
+
+
+      </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+      <div>{{count}}</div>
+      <button @click="add">add</button>
+    </div>
+
+    <button onclick="addDestroy()">销毁</button>
+    <script>
+    function addDestroy(){
+      app.$destroy()
+    } 
+     let app = new Vue({
+      el:"#app",
+      data:{
+        count:0
+      },
+      methods:{
+        add(){
+          this.count++;
+        }
+      },
+      computed: {
+      },
+      beforeCreate() {
+        console.log('创建之前')
+      },
+      created() {
+        console.log('创建之后')
+      },
+      beforeMount() {
+        console.log('挂载之前')
+      },
+      mounted() {
+        console.log('挂载之后')
+      },
+      beforeUpdate() {
+        console.log('更新之前')
+      },
+      updated() {
+        console.log('更新之后')
+      },
+      beforeDestroy() {
+        console.log('销毁之前')
+      },
+      destroyed() {
+        console.log('销毁之后')
+      },
+    })
+
+    </script>
+  </body>
+</html>

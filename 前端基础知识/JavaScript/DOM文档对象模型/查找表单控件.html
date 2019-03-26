@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找表单控件</title>
+    <!--DOM反问表单控件常用属性方法
+    action 返回表单提交地址
+    elements 返回表单内全部控件组成数组
+    length 返回表单内表单域的个数
+    method 提交方式
+    target 确定提交表单时的结果窗口，主要有_self,_blank._top
+    reset()submit() 重置表单和确定表单方法
+    在elements返回数组中访问具体表单控件的语法
+    elements[index]返回该表单第几个控件
+    elements[elementName]返回表单内id或者name为elementsName的表单控件
+    elementsName返回表单内id或者name为elementsName的表单控件-->
+
+    <script type="text/javascript">
+        function operatorForm() {
+            var farr=document.forms[0];
+            var myform=document.getElementById("myForm");
+            // alert(myform.action);
+            // alert(myform.method);
+            // alert(myform.target);
+            myform.submit();//提交表单;
+            myform.reset();//重置表单;
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myForm" action="http://www.baidu.com" method="get" target="_self">
+        <input name="userName" type="text" value="张峰"/><br/>
+        <input name="passWord" type="text" value="123456"/><br/>
+        <select name="city">
+                <option value="shanghai">上海</option>
+                <option value="nanjing" selected="selected">南京</option>
+        </select><br/>
+        <input type="button" value="获取表单内第一个控件" onclick="alert(document.getElementById("myForm").elements[0].value);"/>
+        <input type="button" value="获取表单内第二个控件" onclick="alert(document.getElementById("myForm").elements["passWord"].value);"/>
+        <input type="button" value="获取表单内第三个控件" onclick="alert(document.getElementById("myForm").city.value);"/>
+        <input type="button" value="操作表单" onclick="operatorForm();"/>
+
+    </form>
+
+</body>
+</html>

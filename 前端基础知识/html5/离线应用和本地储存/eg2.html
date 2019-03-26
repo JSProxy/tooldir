@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // var db=openDatabase(name,version,displayName,estimatedSize,creationCallback); 使用现有数据库,或者新建数据库
+    //数据库名字 版本 数据库描述 数据库的大小 以字节为单位 回掉函数 非必填
+    // transaction(function(tx){
+    // }) 这个方法允许我们执行事物处理
+
+    //transaction.executeSql(sql,[],dataHandler,errorHandler)
+
+    // 执行SQL语句
+
+function getcurrentdb() {
+  var db=openDatabase("data.db","1.0","demo data",1024*1024);
+  return db;
+}
+//创建表格
+function initDatabase() {
+
+    var db=getcurrentdb();
+    if (!db){
+        alert("浏览器不支持数据库")
+        return;
+    }
+
+    db.transaction(function (transaction) {
+        transaction.executeSql("create table is not exists Demo(uName text null,title text null,words text null)",[],function (transaction1,result)
+        {
+
+        },function (transaction2, error) {  
+            
+            
+        })
+    });
+    
+}
+
+var textname="name";
+var texttitle="title";
+var textwords="words";
+var db=getcurrentdb();
+
+//插入数据
+    db.transaction(function (transaction) {
+        transaction.executeSql("insert into Demo(uName,title,words)values(?,?,?)")
+    },[textname,texttitle,textwords],function (transaction1,result) {
+        
+    },function (transaction2,error)
+    {
+        
+    })
+    //查询所以数据
+    function showallData() {
+        db.transaction(function (transaction) {
+            transaction.executeSql("select * form demo",[],function (transaction1,result)
+            {
+                for (var i = 0; i <result.rows.length ; i++)
+                {
+                    appendDataTable(result.rows.item(i));
+                }
+
+            },function (transaction1, error)
+            {
+
+            })
+        });
+    }
+    function appendDataTable(data)
+    {
+        var textname=data.uName;
+        var texttitle=data.title;
+        var textwords=data.words;
+
+    }
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数->进阶</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    topfun();
+    var top = "变量提升";
+
+    function topfun() {
+        document.write("函数提升<br>");
+    }
+    var notopfun = function() {
+
+        if (1) {
+            var x = 2;
+        }
+        document.write("函数不提升<br/>");
+        document.write(x + "变量提升");
+
+    };
+    notopfun();
+    // 递归 加 初始化变量值
+    function callSelfFun(nub) {
+        var nub = nub || 0;
+
+        function add() {
+
+            nub++;
+            if (nub < 10) {
+                console.log(nub);
+                add();
+            }
+        }
+        add();
+    }
+    callSelfFun();
+
+
+    function argumentsFun(a, b) {
+
+        document.write("arguments.length" + arguments.length);
+    }
+    argumentsFun(2, 3, 4);
+
+
+
+
+    var newfun1 = new Function("a", "b", "document.write(a+b+'<br/>')");
+    newfun1(1, 2);
+    var newfun2 = new Function(["a", "b"], "document.write(a+b+'<br/>')");
+    newfun2(2, 2);
+
+
+    // bind() 创建一个新函数 指定一个上下文. 也可以加参数
+   	var funObj = {
+   		x:9,
+   		getX:function(){
+   			console.log(this.x);
+   			console.log(Array.prototype.slice.call(arguments));
+   		}
+   	};
+    var bindFun = funObj.getX.bind(funObj,"addc");
+
+    bindFun("a","b","c");
+
+
+    // call()调用并指定上下文,可以多个参数
+    // fun.call(thisArg, arg1, arg2, ...)
+    function parentFun (name,age){
+    	this.name = name;
+    	this.age = age;
+    	console.log("我是父类的属性"+name+":"+age);
+    }
+    
+    function childFun (name,age){
+    	parentFun.call(this,name,age);
+
+    }
+    childFun("zf","25");
+    
+    // apply() 调用具有指定this的方法 参数为数组
+    // func.apply(thisArg, [argsArray])
+    
+    var arr1 = [1,2,3];
+    var arr2 = [4,5,6];
+    Array.prototype.push.apply(arr1,arr2);// 等于是数组拼接[1,2,3,4,5,6]
+    console.log(arr1);
+
+    // 非严格模式下。null  undefined  会指向全局对象
+    // Infinity  无穷大 200<Infinity
+    Math.min.apply("null",[1,2,3,4,5,6]);// 最小是1
+    Math.max.apply("undefined",[1,2,3,4,5,6]);// 最小是6
+    
+    // 判断类型
+    // arr1 instanceof arr2
+    // typeof Array
+  
+    // 'use strict' 严格模式下 eval 内部变量不会影响外部 
+    eval("var a = 222;"); //将字符当作语句执行
+
+
+    </script>
+</body>
+
+</html>

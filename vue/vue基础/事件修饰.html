@@ -1,0 +1,75 @@
+<!--阻止单击事件继续传播 冒泡 -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- 提交事件不再重载页面 -->
+<!-- prevent 组织默认事件发生 -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- 修饰符可以串联 -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理 -->
+<div v-on:click.capture="doThis">...</div>
+
+<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+<!-- 只有自身可以触发 通常避免冒泡-->
+<div v-on:click.self="doThat">...</div>
+
+ <!-- vent.preventDefault() 或 event.stopPropagation()  --> 
+<!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 -->
+<!-- 而不会等待 `onScroll` 完成  -->
+<!-- 这其中包含 `event.preventDefault()` 的情况 -->
+<div v-on:scroll.passive="onScroll">...</div>
+
+键盘按键
+
+<input v-on:keyup.13="submit">
+<input v-on:keyup.enter="submit">
+<!-- 缩写语法 -->
+<input @keyup.enter="submit">
+
+.enter
+.tab
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up
+.down
+.left
+.right
+可以通过全局 config.keyCodes 对象自定义按键修饰符别名：
+ Vue.config.keyCodes.f1 = 112
+
+ .ctrl
+.alt
+.shift
+.meta      （mac->command）
+
+<!-- Alt + C -->
+<input @keyup.alt.67="clear">
+
+<!-- Ctrl + Click -->
+<div @click.ctrl="doSomething">Do something</div>
+
+// .exact 修饰符允许你控制由精确的系统修饰符组合触发的事件。
+// <!-- 有且只有 Ctrl 被按下的时候才触发 -->
+<button @click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- 调用跟组件的方法
+$emit('enlarge-text', 0.1)" -->
+
+
+<!-- <slot></slot> 接受组件插入内容 -->
+
+<template>
+	<!-- 这里是插入内容 -->
+</template>
+
+
+<!-- 动态组件 -->
+<component v-bind:is="currentTabComponent"></component>
+

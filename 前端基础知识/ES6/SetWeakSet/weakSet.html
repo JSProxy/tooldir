@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weakSet</title>
+</head>
+<body>
+	
+	<script>
+		
+		//对象只能存对象
+		var weakset = new WeakSet();
+		let aobj = {a:'aa'};
+		let bobj = new String("你好");
+		let cobj = new Number(8);
+		weakset.add(aobj);
+		weakset.add(bobj);
+		weakset.add(cobj);
+		//不可遍历  不可取值
+		//可以判断
+		console.log(weakset.has(aobj));
+		weakset.delete(aobj);
+		console.log(weakset.has(aobj));
+		//垃圾回收机制
+		bobj = null;//外部回收后内部不需要管
+		console.log(weakset.has(aobj));
+
+	</script>
+</body>
+</html>

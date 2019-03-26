@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<!-- cols 占列的多少。rows 占行的多少。 * 剩余部分 noresize 不可拖动 -->
+<frameset rows="50%,*" border="5">
+	<frame src="..html" name="...name" noresize="noresize"></frame>
+	<frameset ols="25%,*">
+	</frameset>
+
+	<noframes>
+		<body>
+			此浏览器不支持框架集
+		</body>
+	</noframes>
+</frameset>
+
+<!--<frameset>和<body> 不能同时出现  -->
+	<!-- 特殊情况 -->
+	<!-- 在<frameset>中使用了<noframes> -->
+
+内嵌框架 常用属性。frameborder:0/1是否显示边框
+name： frame_name 规定iframe的名字
+scrolling： yes no suto   是否显示滚动条
+src： URL 规定在iframe中显示的文档url
+语法如下
+<body>
+	<iframe width="100%" height="500px" src="引用页面地址" name="框架标识" frameborder="0"></iframe>
+	<p><a href="http://www.baidu.com" target="框架标识">点击</a></p>
+</body>
+
+
+</html>

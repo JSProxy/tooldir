@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+      <p>今日的温度:{{wendu}}<sup>。</sup></p>
+      <p>穿衣建议:{{yifu}}</p>
+      <button @click="up">up</button>
+      <button @click="down">down</button>
+    </div>
+    <script>
+
+    
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"Hello world",
+        wendu:14,
+        yifu:"夹克长裙"
+      },
+      watch: {
+        // wendu:function(newvalue,oldvalue){
+
+        //   if(25>newvalue && newvalue>10){
+        //    this.yifu = "夹克长裙";
+        //   }else if(newvalue>25){
+        //     this.yifu = "短袖短裤";
+        //   }else{
+        //     this.yifu = "长库棉衣";
+        //   }
+        // }
+      },
+      methods:{
+        up(){
+          this.wendu++;
+        },
+        down(){
+          this.wendu--;
+        }
+      }
+
+    })
+
+    app.$watch('wendu',function(newvalue,oldvalue){
+
+      if(25>newvalue && newvalue>10){
+           this.yifu = "夹克长裙";
+          }else if(newvalue>25){
+            this.yifu = "短袖短裤";
+          }else{
+            this.yifu = "长库棉衣";
+          }
+    })
+    </script>
+  </body>
+</html>

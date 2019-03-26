@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+     {{newprice}}
+
+     <div v-for="item in newlist">{{item.title}}-{{item.date}}</div>
+
+     <button @click="add(5,$event)">5</button>
+     <btn @click.native="add(6,$event)"></btn>
+    </div>
+    
+    <script>
+
+    var list = [
+      {title:"ccccc",date:"2019/03/01"},
+      {title:"aaaaa",date:"2019/01/01"},
+      {title:"bbbbb",date:"2019/02/01"}
+      ];
+
+    var btn = {
+      template:`<button>子组件调用父组件的方法</button>`
+    }
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"Hello world",
+        price:100,
+        list:list
+      },
+      components:{
+        btn
+      },
+      // 计算属性
+      computed: {
+      newprice:function(){
+          return "¥"+this.price+"元";
+      },
+      newlist:function(){
+        var sortarr = this.list;
+        return sortarr.sort((a,b)=>{
+          var v1  = a.date;
+          var v2 =  b.date;
+          return (new Date(v1)).getTime()-(new Date(v2)).getTime()
+        })
+      }
+      },
+      methods:{
+        add(num,event){
+          console.log(num);
+          // console.log(event);
+        }
+      }
+    })
+    </script>
+  </body>
+</html>

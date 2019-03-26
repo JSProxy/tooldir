@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动画特效</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+
+    <style>
+        *{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        input{
+            border: 1px solid gray;
+            font-size: 13px;
+            padding: 4px;
+            color: orange;
+        }
+        #block{
+            position: relative;
+            left: 20px;
+            background-color: orangered;
+            border: 1px solid yellow;
+            height: 140px;width: 180px;
+            text-align: center;
+        }
+        #menu2 li{
+            position: relative;
+            height: 50px;
+            width: 120px;
+        }
+        #menu2 ul{
+            position: absolute;
+            width: 120px;
+        }
+        #menu2 li a{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: block;
+            height: 50px;
+            width: 120px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+        }
+        .nav1 a{background-color: red}
+        .nav2 a{background-color: indianred}
+        .nav3 a{background-color: aquamarine}
+        .nav4 a{background-color: greenyellow}
+        .nav5 a{background-color: #00aaee}
+        .nav6 a{background-color: royalblue}
+        .nav7 a{background-color: peru}
+        .nav8 a{background-color: purple}
+        .nav9 a{background-color: seagreen}
+        .nav10 a{background-color: orangered}
+
+    </style>
+</head>
+<body>
+<div id="animation">
+    <input type="button" value="hide">
+    <input type="button" value="show">
+    <input type="button" value="toggle">
+    <input type="button" value="fadein">
+    <input type="button" value="fadeout">
+    <input type="button" value="fadetoggle">
+    <input type="button" value="fadeto">
+    <input type="button" value="slideup">
+    <input type="button" value="slidedown">
+    <input type="button" value="slidetoggle">
+    <p><img src="../images/1.jpg" alt="图片"></p>
+</div>
+<button id="go1">Go1>></button><button id="go2">Go2>></button><button id="go3">Go3>></button>
+<div id="block">动画!</div>
+
+<div id="menu">
+    <ul>
+        <li>第一章 JavaScript简介</li>
+        <li>第二章 JavaScript基础</li>
+        <li>第三章 css基础
+        <ul>
+            <li>1</li>
+            <li>2
+                <ul>
+                    <li>2.1</li>
+                    <li>2.2</li>
+                </ul>
+            </li>
+            <li>3</li>
+        </ul>
+        </li>
+        <li>第四章 CSS进阶
+            <ul>
+                <li>4.1</li>
+                <li>4.2</li>
+                <li>4.3
+                    <ul>
+                        <li>4.3.1</li>
+                        <li>4.3.2</li>
+                        <li>4.3.3</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<div id="menu2">
+    <ul id="navigation">
+        <li class="nav1" title="title1"><a href="#">item1</a></li>
+        <li class="nav2" title="title2"><a href="#">item2</a></li>
+        <li class="nav3" title="title3"><a href="#">item3</a></li>
+        <li class="nav4" title="title4"><a href="#">item4</a></li>
+        <li class="nav5" title="title5"><a href="#">item5</a></li>
+        <li class="nav6" title="title6"><a href="#">item6</a></li>
+        <li class="nav7" title="title7"><a href="#">item7</a></li>
+        <li class="nav8" title="title8"><a href="#">item8</a></li>
+        <li class="nav9" title="title9"><a href="#">item9</a></li>
+        <li class="nav10" title="title10"><a href="#">item10</a></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+/*show([speed,[easing],[fn]])
+   hide() 元素显示和隐藏,同时修改多个样式,高度，宽度，透明度
+   toggle([speed,[easing],[fn]])代替 show和hide
+
+   slideDown() 元素从上倒下和从下到上显示只改变高度
+   slideUp()
+   slideToggle()代替down和up
+
+   fadeIn()元素淡出淡入，只改变透明度
+   fadeOut()
+
+   fadeTo([speed,opacity,[easing],[fn]])元素淡入指定透明度
+
+   fadeToggle()代替fadein和fadeOut
+* */
+
+$("#animation input:eq(0)").click(function () {
+    // $("#animation img").hide("fast");
+    $("#animation img").hide(3000,function () {
+        alert("完成hide");
+    });//3秒
+})
+$("#animation input:eq(1)").click(function () {
+    $("#animation img").show(3000,function () {
+        alert("完成show");
+    });//3秒
+})
+$("#animation input:eq(2)").click(function () {
+    $("#animation img").toggle(3000,function () {
+        alert("完成toggle");
+    });//3秒
+})
+$("#animation input:eq(3)").click(function () {
+    $("#animation img").fadeIn(3000,function () {
+        alert("完成fadeIn");
+    });//3秒
+})
+$("#animation input:eq(4)").click(function () {
+    $("#animation img").fadeOut(3000,function () {
+        alert("完成fadeOut");
+    });//3秒
+})
+$("#animation input:eq(5)").click(function () {
+    $("#animation img").fadeToggle(3000,function () {
+        alert("完成fadeToggle");
+    });//3秒
+})
+$("#animation input:eq(6)").click(function () {
+    $("#animation img").fadeTo(3000,0.2,function () {
+        alert("完成fadeTo");
+    });//3秒
+})
+$("#animation input:eq(7)").click(function () {
+    $("#animation img").slideUp(3000,function () {
+        alert("完成slideUp");
+    });//3秒
+})
+$("#animation input:eq(8)").click(function () {
+    $("#animation img").slideDown(3000,function () {
+        alert("完成slideDown");
+    });//3秒
+})
+$("#animation input:eq(9)").click(function () {
+    $("#animation img").slideToggle(3000,function () {
+        alert("完成slideToggle");
+    });//3秒
+})
+
+    /*自定义动画
+    animate(parmas,speed,callback);
+    1,params 一个包含样式属性映射，比如{"c1":"value1",...}
+    2,speed速度参数
+    3,回调函数
+    $(this).animate({left:"500px",height:"200px"},3000,function(){});
+    $(this).animate({left:"500px"},3000,function(){}).animate({left:"500px"},3000,function(){});
+    * */
+    $("#go1").click(function () {
+        $("#block").animate({opacity:"0.5",width:"80%",height:"200px",borderWidth:"10px",fontSize:"30px",marginTop:"40px",marginLeft:"20px"},3000,function () {
+
+        })
+    });
+$("#go2").click(function () {
+    $("#block").animate({opacity:"0",width:"0",height:"0"},3000,function () {
+
+    })
+});
+//先后顺序
+    $("#go3").click(function () {
+    $("#block").animate({left:"400px"},2000).animate({top:"300px"},2000).animate({opacity:"0.5"},2000,function () {
+
+        alert("动画完成");
+    })
+});
+/*停止动画
+stop（[clearQueue],[goToEnd]）
+stopALL 清楚队列
+无参数则结束当前执行的动画.
+1,设置成true 则清空未执行完的动画队列,可以立即结束动画
+2 让当前正在执行的动画立即完成
+判断元素是否处于动画
+$("div").is(":animated")
+延时动画delay()
+$("div").slideUp(300).delay(800).fadeIn(400);
+* */
+$("#menu li:has("ul")").click(function () {
+    // if ($(this).children().is(":hidden")){
+    //     $(this).children().show();
+    // }else {
+    //     $(this).children().hide();
+    // }
+    $(this).children().toggle();
+    return false;
+})
+
+$("#menu2 li").each(function () {
+
+    //$("a",this)这个写法和$(this,"a")有区别
+
+    if (!$(this).hasClass("nav1")){
+      $("a",this).css("left","-120px");
+        $(this).hover(function () {
+
+            $("a",this).stop(true);//停止队列动画 鼠标来回后就不会一直触发队列里的动画
+            $("a",this).animate({"left":"0px"},"fast")
+        },function () {
+            $("a",this).animate({"left":"-120px"},"fast")
+        })
+    }
+});
+
+</script>

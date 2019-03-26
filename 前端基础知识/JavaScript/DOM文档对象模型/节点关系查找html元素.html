@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用节点关系查找html元素</title>
+    <style type="text/css">
+        #n4{color:red;}
+    </style>
+</head>
+<body>
+    <ui id="names">
+        <li id="n1">n1</li>
+        <li id="n2">n2</li>
+        <li id="n3">n3</li>
+        <li id="n4">n4</li>
+        <li id="n5">n5</li>
+        <li id="n6">n6</li>
+    </ui>
+    <!--空格也算一个节点-->
+    <input type="button" value="父节点" onclick="show1(current.parentNode)"/>
+    <input type="button" value="第一个子节点" onclick="show1(current.parentNode.firstChild.nextSibling)"/>
+    <input type="button" value="上一个子节点" onclick="show1(current.previousSibling.previousSibling)"/>
+    <input type="button" value="下一个子节点" onclick="show1(current.nextSibling.nextSibling)"/>
+    <input type="button" value="最后一个子节点" onclick="show1(current.parentNode.lastChild.previousSibling)"/>
+    <input type="button" value="得到所有li元素的个数" onclick="showCount()"/>
+
+    <script type="text/javascript">
+
+        var current=document.getElementById("n4");
+        function show1(target) {
+            alert(target.innerHTML);
+        }
+
+        function showCount() {
+            alert(document.getElementsByTagName("li").length);
+        }
+    </script>
+</body>
+</html>

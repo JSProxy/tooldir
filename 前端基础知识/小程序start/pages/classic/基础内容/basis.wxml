@@ -1,0 +1,32 @@
+<view class='container' hidden="{{flag ? true : false}}">hidden</view>
+<view wx:if="{{condition === 1}}">{{condition}}</view>
+<view wx:elif="{{condition === 2}}">{{condition}}</view>
+<view wx:else>{{condition}}</view>
+
+
+<!-- 模版 -->
+<template name="tempItem">
+<view>
+<view>收件人: {{name}}</view>
+<view>联系方式: {{phone}}</view>
+<view>地址: {{address}}</view>
+</view>
+</template>
+
+<template is="tempItem" data="{{...item}}">
+
+</template>
+
+
+<!-- 模版引用 -->
+<!-- 只引入模版内的内容 -->
+<!-- 模版引入 有作用域的问题  -->
+<import src="templateTest"></import>
+<template is="Temp"></template>
+
+<!-- 会引入所有内容 -->
+<include src="templateTest"></include>
+<template is="Temp"></template>
+
+<!-- 内联样式  动态属性 写在里面-->
+<view style='width:500px;height:30px;background-color:{{colorValue}};'> 内联样式</view>

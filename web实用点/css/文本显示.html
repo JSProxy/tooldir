@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文本显示</title>
+    <style type="text/css">
+    .oneptext {
+        width: 300px;
+        overflow: hidden;
+        /*  nowrap 不换行 
+			white-space:pre的作用是保持源码中的空格，有几个空格算几个空格显示，同时换行只认源码中的换行和<br/>标签。
+			white-space:pre-wrap的作用是保留空格，并且除了碰到源码中的换行和<br/>会换行外，还会自适应容器的边界进行换行。
+			*/
+        white-space: nowrap;
+        /* 字符间隔 */
+        letter-spacing: 5px;
+        text-overflow: ellipsis;
+        /* 
+			clip:表示不显示省略文本，简单的裁切。
+			ellipsis:表示对象文本溢出时显示省略标记，省略标记插入的位置是最后一个字符。
+			ellipsis-word：表示当对象文本溢出时显示省略标记，省略标记插入的位置是最后一个词（word）。
+
+			 */
+        border: solid red 1px;
+    }
+
+    /* 多行显示 */
+    .moreptext{
+    width: 300px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden; 
+    border: solid green 1px;
+    }
+	.moreptext2{
+		width: 300px;
+		height: 300px;
+   }
+	.jstext{
+	width: 300px;
+	border: solid orange 1px;
+	}
+    </style>
+</head>
+
+<body>
+    <div>
+		flex后:	float、clear和vertical-align 失效
+        <div class="oneptext">
+            《枫桥夜泊》是唐朝安史之乱后，诗人张继途经寒山寺时，写下的一首羁旅诗。
+        </div>
+        <div class="moreptext">
+        	枫桥夜泊》是唐朝安史之乱后，诗人张继途经寒山寺时，写下的一首羁旅诗。在这首诗中，诗人精确而细腻地讲述了一个客船夜泊者对江南深秋夜景的观察和感受，勾画了月落乌啼、霜天寒夜、江枫渔火、孤舟客子等景象，有景有情有声有色。
+        </div>
+
+        <div class="moreptext2">
+        	枫桥夜泊》是唐朝安史之乱后，诗人张继途经寒山寺时，写下的一首羁旅诗。在这首诗中，诗人精确而细腻地讲述了一个客船夜泊者对江南深秋夜景的观察和感受，勾画了月落乌啼、霜天寒夜、江枫渔火、孤舟客子等景象，有景有情有声有色。
+        </div>
+        
+		<div id="jstext" class="jstext">
+			《枫桥夜泊》是唐朝安史之乱后，诗人张继途经寒山寺时，写下的一首羁旅诗。在这首诗中，诗人精确而细腻地讲述了一个客船夜泊者对江南深秋夜景的观察和感受，勾画了月落乌啼、霜天寒夜、江枫渔火、孤舟客子等景象，有景有情有声有色。
+		</div>
+		<div class="flex-box">
+			<div class="leftimage">
+			</div>
+			<div class="right-content">
+				<div class="title">哈哈</div>
+				<div class="content">勾画了月落乌啼、霜天寒夜、江枫渔火、孤舟客子等景象，有景有情有声有色</div>
+			</div>
+		</div>
+    </div>
+<style type="text/css">
+	.flex-box{
+		display:flex;
+		width: 300px;
+		height: 100px;
+		border: solid pink 1px;
+		padding: 5px 5px
+	}
+	.leftimage{
+		width: 100px;
+		height: 100px;
+		background: orange;
+	}
+	.right-content{
+	flex: 1;
+	border: solid red 1px;
+    white-space: nowrap;      /*必须添加*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+	.title,.content{
+	white-space: nowrap;      /*这三句不加的话没有‘...’,但是也会单行显示*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+</style>
+
+    <script type="text/javascript">
+    	var el = document.getElementById("jstext");
+    	el.style.lineHeight = "20px";
+    	console.log(el.offsetHeight);
+    	if (el.offsetHeight>60) {
+    		el.style.height = "60px";
+    		el.style.overflow = "hidden"
+    	}
+    </script>
+</body>
+
+</html>

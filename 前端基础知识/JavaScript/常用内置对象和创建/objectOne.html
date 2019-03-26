@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date</title>
+    <script type="text/javascript">
+        // 创建Date的对象方法
+        // new Date();
+        // new Date(month dd,yyyy hh:mm:ss);
+        // new Date(yyyy,month,dd,hh,mm,ss);
+        // new Date(yyyy,mth,dd);
+        // new Date(ms);时间挫，1970-1-1到现在的毫秒数
+        // var d1=new Date();
+        // document.write(d1.toString()+"<br/>");
+        // var d2=new Date("2017-09-09 12:12:12");
+        // document.write(d2.toString()+"<br/>");
+        // var d3=new Date("2017,09,09");
+        // document.write(d3.toString()+"<br/>");
+        var d=new Date();
+        d.setFullYear(2011);
+        d.setMonth(3);
+        d.setDate(1);
+        var year=d.getFullYear();
+        var month=d.getMonth();
+        var date=d.getDate();
+        var day=d.getDay();
+        // d.getHours()//返回小时
+        // d.getMinutes()//返回分钟
+        // d.getSeconds()//返回秒
+        // d.getTime()//返回1970-1-1至今的毫秒数。
+        switch (day){
+            case 0:
+                day="星期日";
+                break;
+            case 1:
+                day="星期一";
+                break;
+            case 2:
+                day="星期二";
+                break;
+            case 3:
+                day="星期三";
+                break;
+            case 4:
+                day="星期四";
+                break;
+            case 5:
+                day="星期五";
+                break;
+            case 6:
+                day="星期六";
+                break;
+            default:
+                day="错误日期";
+                break;
+        }
+        // document.write("今天是"+year+"年，"+month+"月，"+date+"号，"+day);
+    // Math对象的常用方法
+    //     abs(x);返回绝对值
+    //     ceil(x);对数进行上舍入
+    //     floor(x);对数进行下舍入
+    //     max(x,y)返回x和y中的最高值
+    //     min(x,y)返回x和y中的最小值
+    //     pow(x,y)返回x的y次幂
+    //     random()返回0-1之前的随机数
+    //     round(x)把数四舍五入为最接近的整数。
+    //     sqrt(x)返回平方根。
+
+        // 对象创建
+        // 1，使用new关键字调用构造器创建对象
+        // function Student(name,age) {
+        //     this.name=name;
+        //     this.age=age;
+        // }
+        // var s1=new Student();//没有参数
+        // var s2=new Student("zf","24");
+        // document.write(s1.name+"--"+s1.age+"<br/>");
+        // document.write(s2.name+"--"+s2.age+"<br/>");
+        //2使用Objext直接创建对象
+        // var myobj=new Object();
+        // myobj.objname="zf";
+        // myobj.objage="24";
+        // myobj.info=function () {
+        //     document.write("我的名字:"+this.objname+"<br/>");
+        //     document.write("今年:"+this.objage+"岁<br/>");
+        // }
+        //    function abc() {
+        //        document.write("我的名字:"+this.objname+"<br/>");
+        //        document.write("今年:"+this.objage+"岁<br/>");
+        //
+        //    }
+        //    myobj.info=abc;
+        //    myobj.info();
+        // 3,JSON语法创建对象
+        // object={属性名1:属性值1,属性名2:属性值2};
+
+        var p={
+            "name":"zf",
+            "gender":"male",
+            "son":[{
+                "name":"jack",
+                "age":2
+            },{
+                "name":"rose",
+                "age":3
+            }],
+            "info":function () {
+               document.write("name:"+this.name+"sex:"+this.gender+"<br/>");
+               for (var child in this.son)
+               {
+                   document.write("儿子:"+this.son[child].name+",年龄:"+this.son[child].age+"<br/>");
+
+               }
+            }
+        };
+        p.info();
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

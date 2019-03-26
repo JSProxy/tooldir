@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    <!--ie中的事件监听方法-->
+    <!--[object].attachEvent("事件类型","处理函数")//添加监听-->
+    <!--[object].detachEvent("事件类型","处理函数")//取消监听-->
+    <!--标准DOM中的事件监听方法-->
+    <!--[object].addEventListener("事件类型","处理函数","冒泡或者捕获true/false")-->
+    <!--[object].removeEventListener("事件类型","处理函数","冒泡或者捕获true/false")-->
+    <!--ie和标准DOM 的监听方法中的事件类型写法不同-->
+    <!--前者"on"开头，比如"onclick"，"onmousemove"-->
+    <!--后者则是去掉"on";-->
+</head>
+
+<body>
+    <!--阻止元素默认行为-->
+    <a href="http://www.baidu.com" onclick="return false">点击</a>
+    <input type="button" value="测试1" id="mytest1" onclick="test1()" />
+    <button type="button" id="test02"><b>测试2</b></button>
+    <input type="button" value="监听" id="lisOne" />
+    <button type="button" value="删除监听" id="movelis"><b>删除监听</b></button>
+    <script type="text/javascript">
+    function test1() {
+        alert("test");
+    }
+
+    function test2() {
+        alert("test");
+    }
+    document.getElementById("test02").onclick = test2;
+
+    function showIe() {
+        alert("hello ie");
+
+    }
+
+    function showieChrome() {
+        alert("hello chrome");
+
+    }
+    //window.onload 表示当页面全部解析后解析
+    window.onload = function() {
+        //只能在IE上用
+        /*document.getElementById("lisOne").attachEvent("onclick",showIE);
+        document.getElementById("movelis").onclick=function ()
+        {
+            document.getElementById("lisOne").detachEvent(onclick,showIe);
+        }*/
+        document.getElementById("lisOne").addEventListener("click", showieChrome, true);
+        document.getElementById("movelis").onclick = function() {
+            document.getElementById("lisOne").removeEventListener("click", showieChrome, true);
+        }
+
+
+    }
+    </script>
+</body>
+
+</html>

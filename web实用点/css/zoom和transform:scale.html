@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>zoom or transfrom:scale</title>
+</head>
+<body>
+
+	<h1>zoom zoom可以给IE6/IE7浏览器增加haslayout, 用来清除浮动，修复一些布局上的疑难杂症等。
+	zoom：1	使用对象实际尺寸.
+    </h1>	
+	<div style="font-size:0px; background-color: orange;">
+	<img style="zoom:0.3;"src="source/images/logo.png">
+    </div>	
+  	<p>放大0.3倍</p>
+
+  	<div style="font-size:0px; background-color: orange;">
+	<img style="transform: scale(1,0.5);"src="source/images/logo.png">
+    </div>	
+  	<p>transform: scale 放大s缩小 对比 实际尺寸还会暂居位置</p>
+
+  	<div style="transform: scale(0.5,0.5);font-size:0px; background-color: orange;">
+	<img src="source/images/logo.png">
+    </div>
+</body>
+</html>

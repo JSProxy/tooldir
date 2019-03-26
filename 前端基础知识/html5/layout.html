@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>基本布局</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <!--不进行缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--兼容ie-->
+    <!--[if IE]>
+    <script src="./html5.js"></script>
+    <![endif]-->
+    <style>
+        .width{
+            max-width: 1200px;
+            min-width: 720px;
+        }
+        .mainheader{
+            margin: auto;
+            min-height:100px;
+            background-color: #22cc77;
+        }
+        .mainnav{
+            margin: auto;
+            min-height:40px;
+            background-color: pink;
+        }
+        .mainsection{
+            margin: auto;
+            height:600px;
+            line-height: 600px;
+            background-color: orange;
+        }
+
+        .leftaside{
+            float: left;
+            width: 30%;
+            margin-left: 10px;
+            margin-top: 75px;
+            min-height: 450px;
+            background-color: blanchedalmond;
+        }
+        .mainarticle{
+            width:60%;
+            margin-top: 75px;
+            margin-right: 10px;
+            min-height: 450px;
+            float: right;
+            background-color: red;
+        }
+        .subarticle{
+            width: 60%;
+            height:350px;
+            margin-top: 50px;
+            margin-left: 10px;
+            float: left;
+            background-color: darkgreen;
+        }
+        .subaside{
+            width: 30%;
+            height:350px;
+            margin-top: 50px;
+            margin-right: 10px;
+            float: right;
+            background-color: deeppink;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<!-- 为了兼容  全部用class  id 给js 用
+除了为了兼容 不要破坏标签自带样式,也不要给标签附加样式
+-->
+<!--<div class="header"></div>-->
+<!--<div class="content"></div>-->
+<!--<div class="footer"></div>-->
+<header class="mainheader width">
+</header>
+<nav class="mainnav width"></nav>
+
+<section class="mainsection width">
+
+    <aside class="leftaside">
+    </aside>
+    <article class="mainarticle">
+
+        <article class="subarticle">
+            <header></header>
+            <article></article>
+            <footer></footer>
+        </article>
+        <aside class="subaside">
+
+        </aside>
+        <div class="clear"></div>
+    </article>
+    <div class="clear"></div>
+</section>
+
+<footer>
+    <dl>
+        <dt>通栏</dt>
+        <dd>分栏</dd>
+    </dl>
+</footer>
+</body>
+</html>
+一般来说屏幕有这么几种
+ 宽屏 1200px
+ 标准 1024px
+ 平板 720px-1024px
+ 移动：<=720px

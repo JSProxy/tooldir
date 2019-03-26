@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数讲解</title>
+    <script type="text/javascript">
+        // 1,命名函数
+        // function 函数名(参数列表) {
+        //     执行语句；
+        // }
+        // 2，匿名函数
+        // function (参数列表) {
+        //     执行语句
+        // }
+        //这种方式 用的很少
+        //  (function (name)
+        // {
+        //     alert("匿名函数\n你好："+name);
+        // })(name);
+        // 一般我们把这样的函数 赋值一个变良
+        // var f = function (name)
+        // {
+        //     alert("匿名函数\n你好："+name);
+        // }
+        // f("张峰帅");
+        // 3,使用function 构造匿名函数,
+        //    new Function (参数列表 函数执行体);
+        //  var f=new Function ("name","age",
+        //     "alert("名字:"+name+",年龄:"+age);");
+         // f("张峰帅",34);
+         // alert(typeof f);
+         // alert(f instanceof Function);
+         //
+         // window.f ("张峰",24);
+
+        //  javaScript 不声明返回类型和值。
+        // 当函数需要返值时只需要加上:return "值";语句就可以了。
+        //
+        // 局部变量和局部函数:
+        // 直接定义的变量是全局变量，在函数内定义的变量是局部变量，
+        // 局部变量只在函数内有效，如果局部变量和全局变量使用的函数名一样的话，则局部变量将覆盖全局变量。
+        // 局部函数实在函数内定义的，外部函数函数可以直接调用内部函数，
+        // 在外部函数外直接调用函数是不允许的。所以只有外部函数被调用时内部函数才会被调用
+
+        // function show1() {
+        //   // return "张峰";
+        //     return function () {
+        //         alert("张峰");
+        //     }
+        // }
+        // var f=show1();
+        // // alert(f);
+        // f ();
+
+        // var name="zhangfeng";//全局变量
+        // function show2() {
+        //     var name="zhangsan";
+        //     var age=24;
+        //     alert(name+"--"+age);
+        // }
+        // alert(name);
+        // alert(age);//报错
+        // show2(); 局部变量覆盖全局变量
+        //
+        //闭包 有权反问作用域的变量。
+        // function show4()
+        // {
+        //   var n=1;
+        //   function f2() {
+        //      alert(n);
+        //   }
+        //   return f2;
+        // }
+        // alert(n);//报错
+        // var f=show4();
+        // f ();
+
+        // 调用函数的方法
+        // 1，对象：函数引用
+        // 当声明一个函数没有指定给哪个对象使用的时候，默认分配给window
+        // 2，以call方式调用函数
+        // 函数引用：call（调用者，参数1，参数2......）;
+        // 3,以apply方法调用函数
+        // 函数引用.apply(调用者,arguments)
+        // argyments相当于是数组，用来存放多个参数，和call调用方式类似。
+        // function show(name,age) {
+        //     alert("你好:"+name+"今年:"+age);
+        // }
+        // window.show("zf","24");
+        // show.call(window,"zf","24");
+        // show.apply(window,["zf","24"]);
+
+        function show(arr,func) {
+            // func.call(window,arr);
+            func.apply(window,[arr]);
+
+        }
+        show([1,2,3,4],function (arr){
+            for (oo in arr)
+            {
+                document.write(arr[oo]+"<br/>");
+            }
+        })
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

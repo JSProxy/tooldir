@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+
+		class Register{}
+		let r = new Register();
+		r.id = 3;
+		r.name = "长房";
+
+		//代理了r 这个对象
+		let protocol = new Proxy(r,{
+
+			get:function(target,key){
+
+				console.log("diaoGet");
+				return target[key];
+			},
+			set:function(target,key,value)
+			{
+				console.log("diaoSet");
+				console.log("set:"+key);
+				console.log("value:"+value);
+
+				if(key=="id")
+				{
+
+					if (value==15) 
+					{
+						target["prefix"] = "此人是逃犯";
+					}else 
+					{
+						target["prefix"] ="";
+					}
+				}
+
+				if (key=="name") 
+				{
+					value = value+target["prefix"];
+				}
+
+
+				target[key]=value;
+
+				return Reflect.set(target,key,value);
+			}
+		});
+
+		protocol.id = 15;
+		protocol.name = "山";
+		console.log(r.name);
+
+
+	//Proxy 对象方法列表
+	//
+	//
+	let protocol2 = new Proxy(r,{
+		get:function(){//拦截属性读取操作
+		},
+		set:function(){//拦截属性设置操作
+		},
+		applay:function(){//拦截Proxy实例作为函数调用的操作
+		},
+		construct:function(){
+			//拦截Proxy实例作为构造函数调用的操作
+		},
+		definProperty:function(){//拦截Object.definProperty操作
+		},
+		deleteProperty:function(){//拦截delete删除属性操作
+		},
+		getOwnPropertyDescriptor:function(){//拦截Object.OwnPropertyDescriptor操作
+		},
+		getPrototypeOf:function(){//拦截原型对象操作
+		},
+		has:function(){//拦截属性检索器操作操作
+		},
+		isExtensible:function(){//拦截isExtensible操作
+		},
+		ownKeys:function(){//拦截Object.OwnPropertyNames操作
+		},
+		preventExtensions:function(){//拦截Object.preventExtensions操作
+		},
+		setPrototypeOf:function(){
+
+		},
+		// Proxy.revocable:function(){
+		// 	//创建一个可以取消的proxy 实例
+		// }
+
+
+
+	})
+	
+	</script>
+</body>
+</html>

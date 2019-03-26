@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>常用选择器</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+    <!--常用基本选择器-->
+    <!--#id-->
+    <!--.classname-->
+    <!--classname-->
+    <!--* 匹配所以元素-->
+    <!--select1,select2 将每一个元素合并并一起返回-->
+
+    <!--常用层次选择器-->
+    <!--ancestor descendant;选取ancestor元素里所有的descendant元素-->
+    <!--parent>child:获取parent元素下的child元素-->
+    <!--prev+next：选取紧接着prev元素后的next元素-->
+    <!--prev～siblings：选取prev元素之后的所有siblings元素。-->
+
+</head>
+<body>
+<input type="text" id="ID" value="根据ID选择"/>
+<a href="#">根据元素名称选择</a>
+<input type="text" class="classname" value="根据元素css类名选择">
+
+<div id="divText">
+    <input type="text" value="投资"/>
+    <input type="text"  id="next"value="text"/>
+    <input type="text" value="当地"/>
+    <input type="text" title="学习" value="学习"/>
+    <a href="#">1<input type="text" value="股票"/></a>
+    <a href="">2<a href="">3</a></a>
+</div>
+</body>
+</html>
+<script>
+$(function () {
+    // alert($("#ID").val());
+    // alert($("a").html());
+    // alert($(".classname").val());
+    // alert($("*").length);
+    // alert($("input,a").length);
+
+
+    // alert($("#divText a").length);
+    // alert($("#divText>input").length);
+    // alert($("#next+input").length);
+    // alert($("#next~input").length);
+
+})
+
+
+
+
+</script>

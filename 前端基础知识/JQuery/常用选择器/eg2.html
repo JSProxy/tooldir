@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>基本过滤选择器</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script  src="../../source/jquery-2.1.4/jquery.js"></script>
+
+
+    <!--常用过滤选择器-->
+    <!--:first选取第一个元素-->
+    <!--:last选取最后一个元素-->
+    <!--:not(selector)去除所有与给定选择器匹配的元素。-->
+    <!--:even选取索引值为偶数的所有元素，从0开始技术-->
+    <!--:odd选取索引值为奇数的所有元素-->
+    <!--:eq(index)匹配一个给定索引值元素-->
+    <!--:gt(index)匹配大于给定索引值元素-->
+    <!--:lt(index）匹配小雨给定索引值元素-->
+    <!--:header选择h1,h2,h3一类的标签-->
+    <!--:animated匹配正在执行动画效果的元素-->
+</head>
+<body>
+<div>
+    <ul>
+        <li>nub1</li>
+        <li>nub2</li>
+        <li>nub3</li>
+        <li>nub4</li>
+        <input type="radio" value="学习" checked="checked"/>学习
+        <input type="radio" value="不学习"/>不学习
+        <h1>header1</h1>
+        <h2>header2</h2>
+    </ul>
+</div>
+
+</body>
+</html>
+<script>
+    $(function () {
+
+        // alert($("li:first").html());
+        // alert($("li:last").html());
+        alert($("ul input:not(:checked)").val());
+        // alert($("ul input:not(.classname)").val());
+        // alert($("li:even").get(1).innerHTML);
+        // alert($("li:odd").get(1).innerHTML);
+
+        // alert($("li:eq(2)").html());
+        // alert($("li:gt(1)").length);
+        // alert($("li:lt(3)").length);
+        alert($(":header").length);
+    })
+
+</script>

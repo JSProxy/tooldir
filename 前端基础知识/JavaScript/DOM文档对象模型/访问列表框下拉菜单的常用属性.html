@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM访问列表框，下拉菜单的常用属性</title>
+
+    <!--DOM访问列表框，下拉菜单的常用属性
+    form 返回列表框，下拉菜单所在的表单对象
+    length 返回列表，下拉菜单的选项个数
+    options返回所有选项组的数组
+    selectedIndex返回选中项索引
+    type 返回类型，多选返回select-multiple,单选select-one
+
+    使用options[index]返回选项所对应的常用属性
+    defaultSelected 返回该选项默认被选中
+    index 返回选项在列表的索引
+    selected 返回该选项是否被选中
+    text 返回选项呈现文本
+    value 返回选项value的值-->
+</head>
+<body>
+    <select id="city" name="city" >
+        <option value="beijing">北京</option>
+        <option value="tianjing" selected="selected">天津</option>
+        <option value="nanjing">南京</option>
+        <option value="shenzhen">深圳</option>
+        <option value="wuhan">武汉</option>
+        <optgroup label="sss">
+            <option value="sss">ss</option>
+        </optgroup>
+    </select>
+    <input type="button" value="第一个城市" onclick="change(s_city.options[0])"/>
+    <input type="button" value="上一个城市" onclick="change(s_city.options[s_city.selectedIndex-1])"/>
+    <input type="button" value="下一个城市" onclick="change(s_city.options[s_city.selectedIndex+1])"/>
+    <input type="button" value="最后一个城市" onclick="change(s_city.options[s_city.length-1])"/>
+
+    <script type="text/javascript">
+        var s_city=document.getElementById("city");
+        var change=function (city) {
+            alert(city.value);
+        }
+    </script>
+
+
+</body>
+</html>

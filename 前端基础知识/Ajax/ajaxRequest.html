@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<script type="text/javascript">
+		/*ie7 	以下activeXobject的方式引入xmlhttprequest
+		xmlHttpReq=new ActiveXobject（"microsoft.XMLHTTP"）;
+		ie7+和其他浏览器都支持原生的XMLHttpRequest
+			xmlHttpReq=new XMLHttpRequest();
+		*/
+	
+	var xmlHttpReq;
+	function creatXHR(argument) {
+		if (window.ActiveXobject)
+		{
+			xmlHttpReq=new ActiveXobject("Microsoft.XMLHTTP");
+		}else{
+			xmlHttpReq=new XMLHttpRequest();
+		}
+	}
+	var querystr="name=zhangfeng&age=30";
+	var url1 = "login.jsp?"+querystr+"&stamptime="+new date().getTime();
+	xmlHttpReq.open("GET",url1);//准备请求
+	xmlHttpReq.send(null);//发送请求
+
+
+	var url2 = "login.jsp?"+"&stamptime="+new date().getTime();
+	xmlHttpReq.open("POST",url2);
+	xmlHttpReq.setRequestHeader("Content-Type","applicaton/x-www-form-urlencoded");
+	xmlHttpReq.send(querystr);//
+
+
+    xmlHttpReq.onreadystatechange=RequestCallBack;
+// 注册回掉函数
+// 当请求对象readystate属性改变时，会激发一个回掉事件。
+// readystate属性值。只要发生改变就会调用回调函数
+// 0 未初始化 没有调用open()
+// 1启动已经调用open()
+// 2已经调用send()但是未接收响应
+// 3接受到部分数据
+// 4完成
+
+/*在收到服务端响应的内容后，内容会填充到XHR对象的属性中。
+responseText 作为响应主体返回的文本
+responseXML如果服务器响应内容是"text/xml"或者"aplication/xml" 那就返回包含的XML
+否者返回NULL
+status 响应状态 200成功  400请求地址不存在。403无权限
+statusText http状态说明*/
+
+	</script>
+</head>
+<body>
+</body>
+</html>

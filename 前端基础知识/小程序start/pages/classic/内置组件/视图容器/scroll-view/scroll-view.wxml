@@ -1,0 +1,14 @@
+<view class="section">
+  <view class="section-title">竖向移动</view>
+  <scroll-view style='width:100%;height:200px;' scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-back-to-top="true" scroll-with-animation="true">
+  <view id="green" class="scroll-view-item"></view>
+  <view id="red" class="scroll-view-item"></view>
+  <view id="yellow" class="scroll-view-item"></view>
+  <view id="blue" class="scroll-view-item"></view>
+  </scroll-view>
+
+  <view class='btn-area'>
+    <button size="mini" bindtap="tap"> click me into view</button>
+     <button size="mini" bindtap="tapMove">click me scroll 20++</button>
+  </view>
+</view>

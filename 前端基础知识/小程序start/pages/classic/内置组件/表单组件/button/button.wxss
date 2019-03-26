@@ -1,0 +1,8 @@
+/* pages/classic/内置组件/表单组件/button/button.wxss */
+.button-hover {
+  background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  background-color: blue;
+}

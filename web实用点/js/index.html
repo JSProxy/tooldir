@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.toLocaleString::after{
+			content: attr(toLocaleString-attr)
+		}
+		.toLocaleDateString::after{
+			content: attr(toLocaleDateString-attr)
+		}
+		.toLocaleTimeString::after{
+			content: attr(toLocaleTimeString-attr)
+		}
+	</style>
+</head>
+<body>
+<p id= "toLocaleString" class="toLocaleString">toLocaleString:</p>
+<p id= "toLocaleDateString" class="toLocaleDateString">toLocaleDateString:</p>
+<p id= "toLocaleTimeString" class="toLocaleTimeString">toLocaleTimeString:</p>
+<script type="text/javascript" src="common.js">
+</script>
+<script type="text/javascript">
+	
+
+    //test
+	if (commonTool.isNumber("ssss")) {
+		// alert("是数字");
+	}else {
+		// alert("不是数字");
+	}
+	
+	var cdate = new Date();
+	//获取当前日期
+	var element_toLocaleString = document.getElementById("toLocaleString");
+	element_toLocaleString.setAttribute("toLocaleString-attr",cdate.toLocaleString());
+   //获取当前日期与时间
+	var element_toLocaleDateString = document.getElementById("toLocaleDateString");
+	element_toLocaleDateString.setAttribute("toLocaleDateString-attr",cdate.toLocaleDateString());
+	//获取当前时间
+	var element_toLocaleTimeString = document.getElementById("toLocaleTimeString");
+	element_toLocaleTimeString.setAttribute("toLocaleTimeString-attr",cdate.toLocaleTimeString());
+
+</script>
+</body>
+</html>

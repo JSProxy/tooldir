@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+
+		// 构造函数
+		var Person = function () {
+
+		};
+		// 函数对象
+		function Funobj(){
+
+		}
+		// 普通对象
+		var p1 = new Person();
+		console.log(p1.__proto__ == Person.prototype);
+		console.log(Funobj.__proto__ == Function.prototype);
+		console.log(Funobj.prototype.__proto__ == Object.prototype);
+
+		Function.prototype.getzfname = function(){
+			console.log("新增函数 姓名");
+
+		};
+		
+		Funobj.prototype.getzfage = function (){
+			console.log("新增函数 年龄");
+		};
+		Funobj.getzfname();
+
+		var fun1 = new Funobj();
+		fun1.getzfage();
+
+
+	</script>
+</body>
+</html>

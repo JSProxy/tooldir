@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>常用的内容过滤选择器</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="Test">
+    <ul>
+        <li>1投资</li>
+        <li></li>
+        <li>3</li>
+        <li>4</li>
+        <li><a href="#">kkk</a></li>
+    </ul>
+</div>
+
+<div id="Test2">
+    <ul>
+        <li>课件</li>
+        <li style="display: none">不可见</li>
+    </ul>
+</div>
+
+<div id="Test3">
+    <input type="text" name="baidu" value="百度"> <br>
+    <input type="text" name="sohu" value="搜狐"><br>
+    <input type="text" name="google" value="谷歌"><br>
+    <input type="text" name="sogou" value="搜狗"><br>
+    <input type="text" name="sina" value="新浪"><br>
+    <input type="button" name="hai tong" value="海同科技"><br>
+</div>
+
+<div id="Test4">
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+    <div>
+        <b>5</b>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+    </div>
+    <div>
+        <b>9</b>
+    </div>
+    <div>
+        <b>10</b>
+        <b>11</b>
+        <i>12</i>
+    </div>
+</div>
+
+<form action="#" name="myform" class="myform1">
+    <input type="button" value="input button"><br>
+    <input type="checkbox" value="football">足球<br>
+    <input type="checkbox" value="basketball">篮球<br>
+    <input type="file" name="upload"><br>
+    <input type="hidden" value="ok"><br>
+    <input type="image" src="../images/3.jpg"><br>
+    <input type="password" name="pass" value="111"><br>
+    <input type="radio" value="male">male<br>
+    <input type="reset" value="重置"><br>
+    <input type="submit" value="提交"><br>
+    <input type="text" name="name" value="zf"><br>
+    <input type="text" name="age" value="age"><br>
+    <select >
+        <option value="">Option1</option>
+        <option value="">Option2</option>
+    </select><br>
+    <textarea  cols="10" rows="5">多行文本</textarea><br>
+    <button type="button">button</button>
+    <input type="image" src="../images/1.jpg"><br>
+    <img src="../images/2.jpg" alt="图片"><br>
+</form>
+
+<form action="" class="myform2">
+    <input type="text" name="myname" value="zf"><br>
+    <input type="text" name="myage" value="23" disabled="disabled"><br>
+    <input type="text" name="pass" value="123"><br>
+    <input type="text" name="dog" value="阿旺" disabled="disabled"><br>
+    <input type="checkbox" name="hobby" value="football" checked="checked">足球<br>
+    <input type="checkbox" name="hobby" value="basketball">篮球<br>
+    <input type="checkbox" name="hobby" value="tennis">网球<br>
+    <select name="dropmenu" multiple="multiple">
+        <option value="1" selected="selected">浙江</option>
+        <option value="2">湖南</option>
+        <option value="3">北京</option>
+        <option value="4">天津</option>
+        <option value="5" selected="selected">上海</option>
+    </select>
+</form>
+
+</body>
+</html>
+<script>
+/*过滤内容选择器
+:contains(text);匹配包含
+:empty;匹配所有不包含自元素或者文本内容的空元素
+:has(selector);匹配含有选择器所匹配的元素的元素
+:parant;选取含有子元素或者文本的元素
+
+//常见可见性过滤元素
+:hidden;选取不可见的元素
+:visible;选取所有可见的元素
+
+//常见的属性过滤选择器
+[attribute]选取拥有此属性的元素
+[attribute=value]选取属性值等于value的元素
+[attribute!=value]不等于
+[attributt^=value]选取属性值以value开始的元素
+[attribute$=value]结束
+[attribute*=value]选取属性值包含value的元素
+[attribute～=]包含value且以空格隔开的元素
+[attribute1][attribute2]多个属性选择器合成一个复合选择器
+
+//常见的子元素过滤选择器
+:first-child:选取每一个父元素下的第一个子元素
+:first-of-type;选取同名兄妹节点的第一个子元素的所有元素
+:last-child;选取每个父元素下的最后一个元素
+:last-of-type;选取同名兄妹节点的最后一个子元素的所有元素
+:only-child;选取父元素中具有唯一的自元素的元素
+:only-of-type;选取前后无兄弟节点的子元素的所有元素
+:nth-child(index/even/odd);选取每个父元素下的第index个元素或者奇偶元素（）
+:nth-last-child(index/even/odd)选取每个父元素下的第index个子元素从最后一个往第一个数（index从1开始计算）
+
+常用表单选择器
+:input 选取所有的元素<input><textarea><select><button>
+:text选取所有的单行文本框
+:password选取所有的密码框
+:radio选取所有的单选按钮
+:checkbox选取所有复选框
+:submit选取所有提交按钮
+:image选取all图像按钮
+:reset选选all重置按钮
+:button选取所有按钮
+:file选取all上传域1的你
+
+表单对象属性过滤选择器
+:disabled 选取不可用元素
+:enabled 选取可用元素
+:checked   选取被选中的元素（单选和复选）
+:selected 选取所有被选中的选项元素（下拉列表）
+
+var $t1=$(.text :hidden)
+var $t2=$(.text:hidden)
+两者区别
+1,class为text内部所有隐藏元素
+2,class为text的隐藏元素
+ */
+
+$(function(){
+    // alert($("#Test li:contains(1)").html());
+    // alert($("#Test li:empty").length);
+    // alert($("#Test li:has(a)").html());
+    // alert($("#Test li:parent").length);
+
+
+    // alert($("#Test2 li:visible").length);
+    // alert($("#Test2 li:hidden").length);
+
+    // alert($("#Test3 input[name]").length);
+    // alert($("#Test3 input[type="text"]").length);
+    // alert($("#Test3 input[type!="text"]").length);
+    // alert($("#Test3 input[name^="s"]").length);
+    // alert($("#Test3 input[name$="hu"]").val());
+    // alert($("#Test3 input[name*="o"]").length);
+    // alert($("#Test3 input[name~="tong"]").val());
+    // alert($("#Test3 input[type^="b"][name~="hai"]").val());
+
+
+
+   // alert($("#Test4 div :first-child").text())
+   // alert($("#Test4 span:first-child").text());
+   //  alert($("#Test4 span:first-of-type").text());
+   //  alert($("#Test4 b:only-child").text());
+
+    // alert($("#Test4 span:nth-child(1)").text());
+    // alert($("#Test4 b:only-of-type").text());
+    // (奇数) alert($("#Test4 span:nth-child(odd)").text());
+
+
+    // alert($(".myform1 :input").length);
+    // alert($(".myform1 :text").length);
+    // alert($(".myform1 :radio").val());
+    // alert($(".myform1 :checkbox").length);
+    // alert($(".myform1 :reset").val());
+    // alert($(".myform1 :submit").val());
+    // alert($(".myform1 :image").length);
+    // alert($(".myform1 :button").length);
+    // alert($(".myform1 :file").length);
+
+
+    // alert($(".myform2 :text:disabled").length);
+    // alert($(".myform2 :text:enabled").length);
+    // alert($(".myform2 :input:checked").length);
+    alert($(".myform2 select :selected").text());
+
+
+
+});
+
+
+
+
+
+</script>

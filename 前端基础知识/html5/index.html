@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>新增元素</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+    <!-- 结构性元素
+    section  定义文档中的节
+    article 代表独立的完整的相关内容
+    nav 导航
+    aside 非正文内容
+    hgroup 对网页或区段section的标题元素h1-h6进行组合
+    footer 页脚
+    header 页梅
+    figure 用于元素和元素的组合 多用于对图片于图片的描述组合
+    -->
+    <!--语义性元素
+    mark 突出显示文本使用
+    progress 任务运行进度
+    time
+    details 可见或者是隐藏的细节补充
+    datalist 定义选项列表 和input 配合使用
+    ruby  定义注释 常和  rt  rn 一起使用
+    menu 菜单列表
+    command 定义用户可能调用的命令
+    -->
+</head>
+<body>
+
+<header>
+    <div id="container">
+        <nav>
+            <ul>
+                <li><a href="">item1</a></li>
+                <li><a href="">item2</a></li>
+                <li><a href="">item3</a></li>
+                <li><a href="">item4</a></li>
+                <li><a href="">item5</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="content">
+
+    <aside>
+        <div>
+        <h2>123</h2>
+        <ul>
+            <li><a href="">item1</a></li>
+            <li><a href="">item2</a></li>
+            <li><a href="">item3</a></li>
+            <li><a href="">item4</a></li>
+            <li><a href="">item5</a></li>
+        </ul>
+        </div>
+    </aside>
+
+    <section id="mycontent">
+        <div>
+            <h2></h2>
+            <p></p>
+            <p></p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+</footer>
+
+<figure>
+    <img src="" alt="">
+    <figcaption>描述内容</figcaption>
+</figure>
+<!---->
+<p>
+    <mark>I Love You</mark>
+</p>
+<progress value="22" max="100"></progress>
+<p>
+    <time datetime="2015-10-1">国庆节</time>
+</p>
+<details open="open">
+    <summary>摘要</summary>
+    <p>sssss</p>
+    <p>aaaaa</p>
+</details>
+<input list="browsers">
+<datalist id="browsers">
+    <option value="1">
+    <option value="2">
+    <option value="3">
+</datalist>
+<ruby>
+    寒
+    <rt>1</rt>
+    <rn>2</rn>
+</ruby>
+<!--<menu>-->
+    <!--<li><input type="checkbox">RED</li>-->
+<!--</menu>-->
+<!--<command type="command" lable="save" onclick="save()">save</command>-->
+</body>
+</html>

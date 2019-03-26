@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		appliction/x-www-form-urlencodede:默认编码方式，将表单控件中的值处理成url编码方式
+		mutipart/form-data:以二进制流方式来处理表单数据
+		text.plain:但表单的action属性值为mailto：url的形式时使用。
+	 -->
+	<form action="提交地址" method="提交方法" enctype="">
+		checked 设置单选复选框初始状态
+		disabled设置禁用此元素，type=“hidden”时不能指定
+		maxlength 该属性数一个数字，设置文本框允许输入的最大字符数
+		readonly 不可修改可用javascript修改
+		size 该属性是数字 指定元素的长度 
+		单行文本框<input type="text" name="单行文本框"/>
+		密码输入框<input type="password" name="密码"/>
+		隐藏域<input type="hidden" name="hidden"/>
+		单选框<input type="radio" value="上传的值" name="radio" id="控件id"/>
+		复选<input type="checkbox" name="checkbox"/>
+		图像域<input type="image" src="地址" name="可指定 width 和height">
+		文本上传<input type="file" name="">
+		提交/重置/普通按钮<input type="submit/reset/button" name="">
+		
+
+		<button type="buttom/reset/sumit">
+			普通文本，格式化文本，图像 功能更强大
+		</button>
+
+		<select name="" size="指定列表同时显示多少个列表项" multiple="设置是否允许多选" disabled="禁用">
+			<option value="选项值" selected="selected">
+				
+			</option>
+			<optgroup label="指定选项组的标签"></optgroup>
+			
+		</select>
+
+		<textarea name="" cols="高度" rows="宽度">
+			多行文本框
+		</textarea>
+
+	</form>
+</body>
+</html>

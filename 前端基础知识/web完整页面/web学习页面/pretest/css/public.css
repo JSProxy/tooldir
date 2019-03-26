@@ -1,0 +1,256 @@
+/* 全局 */
+body {font-size: 12px; margin: 0; font-family : "微软雅黑", Arial ;color: #5e5e5e; }
+a {color: #5e5e5e;text-decoration: none;cursor:pointer;/* 鼠标指针的样式*/ display:block; background-color:transparent;}
+a:hover {text-decoration: none;}
+img {border: none;}
+img, input, select {vertical-align: middle; display: inline-block;}
+ul, li {list-style: none;}
+table{border-collapse:collapse;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+td, th {margin: 0px; padding: 0;}
+input, select, textarea {font-size: 100%;}
+img, input, select {display: inline-block;}
+em { font-style: normal;  font-weight: normal;}
+.clear {clear: both;}
+.fl{ float:left}
+.fr{ float:right}
+
+input {border: 1px #ddd solid; font-family: inherit; font-size: inherit;  font-style: inherit; font-weight: inherit; vertical-align: middle; }
+
+.table_box{ line-height:35px; text-align:center}
+.table_box table{ border:1px #FFFFFF solid}
+/*下拉菜单 */
+select { border: 1px #ddd solid; padding: 2px 5px;}
+
+/* 靠左 居中  靠右 */
+.text_l{ text-align:left}
+.text_z{ text-align:center}
+.text_r{ text-align:right}
+
+/* 颜色 */
+.red_b { color: #fff; padding: 2px; background-color: #ff7676; border-radius:3px;}
+.blue_b{color: #fff; padding: 2px; background-color: #008ff3;}
+.blue_b1{color: #fff;  background-color: #008ff3;}
+.green_b { color: #fff; padding: 2px; background-color: #03b98a;}
+.green_b1 { color: #fff; padding: 2px; background-color: #009944; border-radius:3px;}
+
+.blue{color: #008ff3;}
+.red {color: #ff7676;}
+.green {color: #03b98a; padding:0 5px;}
+
+.blue_p{color: #2988cc; font-size:24px;}
+.red_p {color: #e65c5c; font-size:24px;}
+.green_p {color: #36b391; font-size:24px;}
+
+.col0{ color:#000;}
+.col1{ color:#333; font-weight:bold;}
+.col2{ color:#808080; font-weight: bold;/* 标题灰色 */}
+.col2_b{ color:#808080; font-weight: bold;/* 标题灰色 */}
+.col3{ color:#FFBF00 /* 首页黄色字体 */}
+.col4 { color: #ff7676; /* 比分红色 */}
+.col4_1 { color: #ff7676; font-weight:bold; padding:0 5px; /* 比分红色 */}
+.col4_2 { color: #ff7676; font-size:18px; font-weight:bold; padding:0 5px; /* 比分红色 */}
+.col4_b { color: #ff7676; font-weight: bold; /* 比分红色加粗 */}
+.col5 { color: #008ff3; /* 比分蓝色 */}
+.col5_1 { color: #008ff3; font-weight:bold; padding:0 5px; /* 比分蓝色 */}
+.col5_2 { color: #008ff3; font-weight:bold;  font-size:18px;  padding:0 5px; /* 比分蓝色 */}
+.col5_b { color: #008ff3; font-weight: bold; /* 比分蓝色加粗 */}
+.col6_1{color:#03b98a; }
+.col6_2{color:#03b98a; font-weight:bold; font-size:18px;  padding:0 5px;}
+.col6_3{color:#03b98a; font-weight:bold;   padding:0 5px;}
+.col6{ color:#03b98a; padding:0 10px; font-size:14px;/* 比分绿色 */}
+.col7{ color:#1d9b58; border:1px #1d9b58 solid; width:80px; height:20px; line-height:20px; }
+.col8 { color: #FF4343; font-weight: bold; font-size:16px; /* 比分红色加粗 */}
+.col9{ color:#ff5252;}
+.col10{ color:#1d9b58;}
+.col11{ background-color:#FFF; color:#1d9b58; }
+.col12{ color:#03F; display:inline-block}
+.col13{ color:#333; }
+.col14{ color:#999; }
+.col15{color: #03b98a; font-size:12px; background-color:#f9f9f9; border:1px dotted #ddd /* 标注声明 */}
+.col16{color: #03b98a;}
+.col17{ color:#009944}
+.col18{ color:#E91E25;}
+.col19{ color:#3AA7DD}
+.col20{color: #C63}
+.col21{ color:#C926FF}
+.col22{ color:#46008C}
+.col23{ color:#F63}
+.col24{ color:#660}
+.col25{ color:#690}
+.col26{ color:#4c4c4c; font-size:18px; font-weight:bold}
+.col27{ color:#ff7676}
+
+/* 色块背景颜色 */
+.blockbox_green { display: inline-block;  overflow: hidden; text-align: center; width: 30px;  background-color: #03b98a; color:#FFF;}
+.blockbox_red{ display: inline-block; overflow: hidden; text-align: center; width: 30px; background-color: #ff7676; color: #FFF;}
+.blockbox_blue { display: inline-block; overflow: hidden; text-align: center; width: 30px; background-color: #008ff3; color: #FFF;}
+
+
+.blockbox_red1{  text-align: center; width: 50px; margin:0 20px; background-color: #ff7676; color: #FFF;}
+
+
+.bjsk{background-color: #1d9b58; color: #FFF; border:1px #1d9b58 solid;}
+
+
+.jqzj_b_1{ padding:5px 6px; background:#e65c5c; color:#fff}
+
+.jqzj_b_2{padding:5px 6px; background:#2988cc; color:#fff}
+
+.jqzj_b_3{padding:5px 6px; background:#36b391; color:#fff}
+
+/* 链接颜色 */
+.link1{ color:#00F}
+.link1:hover{ color:#00F; }
+.link2{ color:#C30}
+.link2:hover{ color:#C30}
+.link3{ color:#333; font-size:12px; display:inline-block}
+.link3:hover{ color:#1d9b58; text-decoration:underline }
+.link4{ color:#5e5e5e}
+.link4:hover{ color:#1d9b58; text-decoration:underline }
+.link5{ color:#999}
+.link5:hover{ color:#1d9b58; }
+.link6{ color:#000}
+.link6:hover{ color:#1d9b58; }
+.link7{ color:#5e5e5e}
+.link7:hover{ color:#1d9b58; }
+.link8{color:#1d9b58; }
+.link9{  line-height:15px; border-radius:3px; border:1px #ccc solid; color:#333; padding:3px; float:left;margin:2px;}
+.link9:hover{ background-color:#1d9b58; color:#FFF; border:1px #1d9b58 solid; }
+.link10{ width:50px; height:20px; line-height:20px; border:1px #999999 solid;  color:#1d9b58; float:left}
+.link10:hover{ width:50px; height:20px; line-height:20px; border:1px #1d9b58 solid; background-color:#1d9b58; color:#FFF; float:left}
+.link11{ width:50px; height:20px; line-height:20px; border:1px #999999 solid; background-color:009944;  color:#fff; float:left}
+.link12{ background-color:#1d9b58; color:#fff;}
+.link13{ color:#333; display:inline-block}
+.link13:hover{ color:#1d9b58; text-decoration:underline }
+.link14{ color:#FFFF73; font-size:12px;}
+.link14:hover{ color:#FFFF73; text-decoration:underline }
+
+
+/* 联赛胜平负颜色渐变 */
+.sheng_f {color: #ff7676; font-size:24px; padding:0 10px;}
+.ping_f{ color: #008ff3; font-size:24px; padding:0 10px;}
+.fu_f{ color: #03b98a; font-size:24px; padding:0 10px;}
+
+
+
+
+
+
+.sheng_font1 {color: #ff7676;}
+.sheng_font2 {color: #ff7676;}
+.sheng_font3 { color: #ff7676;}
+.sheng_font4 { color: #ff7676;}
+.sheng_font5 {color: #ff7676;}
+.sheng_font6 { color: #ff7676;}
+
+.ping_font1 { color: #008ff3;}
+.ping_font2 { color: #008ff3;}
+.ping_font3 { color: #008ff3;}
+.ping_font4 { color: #008ff3;}
+.ping_font5 { color: #008ff3;}
+.ping_font6 { color: #008ff3;}
+.fu_font1 { color: #03b98a;}
+.fu_font2 { color: #03b98a;}
+.fu_font3 {  color: #03b98a;}
+.fu_font4 { color: #03b98a;}
+.fu_font5 { color: #03b98a;}
+.fu_font6 { color: #03b98a;}
+
+/* 圆点 */
+.yuandian{  border-radius: 5px; width: 10px;  height: 10px; margin: 8px 5px 0 0px;  float: left;}
+.yuandian1{  border-radius: 8px; width: 15px; height: 15px; float: left; line-height:40px; margin-top:13px; margin-left:20px; margin-right:0px}
+.yuandian3{  border-radius: 6px; width: 12px;  height: 12px; margin: 15px 10px 0 10px;  float: right;}
+/* 方点 */
+.fangdian{   width: 10px;  height: 10px; margin: 15px 10px 0 10px;  float: right;}
+.fangdian1{  width: 15px; height: 15px; float: left; line-height:40px; margin-top:13px; margin-left:20px; margin-right:0px}
+
+/* 边线 */
+.r_line{ border-right:1px #ddd solid;}
+
+
+/* 宽度 */
+.w1{width:34px;}
+.w2{width:72px; height:25px; float:left; margin-right:10px; border-radius:3px}
+.w3{width:80px; height:32px; float:left; margin-right:10px; border-radius:5px;}
+.w4{ width:50px; text-align:center;}
+.w5{ width:30px; text-align:center}
+.w6{ width:75px;}
+.w7{ width:120px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis; font-size:14px; }
+.w8{ width:30px; display:block;}
+.w9{ width:120px; display:inline-block;}
+.w10{ width:20px; display:inline-block}
+.w11{width:102px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.w12{width:155px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;}
+.w13{width:45px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.w14{width:65px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.w15{width:60px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.w16{width:55px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+.w17{ color:#009944; font-weight:bold; padding:0 10px; border-bottom:3px #009944 solid}
+.w18{ width:270px; height:30px; display:block; float:left; overflow: hidden;text-overflow:ellipsis;white-space : nowrap; font-weight:bold; font-size:18px;}
+/* 高度 */
+.height1{ height:79px;}
+/* 表格 */
+.td1 {height: 60px; line-height: 30px; }
+.td2 {height: 30px; line-height: 30px;}
+
+
+.tr1 {background-color: #eeede9;}
+.tr2 {background-color: #F7F7F4;}
+.tr3 {background-color: #eeede9;}
+.tr4{ background-color:#f6dada}
+.tr5{ background-color:#d0e3f1}
+.tr6{ background-color:#d3ece5}
+
+
+.td_nav { height: 31px; line-height: 31px; background: #f2f2f2;   text-align: center;}
+.td_nav1 { height: 31px; line-height: 31px;text-align: center;}
+
+
+/* 行高 */
+.l20 {line-height: 20px; height:20px;}
+.l50 {line-height: 50px; height:50px;}
+.l35 { line-height:35px; height:35px;}
+
+/* 字体大小 */
+.font1{ font-size:14px;}
+
+.font2{font-size:16px;}
+.font3{ font-size:20px; color:#333; font-weight:bold; display:inherit; }
+.font4{ font-size:12px;}
+.font5{ font-size:18px;}
+.font6{font-size:16px; color:#1d9b58; float:right; margin-right:10px;}
+.font7{ background-color:#ff7676; font-size:14px; font-weight:inherit; border-radius:3px; color:#FFF; float:right; margin-right:10px; line-height:25px; margin-top:5px; padding:0 5px;}
+/* 标题前面颜色 */
+.biaotiyanse {  float: left; margin: 10px 10px 0 10px; width: 5px;  height: 20px; background-color: #1d9b58;  display: inline-block;}
+
+
+/* 背景色 */
+.bc1{ background-color:#1d9b58px;}
+
+/* 标签 */
+.biaoqian1{ border:1px #e0e0e0 solid; color:#808080; display:inline-block; border-radius:3px; padding:0px 4px; }
+.biaoqian1:hover{ border:1px #1d9b58 solid; color:#1d9b58; display:inline-block; border-radius:3px; padding:0px 4px; }
+.biaoqian2{ border:1px #009944 solid; color:#009944; display:inline-block; border-radius:3px; padding:0px 4px; }
+.biaoqian3{ border:1px #410099 solid; color:#410099; display:inline-block; border-radius:3px; padding:0px 4px; }
+.biaoqian4{ border:1px #997700 solid; color:#997700; display:inline-block; border-radius:3px; padding:0px 4px; }
+
+
+/* 单行溢出隐藏省略 */
+.dhyc{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

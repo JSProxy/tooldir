@@ -1,0 +1,19 @@
+/* pages/classic/内置组件/基础组建/icon/icon.wxss */
+.icon-box{
+  margin: 10px 10px;
+  display: flex;
+}
+.icon-content-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  margin-left: 20px;
+}
+.icon-title{
+  font-size: 20px;
+}
+.icon-desc{
+  color: grey;
+  font-size: 15px;
+}

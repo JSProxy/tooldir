@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title></title>
+    <script type="text/javascript">
+
+        // do {
+        //
+        // }while ()
+        //
+        // while ()
+        // {}
+        // switch {
+        //
+        //     case:;break;
+        //     default;
+        //
+        // }
+        // for (i=0;i<3;i++)
+        // {
+        //     if ()
+        //     {
+        //         break; //跳出循环。//终止循环
+        //         continue;//结束本次循环；
+        //
+        //     }
+        //
+        // }
+
+        // var  arr=new Array(5);
+        // arr[0]=1;
+        // arr[2]=3;
+        // arr[3]=4;
+        // arr[4]=5;
+        // arr[5]=6;
+        // for (var index in arr)
+        // {
+        //     // 输出的的赋予值的下标
+        //     document.write(arr[index]+"<br/>");
+        // }
+
+        // for (var properties in navigator)
+        // {
+        //     document.write("属性："+properties+"属性值:"+navigator[properties]+"<br/>")
+        // }
+
+        // 常用特殊语句
+        // 作用域有两种 一种全局 一种函数内。
+        // 语句快
+        // {
+        //     var name="abc";
+        //     var age="10";
+        //     alert("hell:"+name);
+        //
+        // }
+        // ;  分号表示空语句
+        // for (var i = 0;i<10;a[i++]=i+5);//初始化数组
+
+        // 异常抛出语句
+
+        throw new Error("报错啦");
+
+        // 异常捕获语句
+
+        try{
+            var age=5;
+            if (age==5)
+            {
+                throw new Error("奶酪");
+            }
+            // 有异常 就会把信息交给 e  找个对象
+            // 只能一个catch
+        }catch (e){
+            document.write("出错:"+e.message);
+        }finally{
+            document.write("总会执行finally块");
+        }
+
+
+        // with 语句块减少重复代码
+        with (document){
+            write("输出第一行数据"+"<br/>");
+            write("输出第二行数据"+"<br/>");
+
+        }
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

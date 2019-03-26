@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //方法
+    /*canPlayType 检查是否可以播放资源类型
+    返回值
+    "probably" 可能
+    "maybe"  也许
+    ""空字符
+    load()重新加载
+    pause()暂停
+    play()播放
+
+    * */
+    //vidType="video/ogg" codeType="theora,vorbis"
+    // vidType="video/ogg" codeType="theora,vorbis"
+    function supportType(vid,vidType,codeType) {
+        var  myvideo=document.getElementById(vid);
+        var issupport=myvideo.canPlayType(vidType+";codecs=""+codeType+";");
+        return issupport;
+    }
+//切换视频资源
+    function changeSource(vid,videourl) {
+        var  myvideo=document.getElementById(vid);
+        myvideo.src=videourl;
+        myvideo.load();
+    }
+
+    /*相关事件
+    canplay 浏览器能够开始播放时触发
+    canplaythrough 当浏览器预计可以不停下来进行缓存时,会触发
+    durationchange  资源长度发生变化 获取资源长度
+
+    loadeddata 所以数据 当前帧数已经加载，但是不够数据播放下一帧 触发
+    loadedmetadata 数据元数据加载时.会触发
+
+    loadstart 寻找资源触发
+    progress 正在下载
+
+    abort 终止加载时触发
+    ended 播放完触发
+    error 加载出错触发
+    pause 暂停触发
+    play 开始播放触发
+    playing  因为缓存 暂停或暂停后已经就绪触发
+
+    ratechange 播放速度改变触发
+    seeked 移动或者跳到新位子 触发
+    seeking 开始移动到跳跃到新位子触发
+    stalled  获取媒体数据不可用时触发
+    suspend 浏览器可以不加载数据触发
+    timeupdate  播放位子放生改变触发
+    volumechange 音量改变触发
+    waiting  由于需要混存下一帧数据停止触发
+    * */
+</script>

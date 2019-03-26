@@ -1,0 +1,21 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{swiperItems}}">
+    <swiper-item>
+      <view class="swiper-item {{item}}"></view>
+    </swiper-item>
+  </block>
+</swiper>
+<view>
+  <view>指示点</view>
+  <view>
+    <switch checked="{{indicatorDots}}" bindchange="changeIndicatorDots"></switch>
+  </view>
+</view>
+<view>
+<view>自动播放</view>
+<view>
+  <switch checked="{{autoplay}}" bindchange="changeAutoplay"></switch>
+</view>
+</view>
+<slider bindchange="intervalChange" show-value min="500" max="2000" /> interval
+<slider bindchange="durationChange" show-value min="1000" max="10000" /> duration

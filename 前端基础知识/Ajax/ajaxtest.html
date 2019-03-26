@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>ajaxTest</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+</head>
+<body>
+<h2>please input your name and birth</h2>
+<input type="text" name="userName" id="userName"><br>
+<input type="text" name="userBirth" id="userbirth"><br>
+<input type="button" name="btGet" id="btGet" value="get"><br>
+<input type="button" name="btPost" id="btPost" value="post"><br>
+<div id="showText">
+
+</div>
+</body>
+</html>
+<script>
+    var xmlHttp;
+    function createXMLHttpRequest() {
+        if (window.ActiveXObject){
+            xmlHttp=new ActiveXObject("Microsoft.XMLHttp");
+        }else {
+            xmlHttp=new XMLHttpRequest();
+        }
+    }
+
+    function createQueryString() {
+        var userName=document.getElementById("usrName").value;
+        var userBirth=document.getElementById("userBirth").value;
+        var queryString="userName="+userName+"&userBirth="+userBirth;
+
+        return queryString;
+    }
+    //回调函数 readyState属性发生改变就会触发
+    function handleStateChange() {
+        if (xmlHttp.readyState==4) {
+            if (xmlHttp.status == 200){
+                var content = xmlHttp.responseText;
+            document.getElementById("showText").innerHTML = content;
+        }
+        }
+    }
+    function startGet() {
+        createXMLHttpRequest();
+        var  url="request.jsp?timestamp="+new Date().getTime();
+        xmlHttp.open("get",url+"&"+createQueryString());
+        xmlHttp.send(null);
+        xmlHttp.onreadystatechange=handleStateChange;
+    }
+    function startPost() {
+        createXMLHttpRequest();
+        var  url="request.jsp?timestamp="+new Date().getTime();
+        xmlHttp.open("post",url);
+        //为了编码统一  get 也需要加
+        xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencode")
+        xmlHttp.send(createQueryString());
+        xmlHttp.onreadystatechange=handleStateChange;
+    }
+
+    window.onload=function () {
+        document.getElementById("btGet").onclick=startGet;
+        document.getElementById("btPost").onclick=startPost;
+    }
+</script>

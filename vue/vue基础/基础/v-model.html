@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title Page</title>
+  </head>
+  <body>
+    <div id ="app">
+      <p>v-model 双向数据绑定{{count}}</p>
+      <p>v-model 双向数据绑定{{count2}}</p>
+      <p>v-model 双向数据绑定{{count3}}</p>
+      <p>删除前后空格 双向数据绑定{{count4}}</p>
+      <input type="text" v-on:keyup.13="onEnter" v-model="count">
+      <input type="text" v-on:keyup.13="onEnter" v-model.lazy="count2">
+      <!-- 
+        数字开始输入 最后会把非数字去除
+  
+       -->
+      <input type="text" v-on:keyup.13="onEnter" v-model.number="count3">
+      <input type="text" v-on:keyup.13="onEnter" v-model.trim="count4">
+
+      <p>文本域</p>
+       <textarea name="" id="" cols="30" rows="10" v-model="count"></textarea>
+       <p>多选</p>
+       <input type="checkbox" id="isTrue" v-model="isTrue">
+       <label for="isTrue">{{isTrue}}</label>
+
+       <br>
+       <p>多选绑定一个数组</p>
+       <input type="checkbox" id="iszf" value="zf" v-model="checkarr">
+       <label for="iszf">zf</label>
+       <input type="checkbox" id="isff" value="ff" v-model="checkarr">
+       <label for="isff">ff</label>
+       <p>{{checkarr}}</p>
+       <br>
+       <p>单选选绑定一个值</p>
+       <input type="radio" id="zf" value="男" v-model="sex">
+       <label for="zf">zf</label>
+       <input type="radio" id="ff" value="女" v-model="sex">
+       <label for="ff">ff</label>
+       <p>{{sex}}</p>
+    </div>
+    <script>
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        count:"",
+        count2:"lazy",
+        count3:0,
+        count4:" ss ss ",
+        isTrue:false,
+        checkarr:[],
+        sex:"男"
+      },
+      methods:{
+        onEnter:function(){
+        }
+      },
+      computed: {
+      }
+    })
+   
+    </script>
+  </body>
+</html>

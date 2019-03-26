@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    { //用对象做key 会转成字符串
+        let objKey1 = {};
+        let objKey2 = {};
+        let obj = new Object();
+
+        //会转成字符串
+        obj[objKey1] = 33;
+        obj[objKey2] = 66;
+        //会覆盖
+        for (let key in obj) {
+            console.log(key);
+            console.log(obj[key]);
+
+        }
+
+    }
+    	{
+    		//key 可以是任何
+    		//初始化可以以二维数组的形式
+    		var mapData = new Map([["keyname","哈哈"],["urlkey","www.baidu.com"]]);
+    		var objkey1 = {};
+    		var objkey2 = {};
+    		mapData.set(objkey1,11);//添加元素
+    		mapData.set(objkey2,22);
+    		console.log(mapData.get(objkey1));//获取元素
+    		console.log(mapData.get("urlkey"));
+    		console.log(mapData.has("urlkey"));//判断元素
+    		console.log(mapData.delete("urlkey"));//删除
+    		// mapData.clear();//清空
+
+    		//遍历
+    		mapData.forEach( function(value, key) 
+    		{
+    			console.log(key+"="+value);
+    		});
+    		var arr =[...mapData];
+    		console.log(arr);
+    		for(let obj of mapData)
+    		{
+    			console.log(obj);
+    		}
+    		//存遍历key
+    		var keyIterator = mapData.keys();
+    		console.log(keyIterator);
+    		//取值需要用next
+    		console.log(keyIterator.next().value);
+    		//存遍历value
+    		console.log(mapData.values());
+    		//数量
+    		console.log(mapData.size);
+
+    	}
+    	//只接受对象作为key
+    	//WeakMap
+    	{
+    		//不可遍历
+    		var wm = new WeakMap();
+    		var obj = new Object();
+    		wm.set(obj,"对象1");
+    		console.log(wm.get(obj));
+
+    	}
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div id ="app">
+      <zfcomp></zfcomp>
+      <panda></panda>
+    </div>
+    <div id ="app2">
+        <zfcomp></zfcomp>
+    </div>
+
+    <script>
+    // 全局组件
+    Vue.component('zfcomp',{
+      template:"<h1 style='color:red;'>全局组件</h1>",
+    })
+
+
+    let app = new Vue({
+      el:"#app",
+      components:{
+        "panda":{
+          template:"<h1 style='color:red;'>内部组件</h1>"
+        }
+      }
+    })
+    let app2 = new Vue({
+      el:"#app2"
+    })
+    </script>
+  </body>
+</html>

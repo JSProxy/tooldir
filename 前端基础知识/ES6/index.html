@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//const 声明的是常量不可改变
+		const a = 5;
+		// a = 6;
+		let  b = 6;
+		{
+			let b = 7;
+			//let 块作用域
+		}
+		//数组解构
+		{
+		let[b,c,d,e,,]= ["bb","cc","dd","ee"];
+		}	
+		// 嵌套数组
+		{
+		let[a,b,[c,d],e] = ["aa","bb",["cc","dd"],"ee"];
+		}
+	    {
+	    	//空缺变量
+	    	let[a,b,,] = ["aa","bb","cc"];
+	    }
+	    {
+	    	//c 多余变量
+	    	let[a,b,,c] = ["aa","bb","cc"];
+	    	// alert(c);
+	    }
+
+	    {
+	    	//c 多余变量 赋值
+	    	let[a,b,,c=9] = ["aa","bb","cc"];
+	    	// alert(c);
+	    }
+	    // 
+	    // 对象解构
+	    {
+	    let obj = new Object();
+	    obj.uname = "zf";
+	    obj.uage = 18;
+	    let{uname:name,uage:age} = obj;
+	    //打印值 不要打印key
+	    // alert(name);
+	    }
+
+	    {
+	    let obj = new Object();
+	    obj.uname = "zf";
+	    obj.uage = 18;
+	    let uname,uage;
+	    ({uname,uage}=obj);
+	    // alert(uname);
+	    }
+
+	    {
+	    let obj = new Object();
+	    obj.uname = "zf";
+	    obj.uage = 18;
+	    obj.arr=["aa","bb"];
+	    let uname,uage,arr,a,b;
+	    ({uage,uname,arr:[a,b,c="hello"]}=obj);
+	    	// alert(b);
+	    }
+	    //字符串解构
+	    {
+	    let [a,b,c,d]="倚天屠龙";
+	    }
+	    //函数解构
+	    {
+		let obj = new Object();
+	    obj.uname = "zf";
+	    obj.uage = 18;
+	    analysis(obj);
+	    }
+	    function analysis({uname}){
+	    	alert(uname);
+	    }
+
+	</script>
+</body>
+</html>

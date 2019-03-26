@@ -1,0 +1,96 @@
+@charset "utf-8";
+body {
+  background-color: red;
+}
+.csslink {
+  background-color: orange;
+}
+/*我是被编译的*/
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: yellow;
+  border: solid 5px pink;
+}
+.border {
+  border: solid 5px pink;
+}
+.box2 {
+  width: 300px;
+  height: 300px;
+  background-color: yellow;
+  border: solid 5px pink;
+  margin-left: 100px;
+}
+.test_hunhe1 {
+  border: solid #ffff00 30px;
+}
+.test_hunhe2 {
+  border: solid #008000 10px;
+}
+.radius_test {
+  width: 100px;
+  height: 40px;
+  background-color: orange;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.sanjiao {
+  border-width: 100px;
+  border-color: transparent transparent #ff0000 transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.dingwei {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  position: relative;
+}
+.box_1 {
+  width: 320px;
+  color: #c2c2c2;
+}
+.list {
+  width: 500px;
+  margin: 30px auto;
+  padding: 0px;
+  list-style: none;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background-color: pink;
+  margin-bottom: 5px;
+}
+.list a {
+  float: left;
+}
+.list a:hover {
+  color: red;
+}
+.test_arguments {
+  border: 40px #ff0000 solid;
+}
+.test_03 {
+  width: calc(300px-30px);
+}
+.content {
+  zoom: 1;
+}
+.content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

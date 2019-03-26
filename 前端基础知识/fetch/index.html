@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>fetch 基本用法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" 
+</head>
+<body>
+  
+  <script>
+
+//对于没有服务器响应的地址，fetch 不执行 then，而直接跳到 catch 里，并不会抛出错误 “network error”；
+//对于服务器返回的 404 等错误，res.ok 是 false，会抛出 “network error”，然后也是跳到 catch 里执行； 
+// npm install --save whatwg-fetch
+// import 'whatwg-fetch'
+// webpack 项目增加（加不加都可以）：entry: ['whatwg-fetch', ...]
+// 也可以用另一个 fetch 版本
+// npm install --save isomorphic-fetch
+
+fetch("https://jsproxy.github.io").then(checkStatus).then(data => {
+    // console.log(data);
+}).catch(error => {
+})
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    // return response.json();
+    return response.text();
+  }
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
+}
+
+var header = new Headers({
+  'Conten-Type': 'text/plain'
+})
+// 'Content-Type': 'application/json;charset=UTF-8'
+// headers.append('Content-Type', 'text/xml');
+// headers.set('Content-Type', 'text/html');
+// headers.has('Conten-Type') //true
+// header.delete('Conten-Type');
+// 'Accept': 'application/json',
+// 'Content-Type': 'application/x-www-form-urlencoded'
+
+var request = new Request("https://jsproxy.github.io",{
+  method: 'GET',
+  mode: 'cors',
+  redirect: 'follow',
+  // headers: header,
+  cache: 'default',
+  // credentials: 'include' //cookie携带
+})
+fetch(request).then(checkStatus).then(data =>{ console.log(data)});
+
+
+// POST 
+// 表单提交
+fetch('url',{
+  method: 'POST',
+  body: new FormData(document.getElementById('id'))
+})
+// json 提交
+fetch('url',{
+  method: 'POST',
+  body: JSON.stringify({
+    email: '139@163.com',
+    name: 'zf'
+  })
+})
+
+// response
+// type - 类型,支持: basic, cors
+// url - 响应的 URL
+// useFinalURL - Boolean 值, 说明这是否是响应的最终 URL
+// status - 状态码 (例如: 200, 404, 等等)
+// ok - Boolean值,代表响应是否成功(status 值在 200-299 之间)
+// statusText - 与状态码相对应的状态值(例如: OK为200)
+// headers - 与响应相关联的 Headers 对象.
+// redirected - 指示响应是否是重定向的结果。也就是说，它的 URL 列表有多条目录。
+// clone() - 创建一个 Response 对象的克隆.
+// error() - 返回一个与网络错误相关的新 Response 对象.
+// redirect() - 重定向,使用新的 URL 创建新的 response 对象..
+// arrayBuffer() - 返回一个 resolve 是 ArrayBuffer 的 promise 对象。
+// blob() - 返回一个 resolve 是 Blob 的 promise 对象。
+// formData() - 返回一个 resolve 是 FormData  的 promise 对象。
+// json() - 返回一个 resolve 是 JSON 的 promise 对象。
+// text() - 返回一个 resolve 是文本的 promise 对象。
+
+fetch('').then(function(response){
+  return response.blob();
+}).then(function(imageblob){
+  document.querySelector('img').src = URL.createObjectURL(imageBlob)
+})
+
+// 进度条
+// 跨域 jsonp
+// npm install fetch-jsonp --save-dev
+  </script>
+</body>
+</html>

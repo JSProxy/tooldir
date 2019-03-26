@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象属性</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <link rel="stylesheet" href="../../css/ext.css">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="content">
+    外层div
+    <span>内层sapn</span>
+    外层div
+</div>
+<div id="msg"></div>
+<form action="http://www.baidu.com">
+    <input type="text" id="username">
+    <input type="submit" id="sub">
+</form>
+<a href="http://www.baidu.com">点击我</a>
+<button id="btn">点击我</button>
+<div id="test">
+
+</div>
+</body>
+</html>
+<script>
+    /*事件对象
+    $("div").bind("click",function(event){})
+    停止冒泡事件,event.stopPropagation()
+    阻止默认行为event.preventDefault()
+    同时阻止这两个行为 return false;
+    常用事件对象属性
+    event.type 获取事件类型 click
+    target 获取触发事件元素
+    pagex 获取光标于页面的x的坐标
+    pagey
+    which 获取鼠标左中右 按键 分别为 1 2 3
+    metaKey 获取ctrl 按键
+    //移除事件unbind([type],[data])
+    unbind("click",fun1)
+    没有参数则删除所有事件
+    * */
+
+    $("#content span").click(function (event) {
+        var  txt=$("#msg").html()+"<p>内层span被点击</p>"
+        $("#msg").html(txt)
+        return false;
+    });
+    $("#content").click(function (event) {
+        var  txt=$("#msg").html()+"<p>外层div被点击</p>"
+        $("#msg").html(txt)
+        return false;
+    })
+    $("body").click(function (event) {
+        var  txt=$("#msg").html()+"<p>body被点击</p>"
+        $("#msg").html(txt)
+    })
+
+    $("#sub").click(function (event) {
+        if ($("#username").val()) {
+
+        }else {
+            $("body").append("<p>内容不可为空</p>");
+
+            // event.preventDefault();
+            return false;
+        }
+    })
+    $("a").mousedown(function (event) {
+        alert(event.which);
+        return false;
+    })
+
+    /*模拟操作
+    trigger()
+    $("btn").trigger("click");
+    触发自定义事件
+    $("btn").bind("myclick",function(){});
+     $("btn").trigger("myclick");
+    //传递数据
+    $("btn").bind("myclick",function(event,msg1,msg2){});
+    $("btn").trigger("myclick",["msg1","msg2"]);
+    * */
+    // $("#btn").bind("click",function () {
+    //     $("#test").append("<p>我的绑定函数click</p>");
+    //     event.stopPropagation();
+    //
+    // }).trigger("click");
+    //
+    // $("#btn").bind("myclick",function (){
+    //     alert("hello");
+    // }).trigger("myclick");
+
+    $("#btn").bind("myclick",function (event,msg1,msg2){
+        alert(msg1+"-"+msg2);
+    }).trigger("myclick",["5","20"]);
+
+
+</script>

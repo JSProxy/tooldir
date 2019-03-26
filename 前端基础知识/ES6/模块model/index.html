@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="module" src="modelChild.js">
+	//需要webpack 或者vue环境
+	//导入三个属性
+	// import {webName,url,year} from"./modelOne.js";
+	// import {webName as web,url,year} from"./modelOne.js";
+	// import * as uu from"./modelOne.js";
+	// var uu = require("./modelOne.js").webName;
+	//全局导入 加个别名
+	//require 虽然灵活但是会被淘汰
+	//import  性能比 require好
+	
+
+	//默认导出的 需要这么写了
+    import User,* as uu from"./modelOne.js";
+    
+
+    function studyEs6(){
+
+
+  }
+	</script>
+
+</body>
+</html>

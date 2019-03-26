@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>梳理</title>
+	<!-- 设置编码格式 -->
+	<meta charset="utf-8"/>
+	<!-- 
+		http-equiv: 模拟http文件头信息
+	 -->
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<!--  每格两秒刷新页面 -->
+	<meta http-equiv="refresh" content="2"/>
+	<!-- 30秒后跳到百度 -->
+	<!-- <meta http-equiv="refresh" content="2;url=http://www.baidu.com"/> -->
+	<!--  -->
+	<meta name="anthor" content="zf">
+	<meta name="keywords" content="网站关键字，多个关键字，用英文逗号分隔">
+	<meta name="description" conten="网页描述，搜索引擎显示在title下的描述内容">
+	
+	<link rel="stylesheet" type="text/css" href="">
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<!-- 等比咧缩放 -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">	
+</head>
+<body>
+	<!-- cite 引用来源 -->
+<blockquote cite="http://www.baidu.com">引用内容</blockquote>
+
+<pre>浏览器解析时,会按照等宽字体显示，并保留标签内的空格和回车。
+常用于保留代码格式。
+</pre>
+
+<!-- 图片与标题上下排列，且整体向后缩进一个单位。 -->
+<figure>
+	<img src="">
+	<figcaption>组合标签</figcaption>
+</figure>
+<br>
+<big>放大字体 可多层嵌套，表示强调程度的递增</big><br>
+<em>强调 可多层嵌套，表示强调程度的递增</em><br>
+<strong>强调 可多层嵌套，表示强调程度的递增</strong><br>
+<i>倾斜</i><br>
+<b>加粗</b><br>
+<q cite="http://www.baidu.com">短引用</q><br>
+<u>下划线</u><br>
+<small>小字体</small><br>
+<!-- border-collapse:单元格边框合并
+	cellspacing：单元格间隙
+	cellpadding：内边距
+	colspan:跨列
+	rowspan:跨行
+ -->
+<table style="border-collapse: collapse" border="1" cellspacing="1" cellpadding="5">
+	<caption>表格</caption>
+	<thead>
+		<th>一</td>
+		<th>二</td>
+		<th>三</td>
+	</thead>
+	<tbody>
+		<tr>
+		<td>一</td>
+		<td>二</td>
+		<td>三</td>
+		</tr>		
+		<tr>
+		<td>一</td>
+		<td>二</td>
+		<td>三</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+		<td>一</td>
+		<td>二</td>
+		<td>三</td>
+		</tr>
+	</tfoot>
+</table><br>
+
+<!-- 边框 -->
+<fieldset>
+	<legend>边框标题</legend>
+</fieldset>
+<!-- 
+iframe常用属性:
+1.frameborder:是否显示边框，1(yes),0(no)
+2.height:框架作为一个普通元素的高度，建议在使用css设置。
+3.width:框架作为一个普通元素的宽度，建议使用css设置。
+4.name:框架的名称，window.frames[name]时专用的属性。
+5.scrolling:框架的是否滚动。yes,no,auto。
+6.src：内框架的地址，可以使页面地址，也可以是图片的地址。
+7.srcdoc , 用来替代原来HTML body里面的内容。但是IE不支持, 不过也没什么卵用
+8.sandbox: 对iframe进行一些列限制，IE10+支持 -->
+<!-- 适合介入广告 -->
+<iframe src="http://www.baidu.com">
+</iframe>
+
+</body>
+</html>

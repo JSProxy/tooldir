@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    <!--insertRow(index) 指定索引位子插入一行
+    createCaption（）创建标题
+    createTFoot（）创建<tfoot.../>元素，加入存在返回现有的
+    createTHead()
+    deletobjpro[i].ideRow(index) 删除表格中index索引处行
+    deleteCaption()
+    deleteTFoot()
+    deleteTHead()
+    给表格行创建，删除单元格方法
+    insertCell(index)
+    deleteCell(index)
+    -->
+    <script type="text/javascript">
+
+        function createTable() {
+            var test=document.getElementById("test");
+            var newtable=document.createElement("table");
+            newtable.id="newtable";
+            newtable.border=1;
+            var caption=newtable.createCaption();
+            caption.innerHTML="我的表格";
+            for (var i=0;i<5;i++)
+            {
+                var tr=newtable.insertRow(i);
+                for (var j=0;j<4;j++)
+                {
+                 var td=tr.insertCell(j);
+                  td.innerHTML="单元格"+i+j;
+                }
+
+            }
+            test.appendChild(newtable);
+}
+
+        function deleteLastRow() {
+            var newtable = document.getElementById("newtable");
+            if (newtable.rows.length>0){
+                newtable.deleteRow(newtable.rows.length-1);
+            }
+        }
+
+        function deleteLastCell() {
+        var newtable = document.getElementById("newtable");
+        var td=newtable.rows[newtable.rows.length-1];
+            if (td.cells.length>0)
+            {
+                td.deleteCell(td.cells.length-1);
+            }
+
+        }
+
+</script>
+
+</head>
+<body id="test">
+<input type="button" value="创建一个5行4列的表格" onclick="createTable()"/>
+<input type="button" value="删除最后一行" onclick="deleteLastRow()"/>
+<input type="button" value="删除最后一个单元格" onclick="deleteLastCell()"/>
+</body>
+</html>

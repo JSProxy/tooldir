@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div id ="app">
+      <p> slot 只是把标签数据插入 而props是操作父子组件的变量</p>
+      <panda>
+        <span slot="one">zf</span>
+        <span slot="two">web</span>
+        <span slot="three">{{three}}</span>
+      </panda>
+    </div>
+  
+    <template id="comp">
+      <div>
+        <p>插槽1:<slot name="one"></slot> </p>
+        <p>插槽2:<slot name="two"></slot></p>
+        <p>插槽3:<slot name="three"></slot></p>
+      </div>
+    </template>
+    <script>
+
+     
+      var panda = {
+        template:"#comp"
+      } 
+    let app = new Vue({
+      el:"#app",
+      data:{
+        three:"阿西吧"
+      },
+      components:{
+        panda
+      }
+    })
+    </script>
+  </body>
+</html>

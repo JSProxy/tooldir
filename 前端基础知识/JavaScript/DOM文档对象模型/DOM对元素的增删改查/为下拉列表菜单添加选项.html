@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>....</title>
+
+    <!--使用构造器来创建一个选项-->
+    <!--new option(text,value,defaultSelected,Selected)-->
+    <!--text 呈现内容-->
+    <!--value 提交服务器的内容-->
+    <!--default 默认该选项是否选中-->
+    <!--selected  是否选中.-->
+
+    <!--添加选项方法-->
+    <!--直接为<select/>的指定选项赋值-->
+        <!--options[index]=创建好的option-->
+    <!--删除选项-->
+    <!--remove(index) 或者 options[index]=null;-->
+    <script type="text/javascript">
+        function createSelect() {
+          var element=document.createElement("select");
+          for (var i = 0;i<10;i++)
+          {
+              var op=new Option("新增选项"+i,i);
+              element.options[i]=op;
+          }
+             element.size=5;//一次显示多少选项
+             element.id="city";
+             document.getElementById("test").appendChild(element)
+        }
+
+        function removeOne() {
+            var city=document.getElementById("city");
+            if (city.options.length)
+            {
+                // city.options.remove(city.options.length-1);
+                city.options[city.options.length-1]=null;
+            }
+        }
+
+        function clearAll() {
+            var city=document.getElementById("city")
+            if (city.options.length)
+            {
+                city.options.length=0;
+            }
+        }
+    </script>
+</head>
+<body id="test">
+    <input type="button" value="创建一个城市列表框" onclick="createSelect()"/>
+    <input type="button" value="一条条删除列表框内容" onclick="removeOne()"/>
+    <input type="button" value="一次全部删除内容" onclick="clearAll()"/>
+</body>
+</html>

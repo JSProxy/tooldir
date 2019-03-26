@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+    <hr>
+    <div id = "app">
+      <p>v-bind 绑定标签属性</p>
+      <img v-bind:src="imgsrc" alt="图片">
+      <a :href="baidu" target="_blank">www</a>
+      <br>
+      <div :class="classnamea">绑定class</div>
+      <div :class="[classnamea,classnamec]">绑定多个class</div>
+      <p>判断 classA 是style里的</p>
+      <div :class="{classA:isok}">riri</div>
+      <p>三元运算 需要data 定义class</p>
+      <div :class="isok ? [classnameb,classnamec] : classnameb">哈哈</div>
+      <br>
+      <h3>绑定 style</h3>
+
+      <span :style="{color:red}">style</span>
+      <br>
+      <span :style="objStyle">obj</span>
+    </div>
+    <style>
+      .classA{
+        color:red;
+      }
+      .classB{
+        color:pink;
+      }
+      .classC{
+        font-size:55px;
+      }
+    </style>
+  <script type="text/javascript">
+  
+    let app = new Vue({
+      el:'#app',
+      data:{
+        imgsrc:"http://jspang.com/static/myimg/dashangwx.jpg",
+        baidu:"http://www.baidu.com",
+        classnamea:"classA",
+        classnameb:"classB",
+        classnamec:"classC",
+        red:"red",
+        isok:true,
+        objStyle:{
+          color:"red",
+          fontSize:"25px"
+        }
+      }
+    });
+
+  </script>
+  </body>
+</html>

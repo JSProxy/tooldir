@@ -1,0 +1,784 @@
+.main {
+	width: 1000px;
+	margin: 0 auto;
+}
+/* 本页公用 */
+.table_box {
+	text-align: center;
+}
+.table_box td {
+	height: 35px;
+	line-height: 35px;
+}
+.table_title { 
+	text-align: left; width:998px;
+	background-color: #eeede9;
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 10px;
+	border: 1px #e5e5e5 solid;
+}
+.table_title a{ color:#09F; float:right; padding-right:10px;}
+.table_box a {
+	display: inline
+}
+.table_title_l {
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	/*height: 34px;*/
+	line-height: 34px;
+	float: left;
+	color: #009944;
+	border-left: 3px #009944 solid;
+}
+.table_title span {
+	line-height: 30px;
+}
+.table_title_l span {
+	font-size: 14px;
+	color: #808080; padding-left:20px;
+}
+.table_title_r {
+	font-size: 12px;
+	float: right;
+}
+.table_title_r input {
+	background-color: #eeede9;
+	height: 35px;
+	padding: 0 10px;
+	border: 0;
+}
+.table_title1 {
+	margin-right: 10px;
+	float: right;
+}
+.table_title1_red {
+	margin-right: 10px;
+	width: 20px;
+	height: 6px;
+	background-color: #e55c5c;
+	float: right;
+	margin-top: 15px;
+}
+.table_title1_greed {
+	margin-right: 10px;
+	width: 20px;
+	height: 6px;
+	background-color: #36b291;
+	float: right;
+	margin-top: 15px;
+}
+.table_title1_blue {
+	margin-right: 10px;
+	width: 20px;
+	height: 6px;
+	background-color: #2988cc;
+	float: right;
+	margin-top: 15px;
+}
+.table_title2 {
+	width: 50px;
+	height: 30px;
+	float: right
+}
+select {
+	border: 1px #ddd solid;
+	padding: 2px 5px;
+}
+.dhas:hover {
+	background-color: #009944;
+	color: #fff;/* 鼠标经过变色 */
+}
+.btsk {
+	width: 6px;
+	height: 20px;
+	background-color: #009944;
+	margin: 0 12px 0 8px;
+	padding: 0 2px;/* 标题色块 */
+}
+.bsys {
+	width: 6px;
+	height: 20px;
+	background-color: #009944;
+	margin: 0 5px;
+	padding: 0 2px;/* 联赛色块 */
+}
+.bsys2 {
+	width: 6px;
+	height: 40px;
+	background-color: #663333;
+	margin: 0 5px;/* 联赛色块 */
+}
+.bsys3 {
+	width: 6px;
+	height: 40px;
+	background-color: #297CA5;
+	margin: 0 5px;/* 联赛色块 */
+}
+/* 右边导航 */
+.ah {
+	width: 80px;
+	position: fixed;
+	margin-left: 510px;
+	top: 204px;
+	left: 50%;
+}
+.right_float {
+	display: block;
+	width: 80px;
+}
+.right_float li {
+	background-color: #eeede9;
+	font-size: 14px;
+	color: #fff;
+	border-bottom: 1px #fff solid;
+}
+.right_float a {
+}
+.rf:link, .rf:hover, .rf:visited {
+	width: 80px;
+	display: block;
+	line-height: 35px;
+	text-align: center;
+	text-decoration: none
+}
+.rlas {
+	background-color: #009944;
+	color: #FFF;
+	font-weight: bold;
+	display: block;
+}
+.rlas a {
+	color: #FFF
+}
+.rlas:hover {
+	background-color: #009944;
+	color: #FFF
+}
+/* 分析内容 */
+.cont {
+	width: 1000px;
+	margin: 0 auto;
+}
+.dao2 {
+	margin-top: 10px;
+	height: 30px;
+	width: 1000px;
+}
+.dao2_list {
+	float: right;
+}
+.dao2_list li {
+	margin-left: 2px;
+	background: #eeede9;
+	color: #333;
+	font-weight: bold;
+	float: left;
+	display: block;
+	cursor: pointer;
+	width: 76px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+.dao2_list a {
+	text-decoration: none;
+}
+.dao3:link, .dao3:hover, .dao3:visited {
+	width: 76px;
+	display: block;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+}
+.rlas {
+	background-color: #009944;
+	color: #FFF;
+	font-weight: bold;
+	display: block;
+}
+.bizhong {
+	width: 998px;
+	margin: 10px auto 0px;
+	background-color: #EBEBEC;
+	background-image: url(../images/3244.jpg);
+	background-repeat: no-repeat;
+}
+.bis {
+	padding: 10px 15px;
+	height: 165px;
+}
+.bis_z {
+	width: 214px;
+	height: 168px;
+	overflow: hidden;
+}
+.bis_z h2 {
+	font-size: 14px;
+	color: #000;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.bis_z h3 {
+	font-size: 30px;
+	color: #009944;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.qiu_info {
+	width: 377px;
+	height: 158px;
+}
+.qiu_info_t {
+	width: 377px;
+	height: 30px;
+	line-height: 30px;
+	color: #FFF;
+}
+.qiu_info_t span {
+	padding-left: 10px;
+}
+.qiu_info_t t {
+	color: #1C9B58;
+	font-weight: bold;
+	padding: 0 5px;
+}
+.qiu_info_t h2 {
+	width: 130px;
+	font-size: 16px;
+	line-height: 30px;
+	color: #ff7676;
+	text-overflow: ellipsis;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.qiu_info_t1 h2 {
+	width: 130px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 30px;
+	color: #4F85FF;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.qiu_info_t1 span {
+	padding: 0 3px;
+}
+.qiu_info_t1 {
+	width: 377px;
+	height: 30px;
+	line-height: 30px;
+}
+.qiu_info_t1 t {
+	color: #1C9B58;
+	font-weight: bold;
+	padding: 0 5px;
+}
+.qiu_info_t_l {
+	width: 210px;
+	padding: 12px;
+	overflow: hidden;
+}
+.qiu_info_t_l ul {
+	height: 120px;
+	overflow: hidden;
+}
+.qiu_info_t_l li {
+	line-height: 25px;
+	border-bottom: 1px #f1e8e7 solid;
+	height: 25px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.qiu_info_t_l li h2 {
+	width: 60px;
+	font-size: 12px;
+	float: left;
+	font-weight: inherit;
+}
+.qiu_info_t_l li span {
+	width: 150px;
+	float: left;
+}
+.z_font1 {
+	font-weight: bold;
+	color: #333;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.qiu_info_t_r {
+	width: 120px;
+	text-align: center;
+	float: right;
+	padding: 5px;
+}
+.qiu_info_t_r img {
+	width: 100px;
+	height: 100px;
+	margin: 5px auto;
+	text-align: center;
+}
+/* 数据预测 */
+.sjyc {
+	width: 998px;
+	
+	overflow: hidden;
+	background-color: #fafafa;
+	border-bottom: 1px #e5e5e5 solid;
+	border-left: 1px #e5e5e5 solid;
+	border-right: 1px #e5e5e5 solid;
+}
+.sjyc ul {
+	width: 1002px;
+	overflow: hidden;
+	 display:block
+}
+.sjyc li {
+	float: left
+}
+.sjyc1 { display:block;
+	width: 333px;
+	
+	border-right: 1px #e5e5e5 solid
+}
+.sjyc1 p {
+	line-height: 20px;
+}
+.sjyc1 h2 {
+	margin-top: 20px; 
+}
+.sjyc1_1 {
+	width: 200px;
+	padding-left: 30px;
+	padding-top: 20px;
+}
+.sjyc1_2 {
+	
+	padding-top: 35px;
+	padding-right: 35px
+}
+.sjyc1_3 {
+	width: 333px;
+	height: 226px;
+}
+.sjyc1_3_1 {
+	width: 313px;
+	margin: 10px;
+	height: 150px;
+}
+.sjyc1_3_2 { padding-left:28px;
+	width: 333px;
+}
+.sjyc1_3_2_1 {
+	float: left;
+	padding: 0 8px;
+	font-size: 14px;
+	text-align: center;
+	width: 95px;
+}
+.sjyc1_3_2_1 span {
+}
+/* 图标统计 */
+
+#wrapper {
+	width: 980px;
+	margin: 0 auto;
+	border: 1px solid #a3a3a3;
+	padding: 20px 20px 50px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#wrapper h3 {
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+	margin: 20px 0;
+}
+/* box */
+.box {
+	width: 998px;
+	
+	background: #fafafa;
+}
+.tab_menu {
+	overflow: hidden;
+	width: 276px;
+	margin: 30px auto;
+	
+}
+.tab_menu li {
+	width: 90px;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	color: #808080;
+	background: #e6e6e6;
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px;
+	margin-right: 2px;
+}
+.tab_menu li.current {
+	color: #fff;
+	background: #1d9b58;
+}
+.tab_menu li a {
+	color: #fff;
+	text-decoration: none;
+}
+.tab_menu li.current a {
+	color: #333;
+}
+
+.tab_box {
+	
+}
+.tab_box li {
+	
+	overflow: hidden;
+}
+.tab_box li span {
+	margin: 0 5px 0 0;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: 400;
+	color: #ddd;
+}
+.tab_box .hide {
+	display: none;
+}
+
+
+
+
+/* 历史同赔 */
+.oddrs{width:478px; height:450px; display:block; background-color:#fff}
+.oddrs table{ margin:0 auto;}
+.oddrs td{ width:120px; }
+.oddrs h2{ font-size:18px; padding:30px 0;}
+.oddrs span{}
+.oddrs1{ float:left; height:300px; margin-top:20px; width:478px; }
+
+.data{ width:520px;}
+.data td{ line-height:50px; height:50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*下拉场次*/
+
+
+.dis-inline{ display:inline;}
+.dis-block{ display:block;}
+.dis-none{ display:none; }
+
+.show{ visibility:visible;}
+.position-abs{ position:absolute;}
+.position-rel{ position:relative; width:90px; float:right; margin-left:10px;}
+.position-rel1{ position:relative; width:110px; float:right; margin-left:10px;}
+
+
+.v-top{ vertical-align:top;}
+.v-middle{ vertical-align:middle;}
+
+.bold{ font-weight:bold;}
+
+
+
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+/*银行卡管理开始*/
+.bank_x{
+    border-top:1px  solid  #ccc;
+}
+.bank_tab{
+    margin-bottom: 0px;
+}
+.jt_xz{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+.bank_yh{
+    margin-left: 54px;
+    padding: 0px 0px 10px 0px;
+}
+.bank_nr{
+    border: 1px solid #ccc;
+    height: 150px;
+    overflow: auto !important;
+}
+.bank_nr>ul>li{
+    margin-top: 11px;
+}
+.bank_radio{
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    position: relative;
+    top: 2px;
+}
+.bank_dh{
+    margin-top: -5px;
+}
+
+
+/*下拉场次*/
+.bank_wz{
+    background: #f6ac19;
+    padding: 10px 0px;
+    color: #fff;
+    border-radius: 5px 5px 0px  0px;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+.bank_wz1{
+    padding: 20px 0px;
+    background: #fff;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.form_td{
+    line-height: 34px !important;
+    width: 94px;
+    text-align: right;
+}
+
+
+.bank_xl{
+    width: 100%; top:34px;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+}.bank_xl>ul>li{ line-height:30px; padding-left:10px;
+}.bank_xl>ul>li>a{ color:#999;
+  display: block;
+  width: 100%;
+}
+.bank_xl>ul>li:hover{ background-color:#1d9b58; color:#fff; cursor:default }
+.bank_xl>ul>li>a:hover{ text-decoration:none;color:#FFF}
+
+
+
+
+.bank_xl1{
+    width: 100%; top:34px;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+}.bank_xl1>ul>li{ line-height:30px; padding-left:10px;
+}.bank_xl1>ul>li>a{ color:#999;
+  display: block;
+  width: 100%;
+}
+.bank_xl1>ul>li:hover{ background-color:#1d9b58; color:#fff; cursor:default }
+.bank_xl1>ul>li>a:hover{ text-decoration:none;color:#FFF}
+
+
+
+
+
+
+.bank_xl2{
+    width: 100%; top:34px;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+}.bank_xl2>ul>li{ line-height:30px; padding-left:10px;
+}.bank_xl2>ul>li>a{ color:#999;
+  display: block;
+  width: 100%;
+}
+.bank_xl2>ul>li:hover{ background-color:#1d9b58; color:#fff; cursor:default }
+.bank_xl2>ul>li>a:hover{ text-decoration:none;color:#FFF}
+
+
+.bank_xl3{
+    width: 100%; top:34px;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+}.bank_xl3>ul>li{ line-height:30px; padding-left:10px;
+}.bank_xl3>ul>li>a{ color:#999;
+  display: block;
+  width: 100%;
+}
+.bank_xl3>ul>li:hover{ background-color:#1d9b58; color:#fff; cursor:default }
+.bank_xl3>ul>li>a:hover{ text-decoration:none;color:#FFF}
+
+.bank_xl4{
+    width: 100%; top:34px;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+}.bank_xl4>ul>li{ line-height:30px; padding-left:10px;
+}.bank_xl4>ul>li>a{ color:#999;
+  display: block;
+  width: 100%;
+}
+.bank_xl4>ul>li:hover{ background-color:#1d9b58; color:#fff; cursor:default }
+.bank_xl4>ul>li>a:hover{ text-decoration:none;color:#FFF}
+
+
+ .bank_xljt{ 
+     position: absolute;
+     right: 0px;
+     top: 13px;
+     width: 30px;
+     height: 13px;
+
+     line-height: 23px;
+     text-align: center;
+    
+ }
+ .bank_xljt1{
+     height: 32px; 
+
+     position: absolute;
+     width: 100%;
+     top: 0px;
+ }
+
+.form-control { 
+    display: block;
+    width: 100%;
+    height: 33px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fafafa;
+    background-image: none;
+    border: 0;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*下拉场次*/
+
+/*图标统计*/
+.information table{ width:100%}
+.information tr{ line-height:50px; height:50px;}
+
+/*两队交锋*/
+.bout{ width:311px; margin:10px; height:404px;border: 1px #e5e5e5 solid; float:left; border-radius:3px; border-radius:10px; background-color:#fff;}
+
+
+
+
+
+/*近期战绩走势*/
+.jqzj{ width:498px; float:left;}
+.jqzj table{ width:400px; margin:0 auto;    border-collapse:inherit;}
+
+.jqzj h2{ font-size:18px; color:#cc5252; padding: 30px 0;}
+.jqzj td{ width:26px; height:26px; line-height:26px;}
+
+
+.jqzj1{ width:498px; float:left;}
+.jqzj1 table{ width:400px; margin:0 auto;    border-collapse:inherit;}
+
+.jqzj1 h2{ font-size:18px; color:#2988cc; padding: 30px 0;}
+.jqzj1 td{ width:26px; height:26px; line-height:26px;}
+
+.jqzj2{ width:998px; height:440px;}
+
+/* 数据预测 */
+.bcbj{ width:998px; height:250px; background-color:#fafafa;    background-color: #fafafa;
+    border-bottom: 1px #e5e5e5 solid;
+    border-left: 1px #e5e5e5 solid;
+    border-right: 1px #e5e5e5 solid;}
+.bcbj li{ width:470px; height:110px; margin-left:20px; margin-top:10px;  float:left;
+background:#fff;
+box-shadow:0px 0px 5px #999;
+-moz-box-shadow:0px 0px 5px #999;
+-webkit-box-shadow:0px 0px 5px #999;}
+
+.bcbj_l img{ width:80px; height:80px;}
+.bcbj_r img{ width:20px; height:20px;}
+.bcbj_r p span{ margin-right: 20px;}
+.bcbj li:hover{
+background:#fff;
+box-shadow:0px 0px 5px #333;
+-moz-box-shadow:0px 0px 5px #333;
+-webkit-box-shadow:0px 0px 5px #333;}
+
+
+.bcbj_l{ float:left; padding:15px 0px; width:100px;}
+
+.bcbj_r{ width:370px; float:right; text-align:left; line-height:30px;}
+.bcbj_r dt{ padding-top:10px; width:370px; height:40px; }
+
+
+
+/*图表样式*/
+.roll{height: 100%;}
+.line{width: 100%;height:400px;}
+.bout_top{width:100%;height: 300px;}
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>清除浮动</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .clearfix::after {
+            content: ".";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+            *overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <p>浮动未清除</p>
+    <div>
+        <div class="float-left" style="background-color:orange;">111</div>
+        <div class="float-left" style="background-color:pink;">222</div>
+    </div>
+    <div style="background-color:red;">333</div>
+    <p>父容器设置高度 可以清除浮动</p>
+    <div style="background-color: orange;height: 100px;">
+        <div class="float-left" style="background-color:orange;">111</div>
+        <div class="float-left" style="background-color:pink;">222</div>
+    </div>
+    <div style="background-color:red;">333</div>
+    <p>父容器设置overflow:hidden 可以清除浮动</p>
+    <div style="background-color: orange;overflow: hidden;">
+        <div class="float-left" style="background-color:orange;">111</div>
+        <div class="float-left" style="background-color:pink;">222</div>
+    </div>
+    <div style="background-color:red;">333</div>
+    <p>父容器结尾前加入clear:both” 可以清除浮动</p>
+    <div>
+        <div class="float-left" style="background-color:orange;">111</div>
+        <div class="float-left" style="background-color:pink;">222</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div style="background-color:red;">333</div>
+
+    <p> after伪元素方法清理浮动，文档结构更加清晰</p>
+    <div class="clearfix">
+        <div class="float-left" style="background-color:orange;">111</div>
+        <div class="float-left" style="background-color:pink;">222</div>
+    </div>
+
+    <div style="background-color:red;">333</div>
+
+</body>
+
+</html>

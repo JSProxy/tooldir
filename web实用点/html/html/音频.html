@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<!-- 
+		大多数浏览器都兼容
+		音频  autostart 是否自动播放 loop是否循环-->
+	<embed src="kkkk.mp3" width="123" height="123" autostart="true" loop="true">播放音频</embed>
+	<!-- flash播放  autostart 是否自动播放 loop是否循环 quality 质量-->
+	<embed src="kkkk.swf" width="123" height="123" autostart="true" loop="true" quality="high"
+	PLUGINSPAGE="插件下载地址">播放音频</embed>
+
+<!-- 兼容IE最好 -->
+	<object data="ssss.mp3">
+		<param name="src" value="sssss.mp3">
+		<param name="autoplay" value="true">
+	</object>
+
+	<object classid="flashXative的控件id" width="300" height="222" codebase="插件下载地址">
+		<param name="movie" value="sssss.swf">
+		<param name="play" value="true">
+		<param name="loop" value="true">
+		<param name="quality" value="high">
+		<embed>
+			如果不是ie就会解析这里，为了跟好的兼容
+		</embed>
+	</object>
+</body>
+</html>

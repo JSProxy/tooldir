@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>对元素节点操作/遍历节点</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+    <style>
+        span{
+            margin-right: 10px;
+            background-color: #C15864;
+        }
+    </style>
+</head>
+<body>
+<div id="city_section">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<div id="msq">
+    <div class="nsq_caption">
+        <span>变大</span><span>变小</span><span>向上</span><span>向下</span>
+    </div>
+    <div>
+        <textarea  id="comment" cols="20" rows="8">
+            多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本
+        </textarea>
+    </div>
+</div>
+
+<div id="imgdiv" style="position: absolute;left: 50px;top: 60px">
+    <img src="../images/chinaz6.png" alt="6">
+</div>
+</body>
+</html>
+<script>
+/*遍历节点
+children()取得匹配元素子元素集合
+$("ul").children().size();
+next()和prev() 取得匹配元素 后面和前面相连的同辈元素
+parent()获取匹配元素的父级元素
+siblings()获取匹配元素前后所有的同辈元素
+closest() 获取最近的匹配元素,首先检查当前元素,如果不匹配逐级向上查找父元素。找到则返回，否者返回空对象。
+* */
+// alert($("#city_section ul").children().size());
+//     alert($("#city_section ul li:eq(0)").next().text());
+// alert($("#city_section ul li:eq(1)").prev().text());
+//get()转换dom元素
+// alert($("#city_section ul li:eq(0)").parent().get(0).tagName);
+// alert($("#city_section ul li:eq(0)").parents().get(1).tagName);
+//    alert($("#city_section ul li:eq(0)").siblings().text());
+alert($("#city_section ul li:eq(0)").closest("li").text());
+
+/*获取和设置元素的样式属性
+$("p").css("color");
+$("p").css({"color":"red","bg":"red"});
+$("p").css("color","red");
+$("p").height();
+$("p").width();
+* */
+
+/*元素定位
+scrollTop()和scrollLeft()
+
+元素相对于视窗的相对偏移offset(),offset({top:10,left:30}),
+var $offset=$("#dv").offset();
+$offset.left   $offset.top
+
+获取匹配元素相对父元素的偏移position()
+var p =$("p:first");
+var position=p.position();
+position.top  position.left
+* */
+
+$("#msq span:eq(0)").click(function () {
+    $("#comment").height($("#comment").height()+10);
+    $("#comment").width($("#comment").width()+10);
+})
+$("#msq span:eq(1)").click(function () {
+    $("#comment").height($("#comment").height()-10);
+    $("#comment").width($("#comment").width()-10);
+})
+$("#msq span:eq(2)").click(function () {
+    $("#comment").scrollTop($("#comment").scrollTop()+10);
+    $("#comment").scrollLeft($("#comment").scrollLeft()+10);
+})
+$("#msq span:eq(3)").click(function () {
+    $("#comment").scrollTop($("#comment").scrollTop()-10);
+    $("#comment").scrollLeft($("#comment").scrollLeft()-10);
+})
+
+//广告浮动
+    var xin=true,yin=true;
+    var step=1;
+    var delay=10;//时间间隔
+    var $obj=$("#imgdiv");
+     function imgmove(){
+         var left=$obj.offset().left;
+         var top=$obj.offset().top;
+
+         var L=T=0;
+         var R=$(window).width()-$obj.width();
+         var B=$(window).height()-$obj.height();
+
+         //水平
+         if (left<L) {
+           xin=true;
+         }
+         if (left>R) {
+             xin=false;
+         }
+         left=left+step*(xin?1:-1);
+         //垂直
+         if (top<T) {
+             yin=true;
+         }
+         if (top>B) {
+             yin=false;
+         }
+         top=top+step*(yin?1:-1);
+
+         $obj.offset({top:top,left:left});
+     }
+
+     var  it=setInterval("imgmove()",delay);
+     $obj.mouseover(function () {
+         clearInterval(it);
+     })
+    $obj.mouseout(function () {
+        it=setInterval("imgmove()",delay);
+})
+
+</script>

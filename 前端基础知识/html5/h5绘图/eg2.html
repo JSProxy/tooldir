@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+
+    <style>
+        #mycanvas1{
+            border: 1px solid green;
+        }
+        #mycanvas2{
+            border: 1px solid green;
+        }
+        #mycanvas3{
+            border: 1px solid green;
+        }
+        #mycanvas4{
+            border: 1px solid green;
+        }
+        #mycanvas5{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="mycanvas1" width="500" height="200">
+
+</canvas>
+
+<canvas id="mycanvas2" width="500" height="200">
+
+</canvas>
+<canvas id="mycanvas3" width="500" height="200">
+
+</canvas>
+<canvas id="mycanvas4" width="500" height="200">
+
+</canvas>
+<canvas id="mycanvas5" width="500" height="200">
+</canvas>
+</body>
+</html>
+<script>
+
+    //context.drawimage(imageobj,x,y)//相对canva的xy
+    //context.drawImage(image,x,y,width,height)//指定显示宽高
+    //裁剪
+    //context.drawImage(imgeobj,sx,sy,sw,sh,dx,dy,dw,dy)//前面相对图片 后面相对canvas
+    var canvas1=document.getElementById("mycanvas1");
+    var context1=canvas1.getContext("2d");
+    var image1=new Image();
+    image1.src="head1.jpg";
+    //图片加载完成
+    image1.onload=function () {
+
+        // context1.drawImage(image1,10,10);//默认图片大小
+
+        // context1.drawImage(image1,10,10,100,100);//指定大小
+        // context1.drawImage(image1,50,40,100,100,100,50,100,100);//截取图片
+    }
+
+/*绘制文本
+* */
+    var  x=canvas1.width/2;
+    var  y=canvas1.height/2;
+    // context1.font="italic 40px Arial";
+    // context1.fillStyle="red";
+    // context1.fillText("Hello Iotek!",x,y);
+    context1.moveTo(x,0);
+    context1.lineTo(x,2*y);
+    context1.lineWidth=5;
+    context1.strokeStyle="red";
+    context1.stroke();
+
+    context1.font="italic 40px Arial";
+    context1.strokeStyle="pink";
+    context1.lineWidth=2;
+    //设置对其方式
+    context1.textAlign="center";
+    context1.strokeText("Hello Iotek!",x,y);
+
+    //测量字体宽度
+    var metrics=context1.measureText("I LOVE IOTEK1");
+    var width=metrics.width;
+    context1.textAlign="center";
+    context1.fillStyle="orange";
+    context1.font="30pt Arial"
+    context1.fillText("("+width+"px wide"+")",x,y+40);
+    //文本换行
+    var text="all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as all sss in sasas ssa k eubds,l eajn as";
+    var canvas2=document.getElementById("mycanvas2");
+    var context2=canvas2.getContext("2d");
+    var maxwidth=400;
+    var lineheight=25;
+    var x=(canvas2.width-maxwidth)/2
+    var y=60;
+    var words=text.split(" ");//分割
+    var  line="";
+    for (var i = 0; i <words.length ; i++) {
+       var textline=line+words[i]+" ";
+       var metrics=context2.measureText(textline);
+       var textwidth=metrics.width;//得到宽度
+        if (textwidth>maxwidth){
+            context2.fillText(line,x,y);
+            line=words[i]+" ";//重写赋值 绘制下一行
+            y+=lineheight;//
+        }else {
+            line=textline;
+        }
+        context2.fillText(line,x,y);//绘制文本
+    }
+
+    //图像变换
+    /*translate 移动坐标空间 (x,y)
+        rotate() 以translate 确定原点,进行旋转
+        scale()(x,y)放大缩小
+    * */
+    var canvas3=document.getElementById("mycanvas3");
+    var context3=canvas3.getContext("2d");
+    var rectwidth=150;
+    var rectheight=75;
+    context3.fillStyle="red";
+    context3.translate(canvas3.width/2,canvas3.height/2);//画布中心点移动到
+
+    //顺时针旋转45度
+    context3.rotate(0.25*Math.PI);
+    //
+    context3.scale(1,0.5);
+    context3.fillRect(-rectwidth/2,-rectheight/2,rectwidth,rectheight);
+
+    //保存与恢复
+    context3.save();//保存状态
+
+    context3.restore();//恢复状态
+
+    //图像的组合
+    var canvas4=document.getElementById("mycanvas4");
+    var context4=canvas4.getContext("2d");
+    context4.beginPath();
+    context4.rect(200,20,100,100);
+    context4.fillStyle="red";
+    context4.fill();
+
+    // context4.globalCompositeOperation="source-over";//覆盖原有图像 默认
+    //context4.globalCompositeOperation="source-atop";
+    //只显示覆盖原有图形范围之内的内容
+    // context4.globalCompositeOperation="source-in";
+    //只显示重叠部分其余部分不显示
+    // context4.globalCompositeOperation="source-out";
+    //不重叠部分被保留
+    // context4.globalCompositeOperation="destination-atop";// 新图形在原有图形之下，且只显示新图形范围
+    // context4.globalCompositeOperation="destination-in";// 只显示重叠部分
+    // context4.globalCompositeOperation="destination-out";
+    // context4.globalCompositeOperation="destination-over";
+
+    // context4.globalCompositeOperation="lighter";//重叠部分加色处理
+    // context4.globalCompositeOperation="darker";//重叠部分减色处理
+    // context4.globalCompositeOperation="xor";//重叠部分透明
+    context4.globalCompositeOperation="copy";//只保留新图形
+
+    context4.beginPath();
+    context4.arc(320,120,60,0,2*Math.PI,false);
+    context4.fillStyle="blue";
+    context4.fill();
+
+
+
+    var canvas5=document.getElementById("mycanvas5");
+    var context5=canvas5.getContext("2d");
+
+    // context5.beginPath()
+    context5.rect(100,50,200,100);
+    context5.stroke();
+    context5.clip();//裁剪后只显示裁剪范围内的图形
+    context5.fillStyle="red";
+    context5.fillRect(0,0,200,100);
+
+
+</script>

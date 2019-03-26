@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id ="app">
+
+      <!-- <panda here="China"></panda> -->
+    <!-- from-here 写法  props 接受 fromHere-->
+      <!-- <panda  from-here="China"></panda> -->
+       
+      <panda  v-bind:from-here="message"></panda>
+
+    </div>
+    
+    <script>
+
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"China-父组件"
+      },
+      components:{
+        "panda":{
+          props:['fromHere'],
+          template:"<h1 style='color:red;'>熊猫来自{{fromHere}}</h1>",
+          methods:{
+            add(){
+              
+            }
+          }
+        }
+      }
+    })
+    
+    </script>
+  </body>
+</html>

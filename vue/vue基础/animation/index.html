@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>动画</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./animated.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .fade1-enter{
+      opacity: 0;
+    }
+    .fade1-leave-to{
+      opacity: 0;
+    }
+    .fade1-enter-active{
+      transition: opacity 1s;
+    }
+    .fade1-leave-active{
+      transition: opacity 1s;
+    } 
+    .selfAnimation{
+      background-color:red;
+      animation-duration: 3s;
+
+    }
+    .selfAnimationdone{
+      /* opacity: 0.5; */
+      animation-name: ani;
+    }
+
+    @-webkit-keyframes ani{
+      form {
+        background-color: red;
+      }
+      to {
+        background-color: orange;
+      }
+    }
+    /* transion  默认v- 如果不写fade */
+  </style>
+</head>
+<body>
+  
+  <div id="box">
+   <transition name="fade1">
+      <div v-show="isshow">
+        jjjjjjjjjjjj
+      </div>
+    </transition>
+
+
+    <transition
+    name='fade2'
+    enter-active-class="animated swing"
+    leave-active-class="animated shake"
+    >
+        <div v-show="isshow">
+            animation css 动画
+          </div>
+    </transition>
+
+<!--appear解决了第一次没有动画的,type="transition"设置以过渡效果的时长作为总时长-->
+        <!--:duration="10000"设置自定义动画播放的时常，:duration="enter: 5000,leave: 10000"设置入场和出场的动画时间-->
+    <transition
+    type='transition'
+    name='fade1'
+    appear
+    enter-active-class="animated swing fade1-enter-active"
+    leave-active-class="animated shake fade1-leave-active"
+    appear-active-class="animated swing"
+    >
+        <div v-show="isshow">
+            animation css 动画
+          </div>
+    </transition>
+
+        <transition-group name='fade1'>
+            <div v-for='(item, index) in arr' :key='index'>list-{{item}}</div>
+            </transition-group>
+
+          
+            <div ref='ab' class="animated swing">
+                ssss
+            </div>
+
+            <div  ref ='ab' class="selfAnimation">
+                自定义
+            </div>
+           
+
+    <button @click="show">click</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el:'#box',
+      data:{
+        isshow: true,
+        arr:['1','2','3','4']
+      },
+      methods: {
+        show(){
+          this.arr.push("7");
+          this.isshow = !this.isshow 
+        }
+      },
+      mounted() {
+        this.$refs.ab.classList.add('selfAnimationdone')
+        this.$nextTick(function(){
+            console.log('sssss');
+          })
+      },
+    })
+  </script>
+</body>
+</html>
+<!-- 动画 -->
+<!-- https://blog.csdn.net/wo_921110/article/details/80638167 -->
+<!-- velocity.js动画库实现动画效果（官网：velocity.js） -->
+
+;监听动画
+<!-- https://blog.csdn.net/qwe502763576/article/details/81535928 -->
+
+

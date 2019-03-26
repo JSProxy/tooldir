@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Gennerator 的语法糖
+    //es7的东西
+    {
+        let asyncFun = async function() 
+        {
+            var f1 = await
+            function() {
+                //await 等待不包括里面的异步
+                setTimeout(function() {
+                    console.log("aaaa");
+                }, 3000);
+
+            }();
+
+            var f2 = await
+            function() {
+                console.log("bbbb");
+            }();
+            console.log("执行完毕");
+        }
+        asyncFun();
+    }
+
+    {
+
+
+        let asyncFun1 = async function() 
+        {
+            console.log("f1");
+            await Promise.reject("f1出错了");//抛出异常 中断操作
+            return "第一"; //不反回也可以执行下面的
+        }
+        //data上面的返回值
+        let asyncFun2 = async function(data) {
+            console.log("f2"+data);
+            // 里面设置异步一样不管
+            setTimeout(function()
+            {	
+
+            },1000);
+            return "第二";
+        }
+        asyncFun1().then(asyncFun2).then(function(data)
+        {
+			console.log("最后"+data);
+        }).catch(function(errer){
+			console.log("错误"+errer);
+		});
+    }
+
+    //async 和Promis 结合  只有fun1 完全结束才会向下走
+    {
+    	let asyncFun1 = async function(){
+
+    		return new Promise(function(resolve,reject){
+
+    			setTimeout(function(){
+    				console.log("aP1");
+    				resolve("fun1结果");
+    			},3000);
+
+    		});
+    	}
+
+    	//data 接受上面的resolve 内容
+    	let asyncFun2 = async function(data){
+
+    		return new Promise(function(resolve,reject){
+
+    			// setTimeout(function(){
+    				console.log("aP2"+data);
+    			// },3000);
+    			resolve("fun2结果");
+    		});
+    	}
+    	asyncFun1().then(asyncFun2).then(function(data){
+    		console.log(data);
+    	}).catch(function(err){
+			console.log(err);
+		});
+
+	}
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+/* pages/classic/内置组件/swiper/swiper.wxss */
+.swiper-item{
+  position: relative;
+  background-color: cornflowerblue;
+  color: white;
+  height: 100%;
+}
+.swiper-item-A::before{
+content: "A";
+position: absolute;
+top: 50%;
+left: 50%;
+}
+.swiper-item-B::before{
+content: "B";
+position: absolute;
+top: 50%;
+left: 50%;
+}
+.swiper-item-C::before{
+content: "C";
+position: absolute;
+top: 50%;
+left: 50%;
+}

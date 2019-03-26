@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+<!--canvas绘制步骤
+    canvas.getcontext("2d");//允许2d绘制,获取上下文
+-->
+    <style>
+        #mycanvas{
+            border: 1px solid green;
+        }
+        #mycanvas2{
+            /*width: 578px;*/
+            /*height:250px;*/
+            border: 1px solid orange;
+        }
+        #mycanvas3{
+            border: 1px solid green;
+        }
+        #mycanvas4{
+            border: 1px solid green;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="mycanvas" width="800px" height="200px">
+    不支持,请更换浏览器!
+</canvas>
+<canvas id="mycanvas2" width="578px" height="200px">
+    不支持,请更换浏览器!
+</canvas>
+<canvas id="mycanvas3" width="578px" height="200px">
+    不支持,请更换浏览器!
+</canvas>
+<p>图像的使用</p>
+<img  id="myimg" src="head1.jpg" alt="头像"/>
+<button onclick="draw("repeat")">Repeat</button>
+<button onclick="draw("repeat-x")">Repeat-x</button>
+<button onclick="draw("repeat-y")">Repeat-y</button>
+<button onclick="draw("no-repeat")">No-Repeat</button>
+<br>
+<canvas id="mycanvas4" width="578px" height="200px">
+    不支持,请更换浏览器!
+    canvas 不能用样式定义宽高,他只是拉伸。
+</canvas>
+</body>
+</html>
+<script>
+    var canvas=document.getElementById("mycanvas");
+    var context=canvas.getContext("2d");
+    context.fillStyle="red";
+    context.fillRect(50,25,100,50);//矩形
+/*绘制直线相关的方法
+* beginPath() 一个新的路径的开始
+* moveTo()   指定一个新的子路径开始点
+* lineTo()   以上下文为起点 到方法参数指定点之间连线
+* stroke()   为画线赋予颜色 并使其可见
+* 相关属性
+* linewidth 直线宽度
+* strokrStyle 直线颜色
+* 直线端点样式 butt round,square 利用lineCap设置
+* */
+
+    context.beginPath();
+    context.moveTo(200,canvas.height/2);//起始点
+    context.lineTo(canvas.width-200,canvas.height/2)
+    context.lineWidth=5;
+    context.strokeStyle="red";
+    context.lineCap="round";
+    context.stroke();
+
+    /*绘制弧线和曲线
+    arcTO() 创建介于两个切线之间的弧线和曲线
+    quadraticCurveTo()绘制二次曲线,由一个控制点和一个终止点来定义
+    bezierCurveTo() 由两个控制点和一个终止点来定义
+
+    * */
+    context.beginPath();
+    context.lineWidth=1;
+    context.strokeStyle="red";
+    context.moveTo(20,20);
+    context.lineTo(100,20);//线终点
+    context.arcTo(150,20,150,70,50);
+    context.lineTo(150,120);//弧度终止位置在绘制
+    context.stroke();
+
+    //两点贝塞尔
+    context.beginPath();
+    context.moveTo(200,canvas.height/2);    //起始点
+    context.quadraticCurveTo(288,0,388,150);
+    context.lineWidth=5;
+    context.strokeStyle="blue";
+    context.stroke();
+
+    //贝塞尔  三控制点
+    context.beginPath();
+    context.moveTo(500,130);    //起始点
+    context.bezierCurveTo(400,10,588,10,688,170);
+    context.lineWidth=5;
+    context.strokeStyle="green";
+    context.stroke();
+
+
+    //线条链接样式 miter round bevel
+    //linejoin 属性设定
+
+    //矩形绘制
+    var canvas2=document.getElementById("mycanvas2");
+    var conten2=canvas2.getContext("2d");
+    //
+    conten2.beginPath();
+    conten2.rect(10,10,100,100);
+    conten2.lineWidth=1;
+    conten2.strokeStyle="green";
+    conten2.lineJoin="round";
+    conten2.stroke();
+    conten2.fillStyle="red";//图形填充色
+
+    conten2.shadowColor="black";
+    conten2.shadowBlur=20;//模糊指数
+    conten2.shadowOffsetX=20;
+    conten2.shadowOffsetY=20;
+    conten2.fill();
+
+
+    //绘制圆
+
+    conten2.beginPath();
+    conten2.strokeStyle="green";
+    conten2.lineWidth=2;
+    var centerx=canvas2.width/2;
+    var centery=canvas2.height/2;
+    var radius=80;//半径
+    conten2.arc(centerx,centery,radius,0,2*Math.PI,false);//顺时针 ,true 逆时针
+    conten2.stroke();
+    conten2.fillStyle="pink";
+    //绘制阴影
+    conten2.shadowColor="green";
+    conten2.shadowBlur=20;//模糊指数
+    conten2.globalAlpha=0.5;
+    conten2.shadowOffsetX=20;
+    conten2.shadowOffsetY=20;
+    conten2.fill();
+
+
+
+    /*绘制 线性渐变 径向渐变
+    * */
+    var canvas3=document.getElementById("mycanvas3");
+    var context3=canvas3.getContext("2d");
+    //线性
+
+    var clg =context3.createLinearGradient(0,0,200,0);
+    clg.addColorStop(0,"red");//开始颜色
+    clg.addColorStop(0.5,"green");//中间颜色
+    clg.addColorStop(1,"orange");
+    context3.fillStyle=clg;
+    context3.strokeStyle=clg;
+    context3.fillRect(10,10,200,200);
+
+   //径向渐变 圆心和半径
+   var crg =context3.createRadialGradient(325,100,20,325,100,80)
+    crg.addColorStop(0,"red");//开始颜色
+    crg.addColorStop(0.5,"green");//中间颜色
+    crg.addColorStop(1,"orange");
+    context3.fillStyle=crg;
+    context3.strokeStyle=crg;
+    context3.arc(325,100,100,0,2*Math.PI,false);
+    context3.stroke()
+    context3.fill()
+
+    //图案填充
+    var canvas4=document.getElementById("mycanvas4");
+    var context4=canvas4.getContext("2d");
+
+    function draw(type) {
+
+        context4.clearRect(0,0,canvas4.width,canvas4.height);//清楚区域内容
+        var  img=document.getElementById("myimg");
+      var pat=context4.createPattern(img,type);
+        context4.rect(10,10,400,180);
+        // context4.strokeStyle="red";
+        // context4.stroke();
+        context4.fillStyle=pat;
+        context4.fill();
+    }
+
+</script>

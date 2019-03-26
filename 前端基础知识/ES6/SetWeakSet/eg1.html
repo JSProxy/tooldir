@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set集合</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		//集合讲解
+		//可以通过数组初始化
+		{
+			let set = new Set([1,2,3,4]);
+		}
+		{
+			let set = new Set();
+
+			[1,2,3,4].map(function(elem) {
+				set.add(elem);
+			});
+
+			for(var obj of set)
+			{
+				console.log(obj);
+			}
+
+			//扩展运算
+			// set.delete(2);//删除2 这个元素
+			// set.clear();//清空
+			var arr = [...set];//(...内部使用了for of)
+			console.log("arr="+arr);
+
+			//遍历key value 相同
+			set.forEach( function(element, index) {
+				console.log(element+"="+index);
+			});
+
+			set.has(3);//是否含有
+			var setarr = [...set.values()];//遍历值
+			console.log("多余写法"+setarr);
+		}
+
+
+		//map filter 函数 es5新增方法
+		{
+
+			let set1 = new Set([1,2,3,4]);
+			let set2 = new Set([3,4,5,6]);
+
+		    var newarr = [...set1].map(function(elem) {
+				return elem*2;
+			})
+		    console.log("map新数组"+[...newarr]);
+			// 并集
+			let set12 =new Set([...set1,...set2]);
+			console.log("并集"+[...set12]);
+			// 交集
+			let set3 = new Set([...set1].filter(function(elem) {
+				return set2.has(elem);
+			}));
+			console.log("交集"+[...set3]);
+	
+			//// 差集
+			let set4 = new Set([...set1].filter(function(elem) {
+				return !set2.has(elem);
+			}));
+			console.log("差集"+[...set4]);
+		}
+		
+
+	</script>
+</body>
+</html>

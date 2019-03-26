@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>对元素节点的操作</title>
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script src="../../source/jquery-2.1.4/jquery.js"></script>
+    <style>
+        h1{
+            border: 1px solid #003a75;
+            background-color: #FFFF00;
+            margin: 5px;padding: 0px;
+            text-align: center;
+            height: 80px;width: 80px;
+            line-height: 80px;
+            float: left;
+        }
+        hr{
+            clear: left;
+        }
+        .myclass1{
+            border: 1px solid lightcoral;
+            width: 120px;
+            height: 80px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+<p>页面中一共有 <span>0</span>个div块.点击鼠标添加div</p>
+</div>
+<hr>
+<div id="testdl">
+    <p>从前有恐龙...</p>
+    <input type="button" value="点击我">
+    <h2>在河里游泳...</h2>
+</div>
+<hr>
+<div id="testreplace">
+    <img src="../images/1.jpg" alt="1">
+    <img src="../images/2.jpg" alt="2">
+</div>
+<hr>
+<div id="testwrap">
+
+    <p>我是锻炼1</p>
+    <h5>5号标题</h5>
+    <p>我是段2</p>
+    <input type="button" value="wrap"><br>
+    <input type="button" value="wrapAll"><br>
+    <input type="button" value="wrapInner"><br>
+</div>
+<hr>
+<div id="testAttr">
+    <img src="../images/b6.png" alt="6" id="myimg"><br>
+    <input type="button" value="获取id属性"><br>
+    <input type="button" value="设置属性"><br>
+    <input type="button" value="删除属性"><br>
+</div>
+<hr>
+<div id="testtoggle">
+我是testtoggleClass
+</div>
+<hr>
+<div id="testvalue">
+    <div id="show"><b>我是div元素</b></div>
+    <input type="text" id="text_name" value="zf"><br>
+    <select multiple="multiple" size="4" id="city">
+        <option value="1" selected="selected">item1</option>
+        <option value="2">item2</option>
+        <option value="3">item3</option>
+        <option value="4">item4</option>
+    </select><br>
+    <input type="checkbox" name="hobby" value="football">足球
+    <input type="checkbox" name="hobby" value="basketball">篮球
+    <input type="checkbox" name="hobby" value="tennis">网球
+    <input type="radio" name="gender" value="male">男
+    <input type="radio" name="gender" value="female">女
+    <br>
+</div>
+</body>
+</html>
+<script>
+    /*
+    * 创建元素节点
+    * var $node_1=$("<p></p>");创建空元素节点
+    * var $node_2=$("<p>hello</p>");
+    * var $node_3=$("<p title="hi">world</p")
+    *
+    * 插入元素节点
+    * append()像每一个匹配的元素内部追加内容
+    * appendto()将所有匹配元素追加到指定定元素中
+    * prepend()像每一个匹配元素内部前置内容
+    * prependTo()将所有匹配元素前置到指定元素中
+    * after()在每一个匹配元素之后插入内容
+    * insertAfter()将所有匹配元素插入到指定元素后面
+    * before()在每一个匹配元素之前插入内容
+    * insertBefore()将所有匹配元素插入指定元素前面。
+    * */
+    $(function () {
+        $(document).click(function () {
+            var i = $("#test h1").size()+1;
+            var h1=$("<h1>"+i+"</h1>");
+            //作为自元素
+            // $("#test").append(h1);
+            // h1.appendTo($("#test"));
+
+            // $("#test").prepend(h1);
+            // h1.prependTo($("#test"));
+
+            //作为同位元素
+            // $("#test").after(h1);
+            //  h1.insertAfter($("#test"));
+
+            // $("#test").before(h1);
+            h1.insertBefore($("#test"));
+            $("#test span").html(i);
+        })
+    });
+
+    /*删除元素节点
+    remove() var $remove=$("ul li:eq(1)").remove();删除第二li元素返回被删除元素
+    $("ul li").remove("li[title!="橘子"]");通过传递参数进行选择删除
+
+    detach()和remove类似 不同的是所有绑定事件和附加数据都会保留
+
+    empyt()
+    $("ul li:eq(1)").empyt() 清空元素中的所有后代元素
+    * */
+
+    $(function () {
+        $("#testdl p").click(function () {
+            alert("hello p");
+        });
+
+        $("#testdl input").click(function () {
+            // var $remove=$("#testdl p").remove();
+            var $remove=$("#testdl p").detach();
+            $("h2").after($remove);
+
+            // $("#testdl p").empty();
+        });
+
+    });
+
+
+    /*复制节点
+    clone()
+    $("li:eq(1)").clone().appendTo("ul")//复制后插入到ul中
+    $("li:eq(1)").clone(true).appendTo("ul")//复制后插入到ul中同时复制元素的绑定事件
+    替换节点
+    replaceWith()和replaceAll() 效果一样语法不一样
+    $("li:eq(1)").replaceWith("<li>sss</li>")
+    $("<li>ssss</li>").replaceAll("li:eq(1)");
+
+
+    * */
+
+    $(function () {
+        $("#testreplace img:eq(0)").click(function () {
+            $(this).clone(true).appendTo($("#testreplace"));
+
+            // $("#testreplace img:eq(1)").replaceWith("<a href="#">我是超链接</a>");
+            // $("<a href="#">我是超链接</a>").replaceAll("#testreplace img:eq(1)");
+
+        })
+
+    })
+    /*包裹节点
+    wrap()，wrapAll(),wrapInner()
+    $("li").wrap("<i></i>")用i把每一个li包裹起来
+    $("li").wrapAll("<i></i>")用i把多个li整体包裹起来，要是被包裹的多个元素间有其他元素，其他元素会被放到包裹元素之后
+    $("li").wrapInner("<li></li>")把匹配到元素内部内容用li包裹起来。
+    * */
+    $(function () {
+
+        $("#testwrap input:eq(0)").click(function () {
+            $("#testwrap p").wrap("<div>div</div>")
+        });
+
+        $("#testwrap input:eq(1)").click(function () {
+            $("#testwrap p").wrapAll("<div>div</div>")
+        });
+
+        $("#testwrap input:eq(2)").click(function () {
+            $("#testwrap p").wrapInner("<i></i>")
+    });
+    })
+
+    /*attr()获取属性方法，删除属性的方法removeAttr()
+    alert($("li:eq(1)").attr("title"));获取title属性
+    $("ul").attr({"title","列表","id","myul"})
+    设置多个属性
+    $("li:eq(1)").removeAttr("title");
+    * */
+
+    $("#testAttr input:eq(0)").click(function () {
+        alert($("#testAttr img").attr("id"));
+    });
+    $("#testAttr input:eq(1)").click(function () {
+        // 多个属性
+        $("#testAttr img").attr({"src":"../images/b5.png","title":"新汽车"});
+        //单个属性
+        // $("#testAttr img").attr("src","../images/b5.png");
+    });
+    $("#testAttr input:eq(2)").click(function () {
+        $("#testAttr img").removeAttr("title");
+    });
+
+    /*节点样式操作
+     $("li:eq(1)").attr("class","myclass1");
+    addClass()方法
+    $("li:eq(1)").addClass("myclass1");功能不同会叠加,相同功能会覆盖
+    移除样式removeClass()
+    $("li:eq(1)").removeClass("myclass1");
+    $("li:eq(1)").removeClass("myclass1 myclass2");
+
+    //切换样式使用toggleClass()
+    $("li:eq(1)").toggleClass("myclass");//已经使用则会移除，未使用则会添加（重复切换）
+
+    //判断某样式是否使用hasClass()
+    $("li:eq(1)").hasClass("myclass");返回true或者false
+    $("li:eq(1)").is("myclass")//和上面相等
+    */
+
+    $("#testtoggle").click(function () {
+        // if ($(this).hasClass("myclass1")){
+        //     $(this).removeClass("myclass1");
+        // }else {
+        //     $(this).addClass("myclass1");
+        // }
+        $(this).toggleClass("myclass1");
+    })
+
+    /*设置和获取html 文本和值
+    html() text() val()
+    html("kkk")设置内容
+    html()读取内容
+    text(<b>jj</b>)设置内容 和html()区别不解析成标签，字符串输出
+    $("input").val("请输入")设置input value
+   $("#single").val("选择1号")设置下拉列表选中项
+   $("#multiple").val(["选择1号","选择2号"])多选
+   $(":checkbox").val(["check1","check2"]);
+   $(":radio").val(["radio"]);
+    * */
+
+    // alert($("#testvalue #show").html());
+    // alert($("#testvalue #show").text());//忽略html
+    // $("#testvalue #show").html("<i>我是div<i>");
+    $("#testvalue #show").text("<i>我是div<i>");
+    // alert($("#testvalue #text_name").val());
+    $("#testvalue #city").val(["2","3"]);
+    $("#testvalue input[name="hobby"]").val(["football","basketball"]);
+    $("#testvalue input[name="gender"]").val(["male"]);
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title></title>
+  </head>
+  <body>
+    
+    <div id ="app">
+    </div>
+
+    <template id="tem1">
+        <h2 style="color:red;">我是标签模版</h2>
+    </template>
+    <script type="x-template" id="tem2" src="">
+        <h2 style="color:red;">我是script模版 可以外部引用</h2>
+    </script>
+
+    <script>
+     let app = new Vue({
+      el:"#app",
+      data:{
+        count:0
+      },
+      //选项模版
+      // template:`<h2 style="color:red;">我是选项模版</h2>`,
+      template: "#tem2",
+      methods:{
+      },
+      computed: {
+      },
+    })
+
+    </script>
+  </body>
+</html>

@@ -59,33 +59,6 @@ let prodConfigureWebpack = {
     plugins: [
         // 骨架页生成功能
         // new PrerenderSpaPlugin(path.join(__dirname, 'dist'), ['/', '/products/1', '/products/2', '/products/3']),
-        // 会将所有本地化内容和核心功能一起打包。你可使用 IgnorePlugin 在打包时忽略本地化内容:
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        new UglifyjsPlugin({
-            exclude: /\.min\.js$/,
-            parallel: true, // 开启并行压缩，充分利用cpu
-            //压缩es6语法
-            uglifyOptions: {
-                compress: {
-                    warnings: false,
-                    comparisons: false,
-                    drop_debugger: true, //去除debug
-                    drop_console: true, //去除console.log
-                },
-                mangle: true,
-                output: {
-                    comments: false,
-                    ascii_only: true,
-                },
-            },
-            sourceMap: false,
-        }),
-        new webpack.HashedModuleIdsPlugin({
-            // 该插件会根据模块的相对路径生成一个四位数的hash作为模块id
-            hashFunction: 'md5', //所使用的算法
-            hashDigest: 'base64', //在生成 hash 时使用的编码方式
-            hashDigestLength: 4, //散列摘要的前缀长度
-        }),
         // 打包可视化
         ...bundleView,
     ],
@@ -139,9 +112,7 @@ module.exports = {
     configureWebpack: {
         ...(isDev ? devConfigureWebpack : prodConfigureWebpack),
         ...{
-
             // 公共配置 : 注- 如果添加的plugin是已有的，那么添加无效(HtmlPlugin除外，可配置多页面)，需要在chainWebpack中做修改
-            
         },
     },
     // chainWebpack: https://github.com/neutrinojs/webpack-chain#getting-started
@@ -178,6 +149,7 @@ module.exports = {
                     options['optipng'] = {
                         enabled: false,
                     };
+                    options['gifsicle'] = { interlaced: true };
                     options['pngquant'] = {
                         quality: '75-90',
                         speed: 4,
@@ -202,6 +174,44 @@ module.exports = {
                 return args;
             });
         }
+        // if (!isDev) {
+        //     // hashed
+        //     // 该插件会根据模块的相对路径生成一个四位数的hash作为模块id
+        //     config.plugin('hashed').use(webpack.HashedModuleIdsPlugin, [
+        //         {
+        //             hashFunction: 'md5', //所使用的算法
+        //             hashDigest: 'base64', //在生成 hash 时使用的编码方式
+        //             hashDigestLength: 4, //散列摘要的前缀长度
+        //         },
+        //     ]);
+        //     // Uglify
+        //     config.plugin('uglify').use(UglifyjsPlugin, [
+        //         {
+        //             exclude: /\.min\.js$/,
+        //             parallel: true, // 开启并行压缩，充分利用cpu
+        //             //压缩es6语法
+        //             uglifyOptions: {
+        //                 compress: {
+        //                     warnings: false,
+        //                     comparisons: false,
+        //                     drop_debugger: true, //去除debug
+        //                     drop_console: true, //去除console.log
+        //                 },
+        //                 mangle: true,
+        //                 output: {
+        //                     comments: false,
+        //                     ascii_only: true,
+        //                 },
+        //             },
+        //             sourceMap: false,
+        //         },
+        //     ]);
+        //     // 会将所有本地化内容和核心功能一起打包。你可使用 IgnorePlugin 在打包时忽略本地化内容:
+        //     // ignore
+        //     config.plugin('ignore').use(webpack.IgnorePlugin, [/^\.\/locale$/, /moment$/]);
+        //     // 填写默认全局对象
+        // }
+        // config.plugin('provide').use(webpack.ProvidePlugin, [{}]);
 
         // 修改原html plugin配置
         config.plugin('html').tap((args) => {

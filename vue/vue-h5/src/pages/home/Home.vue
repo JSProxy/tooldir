@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <div class="home-body">
-
+      <!-- <img src="../../assets/images/target1.gif">
+      <img src="../../assets/images/target2.jpg">
+      <img src="../../assets/images/target3.jpeg"> -->
       <mu-paper :z-depth="1" class="home-list-wrap">
         <mu-list class="list">
           <mu-list-item @click.native="navigateTo(item.url)" class="list-item-box" v-for="(item, index) in homeList" :key="index">
@@ -48,8 +50,7 @@ export default {
       this.$router.push(url);
     }
   },
-  components: {
-  }
+  components: {}
 };
 </script>
 <style lang="scss" scoped>
@@ -75,6 +76,9 @@ export default {
   }
   .mu-icon {
     font-size: 46px;
+  }
+  img {
+    width: 100%;
   }
 }
 </style>
